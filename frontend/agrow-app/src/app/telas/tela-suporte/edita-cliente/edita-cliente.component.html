@@ -1,0 +1,16 @@
+<div class="settings">
+    
+  <label class="col-sm-2 col-form-label">Id_Cliente</label>
+  <div class="col-sm-10">
+      <input type="text" class="form-control" 
+      placeholder="Digite o nome do Cliente" [ngModel]="Id_Cliente">
+  </div> 
+  <label class="col-sm-2 col-form-label">Cliente</label>
+  <div class="col-sm-10">
+      <input type="text" class="form-control"  
+      placeholder="Digite o nome do Cliente" [(ngModel)]="Nome_Cliente" >
+      
+  </div> 
+
+
+<button (click)="updateCliente()" *ngIf="cad.Id_Cliente!=0" style="margin: 0 15px;" class="btn btn-success">Edita</button>

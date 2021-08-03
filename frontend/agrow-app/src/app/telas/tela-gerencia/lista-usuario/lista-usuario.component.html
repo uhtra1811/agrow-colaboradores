@@ -1,0 +1,57 @@
+<!--Modelo do editar-atendimentos-->
+<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="ModalLabel">Editar Usuário</h2>
+        <button mat-icon-button><mat-icon>close</mat-icon></button>        
+      </div>
+      <div class="modal-body">
+        
+        <div class="settings">
+          <label class="col-sm-2 col-form-label">Usuario:</label>
+          <div class="col-sm-10">
+              <input type="text" class="form-control" 
+              placeholder="Digite o nome do Cliente" [(ngModel)]="Usuario">
+          </div> 
+      
+          <label class="col-sm-2 col-form-label">Senha:</label>
+          <div class="col-sm-10">
+              <input type="text" class="form-control" 
+              placeholder="Digite o nome do Usuario" [(ngModel)]="Senha">
+          </div> 
+         <button (click)="updateUsuario()" class="btn btn-success" style="margin-top:3%; margin-left: 30%; width: 30%;">Editar</button>
+      </div>
+      </div>
+    </div>
+ </div>
+</div>
+
+<mat-toolbar>
+  <button mat-icon-button  style="left: 20%;"><mat-icon>search</mat-icon></button>
+  <input [(ngModel)]="Id_UsuarioFiltro" class="form-control" (keyup)="filtroIdUsuario()" placeholder=" Id" style="width: 4%; margin-left: 20%;">
+  <input [(ngModel)]="UsuarioNomeFiltro" class="form-control" (keyup)="filtroUsuario()" placeholder=" Usuário" style="width: 20%; margin-left: 2%;">
+  <button mat-icon-button (click)="geraRelatorio()" style="margin-left: 45%;">  <mat-icon>file_copy</mat-icon> Exportar</button>
+</mat-toolbar>
+
+<table class="table ">
+    <thead class="thead">
+      <tr>
+        <th></th>
+            <th>Id</th>
+            <th>Usuário</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dataItem of ListaUsuarios">
+        <td></td>
+        <td>{{dataItem.id}}</td>
+        <td>{{dataItem.usuario}}</td>
+        <td><button mat-icon-button (click)="abrirModalEditaUsuario(dataItem)"   data-toggle="modal" data-target="#Modal">  <mat-icon>edit</mat-icon></button></td>
+        <td><button mat-icon-button (click)="apagaUsuario(dataItem)">  <mat-icon>delete</mat-icon></button></td>
+      </tr>
+      <button style="visibility: hidden;"  (click)="geraRelatorio()">Relatório</button>
+    </tbody>
+</table>

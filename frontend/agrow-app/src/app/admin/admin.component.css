@@ -1,0 +1,25 @@
+ng-sidebar-container {
+    position: absolute;
+    top: 64px;
+    height: 100vh;
+    width:  20%;    
+}
+
+::ng-deep .ng-sidebar {
+    background-color: rgb(58, 58, 58);
+    width:  100%;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+#toolbar{
+    background-color: green;
+    color: white;
+}
+
+#componentes{
+    
+}
+

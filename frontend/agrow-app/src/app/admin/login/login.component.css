@@ -1,0 +1,17 @@
+#input-login{
+    margin-left: 15px;
+}
+#input-senha{
+    margin-left: 15px;
+}
+#btn-login{
+    margin-left: 15px;
+}
+#toolbar{
+    background-color: green;
+    color: white;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+  }

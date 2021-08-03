@@ -1,0 +1,6 @@
+div.settings {
+    display:grid;
+    grid-template-columns: max-content 100%;
+    grid-gap:15px;
+}
+div.settings label       { text-align:right; }

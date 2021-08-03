@@ -1,0 +1,64 @@
+<!--<tr *ngFor="let dataItem of AtendimentosLista">
+  <td>{{dataItem.id_atendimento}}</td>
+  <td>{{dataItem.cliente_atendimento}}</td>
+  <td>{{dataItem.usuario_atendimento}}</td>
+  <td>{{dataItem.motivo_atendimento}}</td>
+  <td>{{dataItem.meiodecontato_atendimento}}</td>
+  <td>{{dataItem.solucao_atendimento}}</td>
+  <td>{{dataItem.data_atendimento}}</td>
+
+</tr>
+
+ Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ModalTitle}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeClick()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+    
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<table class="table table-lg">
+  <thead class="thead">
+   <style type="text/css">
+    thead { color:white; background-color:green  }</style>
+      <tr>
+          <th>Id</th>
+          <th>Cliente</th>
+          <th>Usuario</th>
+          <th>Motivo</th>
+          <th>Meio De Contato</th>
+          <th>Mensagem</th>
+          <th>Solução</th>
+          <th>Data</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dataItem of AtendimentosLista">
+      <td>{{dataItem.id}}</td>
+      <td>{{dataItem.cliente}}</td>
+      <td>{{dataItem.usuario}}</td>
+      <td>{{dataItem.motivo}}</td>
+      <td>{{dataItem.meiodecontato}}</td>
+      <td>{{dataItem.solucao}}</td>
+      <td>{{dataItem.data}}</td>
+    <td></td>
+    </tr>
+   

@@ -1,0 +1,46 @@
+<div class="settings">
+    
+    <label class="col-sm-2 col-form-label">Cliente:</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" 
+        placeholder="Digite o nome do Cliente" [(ngModel)]="Cliente_Atendimento">
+    </div> 
+
+    <label class="col-sm-2 col-form-label">Usuário:</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" 
+        placeholder="Digite o nome do Usuario" [(ngModel)]="Usuario_Atendimento">
+    </div> 
+
+    <label class="col-sm-2 col-form-label">Motivo:</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" 
+        placeholder="Digite o Motivo" [(ngModel)]="Motivo_Atendimento">
+    </div>
+
+    <label class="col-form-label">Meio De Contato:</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control"
+        placeholder="Digite o meio de contato" [(ngModel)]="Meiodecontato_Atendimento">
+    </div>
+
+    <label class="col-sm-2 col-form-label">Mensagem:</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" 
+        placeholder="Digite a mensagem do Usuario" [(ngModel)]="Mensagem_Atendimento">
+    </div>
+
+    <label class="col-sm-2 col-form-label">Solução:</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" 
+        placeholder="Digite a Solucao" [(ngModel)]="Solucao_Atendimento">
+    </div>
+
+    <label class="col-sm-2 col-form-label">Data:</label>
+    <div class="col-sm-10">
+        <input type="date" class="form-control" [(ngModel)]="Data_Atendimento">
+    </div>
+
+<button  (click)="addAtendimento()"  class="btn btn-success ">Adicionar</button>
+
+</div>

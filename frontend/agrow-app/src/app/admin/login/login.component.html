@@ -1,0 +1,19 @@
+<div>  
+    <mat-toolbar id="toolbar" color="primary">
+      <span>Login</span>
+      <span class="example-spacer"></span>
+      <form class="form-inline">
+        <input [(ngModel)]="Nome_Cliente" name="nome" id="input-login" class="form-control mr-sm-2" type="text" placeholder="Usuário">
+      </form>  
+      <form class="form-inline">
+        <input [(ngModel)]="Password"  [ngModelOptions]="{standalone: true}" id="input-senha" class="form-control mr-sm-2" type="password"  placeholder="Senha">
+      </form>  
+      <button id="btn-login"  mat-icon-button class="example-icon" type="submit" (click)="fazerLogin()">
+        <mat-icon>login</mat-icon>
+      </button>
+    </mat-toolbar>
+</div> 
+
+
+
+  

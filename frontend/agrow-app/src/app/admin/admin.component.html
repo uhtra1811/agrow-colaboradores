@@ -1,0 +1,28 @@
+<mat-toolbar *ngIf="mostrarMenu" id="toolbar">
+    <button (click)="toggleSidebar()" mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span style="margin-left: 1%;">aGrow</span>
+    <span class="example-spacer"></span>
+    <form class="form-inline">
+      <input id="input-search" class="form-control mr-sm-2" type="search" placeholder="O que deseja?">
+    </form>
+    <button mat-icon-button>
+      <mat-icon>search</mat-icon>
+    </button>
+    <button (click)="fazerLogout()" *ngIf="mostrarMenu" mat-icon-button>
+      <mat-icon>logout</mat-icon>
+    </button>
+ 
+</mat-toolbar>
+<div id="componentes"><router-outlet></router-outlet></div>
+
+
+
+<div *ngIf="opened1"></div>
+<ng-sidebar-container><ng-sidebar [(opened)]="opened">
+  <app-arvore-recursos></app-arvore-recursos>
+</ng-sidebar></ng-sidebar-container>
+
+
+

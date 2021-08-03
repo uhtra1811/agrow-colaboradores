@@ -1,0 +1,15 @@
+div.settings {
+    display:grid;
+    grid-template-columns: max-content 100%;
+    grid-gap:15px;
+}
+div.settings label       { text-align:right; }
+
+div.settings{
+    position: absolute;
+    width: 50% ;
+    margin-left: 20%;
+    top: 15%;
+}
+
+
