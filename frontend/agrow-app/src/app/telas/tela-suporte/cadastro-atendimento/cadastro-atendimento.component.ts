@@ -34,11 +34,12 @@ export class CadastroAtendimentoComponent implements OnInit {
   }
 
   addAtendimento(){
-    var val =  {atendimento:this.Cliente_Atendimento,
+    var val =  {cliente:this.Cliente_Atendimento,
+                usuario:this.Usuario_Atendimento,
                 motivo:this.Motivo_Atendimento,
                 meiodecontato:this.Meiodecontato_Atendimento,
-                solucao:this.Solucao_Atendimento
-               
+                solucao:this.Solucao_Atendimento,
+                data:this.Data_Atendimento
               };
     this.service.addAtendimento(val).subscribe(res=>{
       alert("Adicionado com sucesso! Data:" + this.Data_Atendimento);

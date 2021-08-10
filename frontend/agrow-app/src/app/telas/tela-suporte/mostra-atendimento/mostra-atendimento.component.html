@@ -1,15 +1,3 @@
-<!--<tr *ngFor="let dataItem of AtendimentosLista">
-  <td>{{dataItem.id_atendimento}}</td>
-  <td>{{dataItem.cliente_atendimento}}</td>
-  <td>{{dataItem.usuario_atendimento}}</td>
-  <td>{{dataItem.motivo_atendimento}}</td>
-  <td>{{dataItem.meiodecontato_atendimento}}</td>
-  <td>{{dataItem.solucao_atendimento}}</td>
-  <td>{{dataItem.data_atendimento}}</td>
-
-</tr>
-
- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -29,24 +17,38 @@
   </div>
 </div>
 
+<mat-toolbar>
+  <button mat-icon-button  style="left: 12%; bottom:20%" ><mat-icon>search</mat-icon></button>
+  <button mat-icon-button  style="left: 85%"  (click)="geraRelatorio()">  <mat-icon>file_copy</mat-icon> Exportar</button>
+</mat-toolbar>
 
+<div id="lista">
 
-
-
-
-<table class="table table-lg">
+ 
+<table style="text-align: center;" class="table table-striped table-borderless " >
+  <thead class="filtro">
+    <tr>
+        <th><input class="form-control"  [(ngModel)]="Id_AtendimentoFiltro"  (keyup)="filtroIdAtendimento()"      placeholder=" Id"></th>
+        <th><input class="form-control"  [(ngModel)]="ClienteNomeFiltro"  (keyup)="filtroClienteAtendimento()" placeholder=" Cliente"></th>
+        <th><input class="form-control"  [(ngModel)]="UsuarioNomeFiltro"  (keyup)="filtroUsuarioAtendimento()" placeholder=" Usuario"></th>
+        <th><input class="form-control"  [(ngModel)]="MotivoFiltro"  (keyup)="filtroMotivoAtendimento()" placeholder=" Motivo"></th>
+        <th><input class="form-control"  [(ngModel)]="ContatoFiltro"  (keyup)="filtroContatoAtendimento()" placeholder=" Contato"></th>
+        <th><input class="form-control"  [(ngModel)]="SolucaoFiltro"  (keyup)="filtroSolucaoAtendimento()" placeholder=" Solução"></th>
+        <th><input class="form-control"  [(ngModel)]="DataFiltro"  (keyup)="filtroDataAtendimento()" placeholder=" Data"></th>
+  
+    </tr>
+</thead>
+<hr style="color: white;">
   <thead class="thead">
-   <style type="text/css">
-    thead { color:white; background-color:green  }</style>
       <tr>
           <th>Id</th>
           <th>Cliente</th>
           <th>Usuario</th>
           <th>Motivo</th>
-          <th>Meio De Contato</th>
-          <th>Mensagem</th>
+          <th>Contato</th>
           <th>Solução</th>
           <th>Data</th>
+          <th></th>
           <th></th>
       </tr>
   </thead>
@@ -59,6 +61,10 @@
       <td>{{dataItem.meiodecontato}}</td>
       <td>{{dataItem.solucao}}</td>
       <td>{{dataItem.data}}</td>
+      <td><button mat-icon-button    data-toggle="modal" data-target="#Modal">  <mat-icon>edit</mat-icon></button></td>
+      <td><button mat-icon-button >  <mat-icon>delete</mat-icon></button></td>
     <td></td>
     </tr>
-   
+  </tbody>
+</table>
+</div>

@@ -1,3 +1,5 @@
+<button id="cad_cliente" class="btn btn-success ">Cadastrar Cliente</button>
+<div>
 <div class="settings">
     
     <label class="col-sm-2 col-form-label">Cliente:</label>
@@ -5,7 +7,7 @@
         <input type="text" class="form-control" 
         placeholder="Digite o nome do Cliente" [(ngModel)]="Cliente_Atendimento">
     </div> 
-
+  
     <label class="col-sm-2 col-form-label">Usuário:</label>
     <div class="col-sm-10">
         <input type="text" class="form-control" 
@@ -24,12 +26,6 @@
         placeholder="Digite o meio de contato" [(ngModel)]="Meiodecontato_Atendimento">
     </div>
 
-    <label class="col-sm-2 col-form-label">Mensagem:</label>
-    <div class="col-sm-10">
-        <input type="text" class="form-control" 
-        placeholder="Digite a mensagem do Usuario" [(ngModel)]="Mensagem_Atendimento">
-    </div>
-
     <label class="col-sm-2 col-form-label">Solução:</label>
     <div class="col-sm-10">
         <input type="text" class="form-control" 
@@ -41,6 +37,6 @@
         <input type="date" class="form-control" [(ngModel)]="Data_Atendimento">
     </div>
 
-<button  (click)="addAtendimento()"  class="btn btn-success ">Adicionar</button>
-
+</div> 
 </div>
+<button id="salvar" (click)="addAtendimento()"  class="btn btn-success ">Salvar</button>

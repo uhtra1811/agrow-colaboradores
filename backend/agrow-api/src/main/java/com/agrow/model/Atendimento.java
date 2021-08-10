@@ -18,56 +18,56 @@ public class Atendimento implements Serializable{
         @Id 
         @GeneratedValue(strategy=GenerationType.AUTO)
         private long id; 
-            
-        private String atendimento;
-
-        public long getId() {
+        
+		private String cliente;
+        private String usuario;
+        private String motivo;
+        private String meiodecontato;
+        private String solucao;
+        private String data;
+        
+        
+		public long getId() {
 			return id;
 		}
-
 		public void setId(long id) {
 			this.id = id;
 		}
-
-		public String getAtendimento() {
-			return atendimento;
+		public String getCliente() {
+			return cliente;
 		}
-
-		public void setAtendimento(String atendimento) {
-			this.atendimento = atendimento;
+		public void setCliente(String cliente) {
+			this.cliente = cliente;
 		}
-
-		public String getMeiocontato() {
-			return meiocontato;
+		public String getUsuario() {
+			return usuario;
 		}
-
-		public void setMeiocontato(String meiocontato) {
-			this.meiocontato = meiocontato;
+		public void setUsuario(String usuario) {
+			this.usuario = usuario;
 		}
-
 		public String getMotivo() {
 			return motivo;
 		}
-
 		public void setMotivo(String motivo) {
 			this.motivo = motivo;
 		}
-
+		public String getMeiodecontato() {
+			return meiodecontato;
+		}
+		public void setMeiodecontato(String meiodecontato) {
+			this.meiodecontato = meiodecontato;
+		}
 		public String getSolucao() {
 			return solucao;
 		}
-
 		public void setSolucao(String solucao) {
 			this.solucao = solucao;
 		}
-
-		private String meiocontato;
+		public String getData() {
+			return data;
+		}
+		public void setData(String data) {
+			this.data = data;
+		}
         
-        private String motivo;
-        
-        private String solucao;
-        
-        
-
-
 }

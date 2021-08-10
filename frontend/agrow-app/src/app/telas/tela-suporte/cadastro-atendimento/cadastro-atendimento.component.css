@@ -1,15 +1,35 @@
 div.settings {
+    position: absolute;
+    width: 50% ;
+    margin-left: 30%;
+    top: 15%;
     display:grid;
     grid-template-columns: max-content 100%;
     grid-gap:15px;
-}
-div.settings label       { text-align:right; }
 
-div.settings{
+}
+
+div.settings label{ 
+    text-align:right; 
+}
+
+
+
+label{
+    font-size: 18px;
+}
+
+input{
+    width: 65%;
+}
+
+#cad_cliente{
+    margin-left: 75%;
+    margin-top: 3%;
+}
+#salvar{
     position: absolute;
-    width: 50% ;
-    margin-left: 20%;
-    top: 15%;
+    margin-left: 42%;
+    top: 50%;
+    width: 15%;
 }
-
-

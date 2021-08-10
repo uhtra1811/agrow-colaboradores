@@ -13,7 +13,7 @@ import { CadastroUsuarioComponent } from "./telas/tela-gerencia/cadastro-usuario
 import { ListaUsuarioComponent } from "./telas/tela-gerencia/lista-usuario/lista-usuario.component";
   
   const APP_ROUTES: Routes = [ 
-      {path: '', component: AppComponent},
+      {path: '', component: LoginComponent},
       {path: 'login', component: LoginComponent},
       {path: 'admin', component: AdminComponent, children: [
         {path: 'cadastro-atendimento', component: CadastroAtendimentoComponent},

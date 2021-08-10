@@ -18,6 +18,9 @@ import { TelaInicialComponent } from 'src/app/telas/tela-inicial/tela-inicial.co
 import { TelasComponent } from 'src/app/telas/telas.component';
 import { FormsModule } from '@angular/forms'
 import { RouterModule } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -43,7 +46,10 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule
   ],
   exports:[
     TelaGerenciaComponent,
@@ -61,7 +67,8 @@ import { RouterModule } from '@angular/router';
     CadastroClienteComponent,
     MostraAtendimentoComponent,
     EditaClienteComponent,
-    MostraClientesComponent
+    MostraClientesComponent,
+    MatIconModule
 
   ]
 })

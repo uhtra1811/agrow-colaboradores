@@ -6,7 +6,7 @@ import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './admin/login/login.component';
 import { ArvoreRecursosComponent } from './admin/arvore-recursos/arvore-recursos.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
+import {MatIcon, MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { AuthService } from './admin/login/auth.service';
 import { routing } from './app.routing';
@@ -43,6 +43,7 @@ import { ListaUsuarioComponent } from './telas/tela-gerencia/lista-usuario/lista
   ],
   exports:[
     MatToolbarModule,
+    MatIconModule,
     AdminComponent
   ],
   providers: [AuthService],
