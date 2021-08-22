@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-edita-atendimento',
@@ -7,20 +7,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditaAtendimentoComponent implements OnInit {
 
+  @Input() cad:any;
+
+  AtendimentosLista!:any[];
+  
 
   Id_Atendimento!: number;
   Cliente_Atendimento!:string;
   Usuario_Atendimento!:string;
   Motivo_Atendimento!:string;
   Meiodecontato_Atendimento!:string;
-  Mensagem_Atendimento!:string;
   Solucao_Atendimento!:string;
   Data_Atendimento!:string;
-  AtendimentosLista!:any[];
-  
+
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.cad);/*
+    this.Id_Atendimento = this.cad.id;
+    this.Cliente_Atendimento = this.cad.cliente;
+    this.Usuario_Atendimento = this.cad.usuario;
+    this.Motivo_Atendimento = this.cad.motivo;
+    this.Meiodecontato_Atendimento = this.cad.meiodecontato;
+    this.Solucao_Atendimento = this.cad.solucao;
+    this.Data_Atendimento = this.cad.data;*/
+  }
+  console(){
+    console.log(this.cad, "arthur");
   }
 
 }

@@ -18,7 +18,55 @@ public class ClienteRelatorio implements Serializable{
         @GeneratedValue(strategy=GenerationType.AUTO)
         private long id; 
             
+
         private String cliente;
+        private int	licencas;
+        private String versao;
+        private String telefone;
+        private double firebird;
+        private String validacao;
+        
+        
+        
+		public String getTelefone() {
+			return telefone;
+		}
+
+		public void setTelefone(String telefone) {
+			this.telefone = telefone;
+		}
+
+		public int getLicencas() {
+			return licencas;
+		}
+
+		public void setLicencas(int licencas) {
+			this.licencas = licencas;
+		}
+
+		public String getVersao() {
+			return versao;
+		}
+
+		public void setVersao(String versao) {
+			this.versao = versao;
+		}
+
+		public double getFirebird() {
+			return firebird;
+		}
+
+		public void setFirebird(double firebird) {
+			this.firebird = firebird;
+		}
+
+		public String getValidacao() {
+			return validacao;
+		}
+
+		public void setValidacao(String validacao) {
+			this.validacao = validacao;
+		}
 
 		public long getId() {
 			return id;

@@ -13,8 +13,6 @@ div.settings label{
     text-align:right; 
 }
 
-
-
 label{
     font-size: 18px;
 }
@@ -25,5 +23,5 @@ input{
 button{
     position: absolute;
     margin-left: 45%;
-    top: 45%;
+    top: 50%;
 }

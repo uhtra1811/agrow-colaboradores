@@ -1,5 +1,5 @@
 import {FlatTreeControl} from '@angular/cdk/tree';
-import {Component, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
 import { Router } from '@angular/router';
 
@@ -54,10 +54,13 @@ interface FlatNode {
 
 export class ArvoreRecursosComponent{
 
-  @Output() opened = false;
+  opened = false;
   mostrarMenu: boolean = true;
   mostraArvore: boolean = true;
-  
+ // @Output() opened:any = new EventEmitter<boolean>();
+
+  @Output() buttonClicked: EventEmitter<boolean> = new EventEmitter<boolean>();
+  ratingChange: EventEmitter<number> = new EventEmitter<number>();
 
   private _transformer = (node: ArvoreRecursosNode, level: number) => {
     return {
@@ -88,47 +91,47 @@ mostraComponente(node: any){
 
   }else if (node.name === 'Cadastrar Atendimento'){ 
     this.router.navigate(['/admin/cadastro-atendimento']);
-    this.opened = false;
-    console.log(this.opened);
+    this.buttonClicked.emit(this.opened);
+
   }else if (node.name === 'Edita Atendimento'){  
     this.router.navigate(['/admin/edita-atendimento']);
-    this.opened = false;
+    this.buttonClicked.emit(this.opened);
   
   }else if (node.name === 'Cadastrar Cliente'){  
     this.router.navigate(['/admin/cadastro-cliente']);
-    this.opened = false;
+    this.buttonClicked.emit(this.opened);
   
   }else if (node.name === 'Lista de Atendimentos'){  
     this.router.navigate(['/admin/lista-atendimentos']);
-    this.opened = false;
+    this.buttonClicked.emit(this.opened);
   
   }else if (node.name === 'Lista de Clientes'){  
     this.router.navigate(['/admin/lista-clientes']);
-    this.opened = false;
+    this.buttonClicked.emit(this.opened);
   
   }else if (node.name === 'Solicitações'){  
     this.router.navigate(['/edita-atendimento']);
-    this.opened = false;
+    this.buttonClicked.emit(this.opened);
   
   }else if (node.name === 'Lista de Treinamentos'){  
     this.router.navigate(['/edita-atendimento']);
-    this.opened = false;
+    this.buttonClicked.emit(this.opened);
   
   }else if (node.name === 'Cadastrar de Apresentações'){  
     this.router.navigate(['/edita-atendimento']);
-    this.opened = false;
+    this.buttonClicked.emit(this.opened);
   
   }else if (node.name === 'Lista de Apresentações'){  
     this.router.navigate(['/edita-atendimento']);
-    this.opened = false;
+    this.buttonClicked.emit(this.opened);
   
   }else if (node.name === 'Cadastro de Usuário'){  
     this.router.navigate(['/admin/cadastro-usuario']);
-    this.opened = false;
+    this.buttonClicked.emit(this.opened);;
   
   }else if (node.name === 'Lista de Usuários'){  
     this.router.navigate(['/admin/lista-usuario']);
-    this.opened = false;
+    this.buttonClicked.emit(this.opened);
   
   }
   

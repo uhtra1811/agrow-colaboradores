@@ -1,0 +1,25 @@
+table{
+    position: relative;
+}
+
+mat-toolbar{
+    position: absolute;
+    background-color: rgb(77, 156, 84);
+    color: white;
+}
+
+input{
+ 
+}
+
+#lista{    
+    font-size: 16px;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.filtro{
+    color: black;
+    background-color: rgb(77, 156, 84);
+    border-style:solid;
+} 

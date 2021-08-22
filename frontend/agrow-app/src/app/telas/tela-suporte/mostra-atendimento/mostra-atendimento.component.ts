@@ -12,10 +12,10 @@ export class MostraAtendimentoComponent implements OnInit {
 
   constructor(private service:SharedService, private router: Router) { }
 
-
+  cad:any;
 
   ModalTitle!:string;
-
+  MostraModal:boolean = false;
 
   AtendimentosLista!:any[];
   AtendimentosListaSemFiltro!:any[];
@@ -37,12 +37,20 @@ export class MostraAtendimentoComponent implements OnInit {
     this.refreshAtendimentosLista();
   }
 
+  mostrarModal(){
+    this.MostraModal = !this.MostraModal;
+  }
 
   mostrarAtendimentos(){
     this.service.getAtendimentosLista().subscribe(data=>{
       this.AtendimentosLista=data;
       console.log(this.AtendimentosLista);
     });
+  }
+  editaAtendimento(item: any){
+    this.cad = item;
+
+
   }
 
   filtroIdAtendimento(){

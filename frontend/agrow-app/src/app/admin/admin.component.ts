@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, EventEmitter, Input} from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 
 
@@ -9,27 +9,31 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin.component.css']
 })
 
-export class AdminComponent implements AfterViewInit {
+export class AdminComponent implements OnInit {
 
-  @Input() opened = false;
   @Input() opened1 = false;
+
+
+  @Input() opened: any = false;
   mostrarMenu: boolean = true;
 
   constructor(private router: Router) {}
  
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
   }
 
   fazerLogout(){
     this.router.navigate(['login']);
   }
   
-  toggleSidebar(){
+  toggleSidebar(opened: any){
     console.log(this.opened);
-    this.opened = !this.opened;
-    this.opened1 = !this.opened1;
-  } 
+    this.opened= !this.opened;
 
+  } 
+console(){
+  console.log(this.opened);
+}
 
 
 }

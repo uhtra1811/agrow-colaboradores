@@ -17,6 +17,12 @@ export class CadastroClienteComponent implements OnInit {
   cad:any;
 
   Cliente!:string;
+  Licencas!:string;
+  Versao!:string;
+  Telefone!:string;
+  Firebird!:string;
+  Validacao!:string;
+
 
   Password!:string;
 
@@ -36,7 +42,12 @@ export class CadastroClienteComponent implements OnInit {
 
 
   addCliente(){
-    var val =  {cliente:this.Cliente};
+    var val =  {cliente:this.Cliente,
+                licencas:this.Licencas,
+                versao:this.Versao,
+                telefone:this.Telefone,
+                firebird:this.Firebird,
+                validacao:this.Validacao};
     this.service.addCliente(val).subscribe(res=>{
       alert("Adicionado com sucesso!");
     });

@@ -1,28 +1,27 @@
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">{{ModalTitle}}</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeClick()">
+        <h5 class="modal-title" id="ModalLabel">Edita Atendimento</h5>
+        <button mat-icon-button  class="close" data-dismiss="modal" aria-label="Close" (click)="closeClick()">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-    
+    <app-edita-atendimento></app-edita-atendimento>
       </div>
       <div class="modal-footer">
-        
       </div>
     </div>
   </div>
 </div>
 
 <mat-toolbar>
-  <button mat-icon-button  style="left: 12%; bottom:20%" ><mat-icon>search</mat-icon></button>
+  <button mat-icon-button  style="left: 15%; bottom:10%" ><mat-icon>search</mat-icon></button>
   <button mat-icon-button  style="left: 85%"  (click)="geraRelatorio()">  <mat-icon>file_copy</mat-icon> Exportar</button>
 </mat-toolbar>
 
-<div id="lista">
+  <div id="lista">
 
  
 <table style="text-align: center;" class="table table-striped table-borderless " >
@@ -52,7 +51,7 @@
           <th></th>
       </tr>
   </thead>
-  <tbody>
+  <tbody class="tbody">
     <tr *ngFor="let dataItem of AtendimentosLista">
       <td>{{dataItem.id}}</td>
       <td>{{dataItem.cliente}}</td>
@@ -61,7 +60,7 @@
       <td>{{dataItem.meiodecontato}}</td>
       <td>{{dataItem.solucao}}</td>
       <td>{{dataItem.data}}</td>
-      <td><button mat-icon-button    data-toggle="modal" data-target="#Modal">  <mat-icon>edit</mat-icon></button></td>
+      <td><button mat-icon-button (click)="editaAtendimento(dataItem)"  data-toggle="modal" data-target="#Modal">  <mat-icon>edit</mat-icon></button></td>
       <td><button mat-icon-button >  <mat-icon>delete</mat-icon></button></td>
     <td></td>
     </tr>
