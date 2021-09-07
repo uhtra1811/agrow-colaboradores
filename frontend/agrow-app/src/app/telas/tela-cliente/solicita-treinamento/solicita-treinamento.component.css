@@ -1,0 +1,19 @@
+div.settings {
+    width: 50% ;
+    margin-left: 25%;
+}
+label{
+    font-size: 18px;
+    margin-top: 5%;
+}
+input{
+    margin-top: 2%;
+}
+
+#salvar{    
+    margin-top: 2%;
+    margin-left: 45%;
+}
+select{
+    margin-left: 2%;
+}

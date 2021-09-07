@@ -21,7 +21,11 @@ import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
-
+import { SolicitaSuporteComponent } from './tela-cliente/solicita-suporte/solicita-suporte.component';
+import { SolicitaDesenvolvimentoComponent } from './tela-cliente/solicita-desenvolvimento/solicita-desenvolvimento.component';
+import { SolicitaTreinamentoComponent } from './tela-cliente/solicita-treinamento/solicita-treinamento.component';
+import { AvaliacaoComponent } from './tela-cliente/avaliacao/avaliacao.component';
+import {MatSliderModule} from '@angular/material/slider'; 
 
 
 @NgModule({
@@ -41,7 +45,11 @@ import { MatButtonModule } from '@angular/material/button';
     CadastroClienteComponent,
     MostraAtendimentoComponent,
     EditaClienteComponent,
-    MostraClientesComponent
+    MostraClientesComponent,
+    SolicitaSuporteComponent,
+    SolicitaDesenvolvimentoComponent,
+    SolicitaTreinamentoComponent,
+    AvaliacaoComponent
   ],
   imports: [
     CommonModule,
@@ -49,7 +57,8 @@ import { MatButtonModule } from '@angular/material/button';
     RouterModule,
     MatToolbarModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSliderModule
   ],
   exports:[
     TelaGerenciaComponent,

@@ -23,14 +23,20 @@ export class EditaAtendimentoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.cad);/*
-    this.Id_Atendimento = this.cad.id;
-    this.Cliente_Atendimento = this.cad.cliente;
+    console.log(this.cad);
+    this.Cliente_Atendimento = "oi";
+    
+    
+    
+    /*
+    this.cad.id =    this.Id_Atendimento;
+    this.cad.cliente =this.Cliente_Atendimento ;
     this.Usuario_Atendimento = this.cad.usuario;
     this.Motivo_Atendimento = this.cad.motivo;
     this.Meiodecontato_Atendimento = this.cad.meiodecontato;
     this.Solucao_Atendimento = this.cad.solucao;
-    this.Data_Atendimento = this.cad.data;*/
+    this.Data_Atendimento = this.cad.data;
+*/
   }
   console(){
     console.log(this.cad, "arthur");

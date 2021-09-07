@@ -1,8 +1,20 @@
-div.settings {
-    display:grid;
-    grid-template-columns: max-content max-content;
-    grid-gap:25px;
-}
-div.settings label       { text-align:right; }
-div.settings label:after { content: ":"; }
 
+
+div.settings {
+    width: 50% ;
+    margin-left: 35%;
+
+}
+
+
+label{
+    font-size: 18px;
+}
+
+input{
+    width: 65%;
+}
+button{
+    margin-left: 45%;
+    margin-top: 2%;
+}

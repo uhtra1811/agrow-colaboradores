@@ -18,15 +18,25 @@
 
 <mat-toolbar>
   <button mat-icon-button  style="left: 15%; bottom:10%" ><mat-icon>search</mat-icon></button>
-  <button mat-icon-button  style="left: 85%"  (click)="geraRelatorio()">  <mat-icon>file_copy</mat-icon> Exportar</button>
+  <button mat-icon-button  style="left: 87%"  (click)="geraRelatorio()">  <mat-icon>file_copy</mat-icon> Exportar</button>
+     <div class="filtro">
+        <input   [(ngModel)]="Id_AtendimentoFiltro"  (keyup)="filtroIdAtendimento()"      placeholder=" Id">
+        <input   [(ngModel)]="ClienteNomeFiltro"  (keyup)="filtroClienteAtendimento()" placeholder=" Cliente">
+        <input   [(ngModel)]="UsuarioNomeFiltro"  (keyup)="filtroUsuarioAtendimento()" placeholder=" Usuario">
+        <input   [(ngModel)]="MotivoFiltro"  (keyup)="filtroMotivoAtendimento()" placeholder=" Motivo">
+        <input   [(ngModel)]="ContatoFiltro"  (keyup)="filtroContatoAtendimento()" placeholder=" Contato">
+        <input   [(ngModel)]="SolucaoFiltro"  (keyup)="filtroSolucaoAtendimento()" placeholder=" Solução">
+        <input  style="width: 20%;" type="date" [(ngModel)]="DataFiltro"  (keyup)="filtroDataAtendimento()" placeholder=" Data">
+    </div>    
 </mat-toolbar>
 
   <div id="lista">
 
  
-<table style="text-align: center;" class="table table-striped table-borderless " >
-  <thead class="filtro">
-    <tr>
+<table style="text-align: center;" class="table table-striped table-bordered" >
+
+
+    <!--  <tr>
         <th><input class="form-control"  [(ngModel)]="Id_AtendimentoFiltro"  (keyup)="filtroIdAtendimento()"      placeholder=" Id"></th>
         <th><input class="form-control"  [(ngModel)]="ClienteNomeFiltro"  (keyup)="filtroClienteAtendimento()" placeholder=" Cliente"></th>
         <th><input class="form-control"  [(ngModel)]="UsuarioNomeFiltro"  (keyup)="filtroUsuarioAtendimento()" placeholder=" Usuario"></th>
@@ -35,9 +45,9 @@
         <th><input class="form-control"  [(ngModel)]="SolucaoFiltro"  (keyup)="filtroSolucaoAtendimento()" placeholder=" Solução"></th>
         <th><input class="form-control"  [(ngModel)]="DataFiltro"  (keyup)="filtroDataAtendimento()" placeholder=" Data"></th>
   
-    </tr>
-</thead>
-<hr style="color: white;">
+    </tr>-->
+
+
   <thead class="thead">
       <tr>
           <th>Id</th>
@@ -59,10 +69,10 @@
       <td>{{dataItem.motivo}}</td>
       <td>{{dataItem.meiodecontato}}</td>
       <td>{{dataItem.solucao}}</td>
-      <td>{{dataItem.data}}</td>
+      <td type="date">{{dataItem.data | date: 'dd/MM/yyyy' }}</td>
       <td><button mat-icon-button (click)="editaAtendimento(dataItem)"  data-toggle="modal" data-target="#Modal">  <mat-icon>edit</mat-icon></button></td>
       <td><button mat-icon-button >  <mat-icon>delete</mat-icon></button></td>
-    <td></td>
+
     </tr>
   </tbody>
 </table>

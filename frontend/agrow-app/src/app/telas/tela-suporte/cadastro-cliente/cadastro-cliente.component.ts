@@ -50,8 +50,16 @@ export class CadastroClienteComponent implements OnInit {
                 validacao:this.Validacao};
     this.service.addCliente(val).subscribe(res=>{
       alert("Adicionado com sucesso!");
+    },
+    error => {alert("Erro ao salvar,revise as informações preenchidas.")
     });
       this.Cliente="";
+      this.Licencas="";
+      this.Versao="";
+      this.Telefone="";
+      this.Firebird="";
+      this.Validacao="";
+
   }
  
 refreshClientesLista(){

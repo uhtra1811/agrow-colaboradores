@@ -1,47 +1,40 @@
- <!--<tr *ngFor="let dataItem of ClientesLista">
-  <td>{{dataItem.id_cliente}}</td>
-  <td>{{dataItem.nome_cliente}}</td>
-
-  <td> <button type="button" class="btn btn-light mr-1"
-      data-toggle="modal" data-target="#exampleModal"
-      (click)="editarClienteModal(dataItem)"
-      data-backdrop="static" 
-      data-keyboard="false">
-      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-      </svg>
-</button></td> 
-<button type="button" class="btn btn-light mr-1"
-(click)="deleteClick(dataItem)">
-<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
-</svg>
-</button>   
-</tr>
--->
+<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="ModalLabel">Edita Atendimento</h1>
+        <button mat-icon-button  class="close" data-dismiss="modal" aria-label="Close" (click)="closeClick()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+    <app-edita-cliente></app-edita-cliente>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
 
 <mat-toolbar>
-  <button mat-icon-button  style="left: 12%; bottom:20%" ><mat-icon>search</mat-icon></button>
-  <button mat-icon-button  style="left: 85%" >  <mat-icon>file_copy</mat-icon> Exportar</button>
+  <button mat-icon-button  style="left: 15%; bottom:10%" ><mat-icon>search</mat-icon></button>
+  <button mat-icon-button  style="left: 87%">  <mat-icon>file_copy</mat-icon> Exportar</button>
+     <div class="filtro" style="font-size: 12px;">
+        <input        placeholder=" Id">
+        <input     placeholder=" Cliente">
+        <input     placeholder=" Licenças">
+        <input     placeholder=" Versão">
+        <input     placeholder=" Telefone">
+        <input    placeholder=" Firebird">
+        <input    placeholder=" Validação">
+        <input    placeholder=" Satisfação">
+        <input  style="width: 12%;" type="date"    placeholder=" Data">
+    </div>    
 </mat-toolbar>
 
 <div id="lista">
 
-    <table style="text-align: center;" class="table table-striped table-borderless " >
-      <thead class="filtro">
-        <tr>
-            <th><input class="form-control"  placeholder=" Id"></th>
-            <th><input class="form-control"  placeholder=" Cliente"></th>
-            <th><input class="form-control"  placeholder=" Licenças"></th>
-            <th><input class="form-control"  placeholder=" Versão"></th>
-            <th><input class="form-control"  placeholder=" Firebird"></th>
-            <th><input class="form-control"  placeholder=" Validação"></th>
-            <th><input class="form-control"  placeholder=" Próxima Validação"></th>
-      
-        </tr>
-    </thead>
-    <hr style="color: white;">
+  <table style="text-align: center;" class="table table-striped table-bordered" >
       <thead class="thead">
           <tr>
             <th>Id</th>
@@ -52,7 +45,7 @@
             <th>Firebird</th>
             <th>Validação</th>
             <th style="width: 18%;">Próxima Validação</th>
-            <th></th>
+            <th>Satisfação</th>
           </tr>
       </thead>
       <tbody>
@@ -64,9 +57,11 @@
           <td>{{dataItem.telefone}}</td>
           <td>{{dataItem.firebird}}</td>
           <td>{{dataItem.validacao}}</td>
+          <td></td>
+          <td></td>
           <td><button mat-icon-button   data-toggle="modal" data-target="#Modal">  <mat-icon>edit</mat-icon></button></td>
           <td><button mat-icon-button >  <mat-icon>delete</mat-icon></button></td>
-        <td></td>
+     
         </tr>
       </tbody>
     </table>

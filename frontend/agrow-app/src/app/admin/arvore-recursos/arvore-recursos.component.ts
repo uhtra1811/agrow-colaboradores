@@ -36,6 +36,14 @@ const TREE_DATA: ArvoreRecursosNode[] = [
           {name: 'Cadastrar de Apresentações'},
           {name: 'Lista de Apresentações'},  ]
       },
+      {
+        name: 'Cliente',
+        children: [
+            {name: 'Solicitar suporte'},
+            {name: 'Solicitar desenvolvimento'},
+            {name: 'Solicitar treinamento'},
+            {name: 'Avaliação'}  ]
+        },
     
     ];
   
@@ -134,6 +142,24 @@ mostraComponente(node: any){
     this.buttonClicked.emit(this.opened);
   
   }
-  
+else if (node.name === 'Solicitar suporte'){  
+  this.router.navigate(['/admin/solicita-suporte']);
+  this.buttonClicked.emit(this.opened);
+
+}
+else if (node.name === 'Solicitar desenvolvimento'){  
+  this.router.navigate(['/admin/solicita-desenvolvimento']);
+  this.buttonClicked.emit(this.opened);
+
+}
+else if (node.name ===  'Solicitar treinamento'){  
+  this.router.navigate(['/admin/solicita-treinamento']);
+  this.buttonClicked.emit(this.opened);
+
+}
+else if (node.name ===  'Avaliação'){  
+  this.router.navigate(['/admin/avaliacao']);
+  this.buttonClicked.emit(this.opened);
+}
 }
 }

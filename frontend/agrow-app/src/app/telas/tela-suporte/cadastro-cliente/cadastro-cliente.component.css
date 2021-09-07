@@ -1,4 +1,4 @@
-div.settings {
+/*div.settings {
     position: absolute;
     width: 50% ;
     margin-left: 30%;
@@ -11,7 +11,13 @@ div.settings {
 
 div.settings label{ 
     text-align:right; 
+}*/
+div.settings {
+    width: 50% ;
+    margin-left: 35%;
+    margin-top: 5%;
 }
+
 
 label{
     font-size: 18px;
@@ -21,7 +27,6 @@ input{
     width: 65%;
 }
 button{
-    position: absolute;
     margin-left: 45%;
-    top: 50%;
+    margin-top: 2%;
 }

@@ -1,11 +1,17 @@
 #input-login{
     margin-left: 15px;
+    width: 90%;
 }
 #input-senha{
     margin-left: 15px;
+    width: 90%;
 }
 #btn-login{
     margin-left: 15px;
+}*/
+#login{
+    margin-left:  15px;
+    ;
 }
 #toolbar{
     background-color: green;

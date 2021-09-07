@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import * as FileSaver from 'file-saver';
 import { SharedService } from 'src/app/shared.service';
@@ -28,6 +28,14 @@ export class MostraAtendimentoComponent implements OnInit {
   SolucaoFiltro:string="";
   DataFiltro:string="";
 
+  today:any = new Date();
+  dd = String(this.today.getDate()).padStart(2, '0');
+  mm = String(this.today.getMonth() + 1).padStart(2, '0'); //Janeiro é 0!
+  yyyy = this.today.getFullYear();
+  todayis: any = this.today = this.yyyy + '-' + this.mm + '-' + this.dd;
+
+
+ 
   ngOnInit(): void {
     this.mostrarAtendimentos();
     this.refreshAtendimentosLista();
@@ -44,13 +52,12 @@ export class MostraAtendimentoComponent implements OnInit {
   mostrarAtendimentos(){
     this.service.getAtendimentosLista().subscribe(data=>{
       this.AtendimentosLista=data;
-      console.log(this.AtendimentosLista);
     });
+
   }
   editaAtendimento(item: any){
     this.cad = item;
-
-
+    console.log(this.cad);
   }
 
   filtroIdAtendimento(){
@@ -106,7 +113,7 @@ export class MostraAtendimentoComponent implements OnInit {
   filtroDataAtendimento(){
     var DataFiltro:string = "" + this.DataFiltro;
     this.AtendimentosLista = this.AtendimentosListaSemFiltro.filter(function (el:any){
-        return el.motivo.toString().toLowerCase().includes(
+        return el.data.toString().toLowerCase().includes(
           DataFiltro.toString().trim().toLowerCase()
         )
     });
