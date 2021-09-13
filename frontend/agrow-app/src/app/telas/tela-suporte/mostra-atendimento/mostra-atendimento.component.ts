@@ -28,6 +28,19 @@ export class MostraAtendimentoComponent implements OnInit {
   SolucaoFiltro:string="";
   DataFiltro:string="";
 
+
+  Id_Atendimento!: number;
+  Cliente_Atendimento!:string;
+  Usuario_Atendimento!:string;
+  Motivo_Atendimento!:string;
+  Meiodecontato_Atendimento!:string;
+  Mensagem_Atendimento!:string;
+  Solucao_Atendimento!:string;
+  Data_Atendimento!:string;
+ 
+
+
+
   today:any = new Date();
   dd = String(this.today.getDate()).padStart(2, '0');
   mm = String(this.today.getMonth() + 1).padStart(2, '0'); //Janeiro é 0!
@@ -55,11 +68,24 @@ export class MostraAtendimentoComponent implements OnInit {
     });
 
   }
-  editaAtendimento(item: any){
-    this.cad = item;
+  editaAtendimento(dataItem: any){
+    this.cad=dataItem;
+    this.Id_Atendimento= this.cad.id
+    this.Cliente_Atendimento= this.cad.cliente
+    this.Usuario_Atendimento= this.cad.usuario
+    this.Motivo_Atendimento= this.cad.motivo
+    this.Meiodecontato_Atendimento= this.cad.meiodecontato
+    this.Mensagem_Atendimento= this.cad
+    this.Solucao_Atendimento= this.cad.solucao
+    this.Data_Atendimento= this.cad.data
     console.log(this.cad);
   }
+  
 
+
+  
+
+  
   filtroIdAtendimento(){
     var Id_AtendimentoFiltro:string = "" + this.Id_AtendimentoFiltro;
     this.AtendimentosLista = this.AtendimentosListaSemFiltro.filter(function (el:any){

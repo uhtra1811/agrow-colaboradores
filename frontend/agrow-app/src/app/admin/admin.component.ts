@@ -11,9 +11,6 @@ import { Router } from '@angular/router';
 
 export class AdminComponent implements OnInit {
 
-  @Input() opened1 = false;
-
-
   @Input() opened: any = false;
   mostrarMenu: boolean = true;
 
@@ -25,16 +22,11 @@ export class AdminComponent implements OnInit {
   fazerLogout(){
     this.router.navigate(['login']);
   }
-  
+
   toggleSidebar(opened: any){
     console.log(this.opened);
     this.opened= !this.opened;
 
   } 
-console(){
-  console.log(this.opened);
-}
-
-
 }
 

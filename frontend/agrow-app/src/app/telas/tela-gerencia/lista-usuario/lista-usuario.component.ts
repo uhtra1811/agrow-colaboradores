@@ -56,7 +56,7 @@ export class ListaUsuarioComponent implements OnInit, OnChanges{
     this.Id_Usuario = this.cli.id;
     this.Usuario = this.cli.usuario;
     this.Senha = this.cli.senha;
-    this.AbrirModal = true; 
+   // this.AbrirModal = true; 
   }
 
   updateUsuario(){

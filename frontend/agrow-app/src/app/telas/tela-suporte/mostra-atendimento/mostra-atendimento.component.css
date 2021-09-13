@@ -22,15 +22,13 @@ mat-toolbar{
     padding-right: 20%;
 }
 
-input{
-    font-size: 12px;
-    margin-left: 1%;
-    width: 8%;
-}
+
 .filtro{
     margin-left: 12%;
     color: black;
     background-color: rgb(77, 156, 84);
+    font-size: 12px;
+    
 
 } 
 table {

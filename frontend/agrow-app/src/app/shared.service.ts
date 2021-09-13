@@ -23,8 +23,9 @@ export class SharedService {
   }
   getClientesLista():Observable<any[]>{
     return this.http.get<any[]>(this.APIUrl + '/clientes'); 
-   // return this.http.get<any[]>(this.APIUrl  + '/api/users');
   }
+
+
   addAtendimento(val:any){
     return this.http.post(this.APIUrl + '/atendimento',val);
   }

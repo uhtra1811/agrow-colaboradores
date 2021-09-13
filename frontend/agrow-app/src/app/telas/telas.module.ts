@@ -8,7 +8,6 @@ import { TelaDesenvolvimentoComponent } from 'src/app/telas/tela-desenvolvimento
 import { TelaClienteComponent } from 'src/app/telas/tela-cliente/tela-cliente.component';
 import { CadastroUsuarioComponent } from 'src/app/telas/tela-gerencia/cadastro-usuario/cadastro-usuario.component';
 import { CadastroAtendimentoComponent } from 'src/app/telas/tela-suporte/cadastro-atendimento/cadastro-atendimento.component';
-import { EditaAtendimentoComponent } from 'src/app/telas/tela-suporte/edita-atendimento/edita-atendimento.component';
 import { RegistroAtendimentoComponent } from 'src/app/telas/tela-suporte/registro-atendimento/registro-atendimento.component';
 import { EditaClienteComponent } from 'src/app/telas/tela-suporte/edita-cliente/edita-cliente.component';
 import { MostraClientesComponent } from 'src/app/telas/tela-suporte/mostra-clientes/mostra-clientes.component';
@@ -24,9 +23,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { SolicitaSuporteComponent } from './tela-cliente/solicita-suporte/solicita-suporte.component';
 import { SolicitaDesenvolvimentoComponent } from './tela-cliente/solicita-desenvolvimento/solicita-desenvolvimento.component';
 import { SolicitaTreinamentoComponent } from './tela-cliente/solicita-treinamento/solicita-treinamento.component';
-import { AvaliacaoComponent } from './tela-cliente/avaliacao/avaliacao.component';
 import {MatSliderModule} from '@angular/material/slider'; 
-
+import { NgRatingBarModule } from 'ng-rating-bar';
+import { ListaAtendimentosComponent } from './tela-cliente/lista-atendimentos/lista-atendimentos.component';
+import { ListaDesenvolvimentosComponent } from './tela-cliente/lista-desenvolvimentos/lista-desenvolvimentos.component';
+import { ListaTreinamentosComponent } from './tela-cliente/lista-treinamentos/lista-treinamentos.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,6 @@ import {MatSliderModule} from '@angular/material/slider';
     TelaClienteComponent,
     CadastroUsuarioComponent,
     CadastroAtendimentoComponent,
-    EditaAtendimentoComponent,
     RegistroAtendimentoComponent,
     TelasComponent,
     TelaInicialComponent,
@@ -49,7 +49,9 @@ import {MatSliderModule} from '@angular/material/slider';
     SolicitaSuporteComponent,
     SolicitaDesenvolvimentoComponent,
     SolicitaTreinamentoComponent,
-    AvaliacaoComponent
+    ListaAtendimentosComponent,
+    ListaDesenvolvimentosComponent,
+    ListaTreinamentosComponent
   ],
   imports: [
     CommonModule,
@@ -58,7 +60,8 @@ import {MatSliderModule} from '@angular/material/slider';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    MatSliderModule
+    MatSliderModule,
+    NgRatingBarModule
   ],
   exports:[
     TelaGerenciaComponent,
@@ -69,7 +72,6 @@ import {MatSliderModule} from '@angular/material/slider';
     TelaClienteComponent,
     CadastroUsuarioComponent,
     CadastroAtendimentoComponent,
-    EditaAtendimentoComponent,
     RegistroAtendimentoComponent,
     TelasComponent,
     TelaInicialComponent,

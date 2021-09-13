@@ -12,6 +12,7 @@ export class CadastroAtendimentoComponent implements OnInit {
 
   constructor(private service:SharedService, private router: Router) { }
   
+  cli!:string;
   Id_Atendimento!: number;
   Cliente_Atendimento!:string;
   Usuario_Atendimento!:string;
@@ -20,7 +21,7 @@ export class CadastroAtendimentoComponent implements OnInit {
   Mensagem_Atendimento!:string;
   Solucao_Atendimento!:string;
   Data_Atendimento!:string;
-  AtendimentosLista!:any[];
+  ClientesLista!:any[];
 
   today:any = new Date();
   dd = String(this.today.getDate()).padStart(2, '0');
@@ -30,6 +31,7 @@ export class CadastroAtendimentoComponent implements OnInit {
 
 
   ngOnInit(): void {
+   this.refreshClientesLista();
    this.Data_Atendimento=this.todayis;
   }
 
@@ -54,10 +56,14 @@ export class CadastroAtendimentoComponent implements OnInit {
       this.Solucao_Atendimento="";
   }
 
-  refreshAtendimentosLista(){
+  refreshClientesLista(){
     this.service.getClientesLista().subscribe(data=>{
-      this.AtendimentosLista=data;
+      this.ClientesLista=data;
     });
+    
   }
-  
+  console(){
+    this.refreshClientesLista();
+    console.log(this.ClientesLista)
+  }
 }
