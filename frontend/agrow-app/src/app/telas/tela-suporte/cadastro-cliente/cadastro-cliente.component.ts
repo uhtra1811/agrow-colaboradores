@@ -42,6 +42,10 @@ export class CadastroClienteComponent implements OnInit {
 
 
   addCliente(){
+    if(this.Cliente == ""){
+      alert("Informe o cliente")
+
+    }else{
     var val =  {cliente:this.Cliente,
                 licencas:this.Licencas,
                 versao:this.Versao,
@@ -61,6 +65,7 @@ export class CadastroClienteComponent implements OnInit {
       this.Validacao="";
 
   }
+}
  
 refreshClientesLista(){
   this.service.getClientesLista().subscribe(data=>{

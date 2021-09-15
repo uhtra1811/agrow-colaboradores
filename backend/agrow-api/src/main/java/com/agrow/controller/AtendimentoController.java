@@ -53,7 +53,7 @@ public class AtendimentoController {
 		return atendimentoRepository.save(atendimento);
 	}
    
-	@PutMapping("/atendimento1")
+	@PutMapping("/edita-atendimento")
 	public Atendimento editAtendimento(@RequestBody @Valid Atendimento atendimento) {
 		return atendimentoRepository.save(atendimento);
 	}

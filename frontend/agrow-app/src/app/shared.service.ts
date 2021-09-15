@@ -29,6 +29,12 @@ export class SharedService {
   addAtendimento(val:any){
     return this.http.post(this.APIUrl + '/atendimento',val);
   }
+  updateAtendimento(val:any){
+    return this.http.put(this.APIUrl + '/edita-atendimento',val);
+  }
+  deleteAtendimento(val:any){
+    return this.http.delete(this.APIUrl + '/atendimento/'+ val);
+  }
   getAtendimentosLista():Observable<any[]>{
     return this.http.get<any[]>(this.APIUrl + '/atendimentos');
   }

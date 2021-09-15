@@ -12,6 +12,7 @@ import { ListaUsuarioComponent } from "./telas/tela-gerencia/lista-usuario/lista
 import { SolicitaSuporteComponent } from "./telas/tela-cliente/solicita-suporte/solicita-suporte.component";
 import { SolicitaDesenvolvimentoComponent } from "./telas/tela-cliente/solicita-desenvolvimento/solicita-desenvolvimento.component";
 import { SolicitaTreinamentoComponent } from "./telas/tela-cliente/solicita-treinamento/solicita-treinamento.component";
+import { ListaAtendimentosComponent } from "./telas/tela-cliente/lista-atendimentos/lista-atendimentos.component";
 
 
   const APP_ROUTES: Routes = [ 
@@ -28,7 +29,8 @@ import { SolicitaTreinamentoComponent } from "./telas/tela-cliente/solicita-trei
         {path: 'lista-usuario', component: ListaUsuarioComponent},
         {path: 'solicita-suporte', component: SolicitaSuporteComponent},
         {path: 'solicita-desenvolvimento', component: SolicitaDesenvolvimentoComponent},
-        {path: 'solicita-treinamento', component: SolicitaTreinamentoComponent}
+        {path: 'solicita-treinamento', component: SolicitaTreinamentoComponent},
+        {path: 'cliente-atendimentos', component: ListaAtendimentosComponent}
       ]}
   
   ];

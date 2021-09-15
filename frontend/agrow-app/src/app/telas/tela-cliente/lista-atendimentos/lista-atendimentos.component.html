@@ -1,1 +1,55 @@
-<p>lista-atendimentos works!</p>
+<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-x" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" style="font-size: 20px;" id="ModalLabel">Avalie o 'Atendimento {{value}}</h5>
+          <button mat-icon-button  class="close" data-dismiss="modal" aria-label="Close" (click)="closeClick()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+          <ng-rating-bar  style="margin-left: 38%;" [(value)]="value" [ratingCount]="5"></ng-rating-bar>
+        <button (click)="avaliarAtendimentoService()" style="margin: 15px 15px;" class="btn btn-success">Avaliar</button>
+        </div>
+        <div class="modal-footer">
+        </div>
+    </div>
+  </div>
+ 
+  <mat-toolbar>
+    <button mat-icon-button  style="left: 15%; bottom:10%" ><mat-icon>search</mat-icon></button>
+    <button mat-icon-button  style="left: 87%"  (click)="geraRelatorio()">  <mat-icon>file_copy</mat-icon> Exportar</button>
+       <div class="filtro">
+          <input style="width: 8%; font-size: 12px; margin-left: 1%;"   [(ngModel)]="Id_AtendimentoFiltro"  (keyup)="filtroIdAtendimento()"      placeholder=" Id">
+          <input style="width: 8%; font-size: 12px; margin-left: 1%;"   [(ngModel)]="MotivoFiltro"  (keyup)="filtroMotivoAtendimento()" placeholder=" Motivo">
+          <input style="width: 8%; font-size: 12px; margin-left: 1%;"   [(ngModel)]="ContatoFiltro"  (keyup)="filtroContatoAtendimento()" placeholder=" Contato">
+          <input style="width: 8%; font-size: 12px; margin-left: 1%;"   [(ngModel)]="SolucaoFiltro"  (keyup)="filtroSolucaoAtendimento()" placeholder=" Solução">
+          <input style="width: 8%; font-size: 12px; margin-left: 1%;"   [(ngModel)]="SolucaoFiltro"  (keyup)="filtroSolucaoAtendimento()" placeholder=" Avaliacao">
+          <input style="width: 20%; margin-left: 1%;" type="date"       [(ngModel)]="DataFiltro"  (click)="filtroDataAtendimento()" (keyup)="filtroDataAtendimento()" placeholder=" Data">
+      </div>    
+  </mat-toolbar>
+  
+  <div id="lista">
+  <table style="text-align: center;" class="table table-striped table-bordered" >
+    <thead class="thead">
+        <tr>
+            <th>Id</th>
+            <th>Motivo</th>
+            <th>Contato</th>
+            <th>Solução</th>
+            <th>Avaliação</th>
+            <th>Data</th>
+        </tr>
+    </thead>
+    <tbody class="tbody">
+      <tr *ngFor="let dataItem of AtendimentosLista">
+        <td>{{dataItem.id}}</td>
+        <td>{{dataItem.motivo}}</td>
+        <td>{{dataItem.meiodecontato}}</td>
+        <td>{{dataItem.solucao}}</td>
+        <td><button *ngIf="MostraAvaliar" (click)="editaAtendimento(dataItem)" data-toggle="modal" data-target="#Modal">Avaliar Atendimento</button></td>
+        <td type="date">{{dataItem.data | date: 'dd/MM/yyyy' }}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  

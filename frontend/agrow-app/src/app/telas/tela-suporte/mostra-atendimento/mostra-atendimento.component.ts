@@ -26,6 +26,7 @@ export class MostraAtendimentoComponent implements OnInit {
   MotivoFiltro:string="";
   ContatoFiltro:string="";
   SolucaoFiltro:string="";
+  AvaliacaoFiltro:string="";
   DataFiltro:string="";
 
 
@@ -38,7 +39,7 @@ export class MostraAtendimentoComponent implements OnInit {
   Solucao_Atendimento!:string;
   Data_Atendimento!:string;
  
-
+  value:number = 0;
 
 
   today:any = new Date();
@@ -68,8 +69,8 @@ export class MostraAtendimentoComponent implements OnInit {
     });
 
   }
-  editaAtendimento(dataItem: any){
-    this.cad=dataItem;
+  editaAtendimento(item: any){
+    this.cad=item;
     this.Id_Atendimento= this.cad.id
     this.Cliente_Atendimento= this.cad.cliente
     this.Usuario_Atendimento= this.cad.usuario
@@ -77,14 +78,40 @@ export class MostraAtendimentoComponent implements OnInit {
     this.Meiodecontato_Atendimento= this.cad.meiodecontato
     this.Mensagem_Atendimento= this.cad
     this.Solucao_Atendimento= this.cad.solucao
+    this.value = this.cad.avaliacao;
     this.Data_Atendimento= this.cad.data
-    console.log(this.cad);
   }
   
 
-
+  editarAtendimentoService(){
+      var val =  {
+                  id:this.Id_Atendimento,
+                  cliente:this.Cliente_Atendimento,
+                  usuario:this.Usuario_Atendimento,
+                  motivo:this.Motivo_Atendimento,
+                  meiodecontato:this.Meiodecontato_Atendimento,
+                  solucao:this.Solucao_Atendimento,
+                  avaliacao:this.value,
+                  data:this.Data_Atendimento
+                }
+      this.service.updateAtendimento(val).subscribe(res=>{
+        alert("Editado com sucesso! Data:" + this.Data_Atendimento);
+      },  
+      error => {alert("Erro ao salvar,revise as informações preenchidas.")
+      });
+      this.refreshAtendimentosLista();
+    }
   
-
+    deletarAtendimento(item: any){
+      if(confirm('Deseja deletar?')){
+        this.service.deleteAtendimento(item.id).subscribe(data=>{
+          alert("Deletado com sucesso");
+       this.refreshAtendimentosLista(); }, 
+        error => {alert("Erro ao deletar!");
+        });
+      }
+    }
+  
   
   filtroIdAtendimento(){
     var Id_AtendimentoFiltro:string = "" + this.Id_AtendimentoFiltro;
@@ -136,6 +163,16 @@ export class MostraAtendimentoComponent implements OnInit {
         )
     });
   }
+
+  filtroAvaliacaoAtendimento(){
+    var AvaliacaoFiltro:string = "" + this.AvaliacaoFiltro;
+    this.AtendimentosLista = this.AtendimentosListaSemFiltro.filter(function (el:any){
+        return el.avaliacao.toString().toLowerCase().includes(
+          AvaliacaoFiltro.toString().trim().toLowerCase()
+        )
+    });
+  }
+
   filtroDataAtendimento(){
     var DataFiltro:string = "" + this.DataFiltro;
     this.AtendimentosLista = this.AtendimentosListaSemFiltro.filter(function (el:any){

@@ -14,13 +14,14 @@ export class CadastroAtendimentoComponent implements OnInit {
   
   cli!:string;
   Id_Atendimento!: number;
-  Cliente_Atendimento!:string;
-  Usuario_Atendimento!:string;
-  Motivo_Atendimento!:string;
-  Meiodecontato_Atendimento!:string;
-  Mensagem_Atendimento!:string;
-  Solucao_Atendimento!:string;
-  Data_Atendimento!:string;
+  Cliente_Atendimento:string ="";
+  Usuario_Atendimento:string = "";
+  Motivo_Atendimento:string = "";
+  Meiodecontato_Atendimento:string = "";
+  Mensagem_Atendimento:string = "";
+  Solucao_Atendimento:string = "";
+  Avaliacao_Atendimento:string = "";
+  Data_Atendimento:string = "";
   ClientesLista!:any[];
 
   today:any = new Date();
@@ -36,25 +37,31 @@ export class CadastroAtendimentoComponent implements OnInit {
   }
 
   addAtendimento(){
+    if(this.Cliente_Atendimento === "" || this.Cliente_Atendimento ==="-Selecione o Cliente-"){
+      alert("Selecione o cliente.")}
+    else{
     var val =  {cliente:this.Cliente_Atendimento,
                 usuario:this.Usuario_Atendimento,
                 motivo:this.Motivo_Atendimento,
                 meiodecontato:this.Meiodecontato_Atendimento,
                 solucao:this.Solucao_Atendimento,
+                avaliacao:this.Avaliacao_Atendimento,
                 data:this.Data_Atendimento
-              };
+              };             
     this.service.addAtendimento(val).subscribe(res=>{
       alert("Adicionado com sucesso! Data:" + this.Data_Atendimento);
     },  
     error => {alert("Erro ao salvar,revise as informações preenchidas.")
     });
-      this.Cliente_Atendimento="";
+      //this.Cliente_Atendimento="";
       this.Usuario_Atendimento="";
       this.Motivo_Atendimento="";
       this.Meiodecontato_Atendimento= "";
       this.Mensagem_Atendimento="";
       this.Solucao_Atendimento="";
   }
+}
+
 
   refreshClientesLista(){
     this.service.getClientesLista().subscribe(data=>{
@@ -62,8 +69,7 @@ export class CadastroAtendimentoComponent implements OnInit {
     });
     
   }
-  console(){
-    this.refreshClientesLista();
-    console.log(this.ClientesLista)
+  cadastrarCliente(){
+    this.router.navigate(['/admin/cadastro-cliente']);
   }
 }

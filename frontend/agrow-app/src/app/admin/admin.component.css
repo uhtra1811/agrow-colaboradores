@@ -1,8 +1,9 @@
 ng-sidebar-container {
     position: absolute;
     top: 64px;
-    height: 100vh;
+   /* height: 100vh;*/
     width:  20%;    
+    height: 100%;
 }
 
 ::ng-deep .ng-sidebar {
@@ -19,8 +20,5 @@ ng-sidebar-container {
     color: white;
 }
 
-#componentes{
-   
-    
-}
+
 

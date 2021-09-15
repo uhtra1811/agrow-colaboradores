@@ -24,7 +24,8 @@ public class Atendimento implements Serializable{
         private String motivo;
         private String meiodecontato;
         private String solucao;
-        private String data;
+        private String avaliacao;
+		private String data;
         
         
 		public long getId() {
@@ -62,6 +63,12 @@ public class Atendimento implements Serializable{
 		}
 		public void setSolucao(String solucao) {
 			this.solucao = solucao;
+		}
+        public String getAvaliacao() {
+			return avaliacao;
+		}
+		public void setAvaliacao(String avaliacao) {
+			this.avaliacao = avaliacao;
 		}
 		public String getData() {
 			return data;

@@ -29,6 +29,7 @@ import { ListaAtendimentosComponent } from './tela-cliente/lista-atendimentos/li
 import { ListaDesenvolvimentosComponent } from './tela-cliente/lista-desenvolvimentos/lista-desenvolvimentos.component';
 import { ListaTreinamentosComponent } from './tela-cliente/lista-treinamentos/lista-treinamentos.component';
 
+
 @NgModule({
   declarations: [
     TelaGerenciaComponent,

@@ -1,23 +1,8 @@
-/*div.settings {
-    position: absolute;
-    width: 50% ;
-    margin-left: 30%;
-    top: 15%;
-    display:grid;
-    grid-template-columns: max-content 100%;
-    grid-gap:15px;
-
-}
-
-div.settings label{ 
-    text-align:right; 
-}*/
 div.settings {
     width: 50% ;
     margin-left: 35%;
     margin-top: 5%;
 }
-
 
 label{
     font-size: 18px;
@@ -26,6 +11,7 @@ label{
 input{
     width: 65%;
 }
+
 button{
     margin-left: 45%;
     margin-top: 2%;

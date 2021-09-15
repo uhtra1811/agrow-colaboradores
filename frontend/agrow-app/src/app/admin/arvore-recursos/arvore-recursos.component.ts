@@ -92,7 +92,7 @@ const TREE_DATA: ArvoreRecursosNode[] = [
      ]},
      {name: 'Relatórios',
        children:[
-       {name: 'Lista de Solicitações de Suporte'},
+       {name: 'Meus Atendimentos'},
        {name: 'Lista de Solicitações de Treinamento'},
        {name: 'Lista de Solicitações de Desenvolvimento'},
        {name: 'Lista de Solicitações de Auditoria'},
@@ -120,7 +120,6 @@ export class ArvoreRecursosComponent{
   opened = false;
   mostrarMenu: boolean = true;
   mostraArvore: boolean = true;
-
   @Output() buttonClicked: EventEmitter<boolean> = new EventEmitter<boolean>();
 
 

@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit{
   Password:string = '';
 
 
-
   constructor( private service:SharedService, 
                http: HttpClient, 
                private router: Router, 
