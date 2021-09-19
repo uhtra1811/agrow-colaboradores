@@ -1,9 +1,6 @@
 package com.agrow.model;
 
 import java.io.Serializable;
-
-
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,30 +8,19 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="ATENDIMENTO")
-public class Atendimento implements Serializable{
+@Table(name="DESENVOLVIMENTO")
+public class Desenvolvimento  implements Serializable{
             
         private static final long serialVersionUID = 1L; 
             
         @Id 
         @GeneratedValue(strategy=GenerationType.AUTO)
         private long id; 
-        
 		private String cliente;
         private String usuario;
         private String motivo;
-        private String meiodecontato;
         private String solucao;
         private String avaliacao;
-        private String atendente;
-		private String data;
-        
-        
-     
-		public static long getSerialversionuid() {
-			return serialVersionUID;
-		}
-
         
 		public long getId() {
 			return id;
@@ -60,35 +46,16 @@ public class Atendimento implements Serializable{
 		public void setMotivo(String motivo) {
 			this.motivo = motivo;
 		}
-		public String getMeiodecontato() {
-			return meiodecontato;
-		}
-		public void setMeiodecontato(String meiodecontato) {
-			this.meiodecontato = meiodecontato;
-		}
 		public String getSolucao() {
 			return solucao;
 		}
 		public void setSolucao(String solucao) {
 			this.solucao = solucao;
 		}
-        public String getAvaliacao() {
+		public String getAvaliacao() {
 			return avaliacao;
 		}
 		public void setAvaliacao(String avaliacao) {
 			this.avaliacao = avaliacao;
 		}
-		public String getAtendente() {
-			return atendente;
-		}
-		public void setAtendente(String atendente) {
-			this.atendente = atendente;
-		}		
-		public String getData() {
-			return data;
-		}
-		public void setData(String data) {
-			this.data = data;
-		}
-        
-}
+}        

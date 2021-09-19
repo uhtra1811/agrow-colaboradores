@@ -1,8 +1,6 @@
 package com.agrow.controller;
 
 import java.util.List;
-
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,41 +15,39 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
-import com.agrow.model.Cliente;
-import com.agrow.repository.ClienteRepository;
+import com.agrow.model.Migracao;
+import com.agrow.repository.MigracaoRepository;
 
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-public class ClienteController {
+public class MigracaoController {
 	
     @Autowired
-    public ClienteRepository clienteRepository;
+    public MigracaoRepository migracaoRepository;
 	 
     
     
-    @GetMapping("/clientes")
-    public List<Cliente> getClientes() {
-        return clienteRepository.findAll();
+    @GetMapping("/migracoes")
+    public List<Migracao> getMigracoes() {
+        return migracaoRepository.findAll();
     }
 
-	@PostMapping("/cliente")
-	public Cliente addCliente(@RequestBody @Valid Cliente cliente) {
-		return clienteRepository.save(cliente);
+	@PostMapping("/migracao")
+	public Migracao addMigracao(@RequestBody @Valid Migracao migracao) {
+		return migracaoRepository.save(migracao);
 	}
    
-	@PutMapping("/cliente")
-	public Cliente editCliente(@RequestBody @Valid Cliente cliente) {
-		return clienteRepository.save(cliente);
+	@PutMapping("/migracao")
+	public Migracao editMigracao(@RequestBody @Valid Migracao migracao) {
+		return migracaoRepository.save(migracao);
 	}
 	
-
    
-	@DeleteMapping("/cliente/{id}")
-	public ResponseEntity<Void> deleteCliente(@PathVariable Long id) {
-		clienteRepository.deleteById(id);
+	@DeleteMapping("/migracao/{id}")
+	public ResponseEntity<Void> deleteMigracao(@PathVariable Long id) {
+		migracaoRepository.deleteById(id);
 		return ResponseEntity.noContent().build();
 	}
-    
-
 }
+    

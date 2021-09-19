@@ -1,8 +1,6 @@
 package com.agrow.controller;
 
 import java.util.List;
-
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,41 +15,38 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
-import com.agrow.model.Cliente;
-import com.agrow.repository.ClienteRepository;
+import com.agrow.model.Treinamento;
+import com.agrow.repository.TreinamentoRepository;
 
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-public class ClienteController {
+public class TreinamentoController {
 	
     @Autowired
-    public ClienteRepository clienteRepository;
+    public TreinamentoRepository treinamentoRepository;
 	 
     
     
-    @GetMapping("/clientes")
-    public List<Cliente> getClientes() {
-        return clienteRepository.findAll();
+    @GetMapping("/treinamentos")
+    public List<Treinamento> getTreinamentos() {
+        return treinamentoRepository.findAll();
     }
 
-	@PostMapping("/cliente")
-	public Cliente addCliente(@RequestBody @Valid Cliente cliente) {
-		return clienteRepository.save(cliente);
+	@PostMapping("/treinamento")
+	public Treinamento addTreinamento(@RequestBody @Valid Treinamento treinamento) {
+		return treinamentoRepository.save(treinamento);
 	}
    
-	@PutMapping("/cliente")
-	public Cliente editCliente(@RequestBody @Valid Cliente cliente) {
-		return clienteRepository.save(cliente);
+	@PutMapping("/treinamento")
+	public Treinamento editTreinamento(@RequestBody @Valid Treinamento treinamento) {
+		return treinamentoRepository.save(treinamento);
 	}
 	
-
    
-	@DeleteMapping("/cliente/{id}")
-	public ResponseEntity<Void> deleteCliente(@PathVariable Long id) {
-		clienteRepository.deleteById(id);
+	@DeleteMapping("/treinamento/{id}")
+	public ResponseEntity<Void> deleteTreinamento(@PathVariable Long id) {
+		treinamentoRepository.deleteById(id);
 		return ResponseEntity.noContent().build();
 	}
-    
-
 }

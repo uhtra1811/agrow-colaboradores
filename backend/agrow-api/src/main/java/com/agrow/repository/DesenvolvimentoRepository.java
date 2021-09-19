@@ -1,14 +1,12 @@
 package com.agrow.repository;
 
 import java.util.List;
-
-
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.agrow.model.Cliente;
+import com.agrow.model.Desenvolvimento;
 
 @Repository
-public interface ClienteRepository extends CrudRepository<Cliente, Long> {
-	    List<Cliente> findAll();
+public interface DesenvolvimentoRepository extends CrudRepository<Desenvolvimento, Long> {
+	    List<Desenvolvimento> findAll();
 	}

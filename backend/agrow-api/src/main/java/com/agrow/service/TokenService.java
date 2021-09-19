@@ -12,7 +12,7 @@ import java.util.Date;
 @Service
 public class TokenService {
 
-    private String key = "String Aleatoria Secret";
+    private String key = "@grow";
 
     //30 minutos
     //private static final long expirationTime = 1800000;
@@ -21,7 +21,7 @@ public class TokenService {
     public String generateToken(User user) {
         return Jwts.builder()
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setSubject("Teste JWT API")
+                .setSubject("JWT")
                 .setExpiration(new Date(System.currentTimeMillis() + expirationTime))
                 .signWith(SignatureAlgorithm.HS256, key)
                 .compact();

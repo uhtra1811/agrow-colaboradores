@@ -2,7 +2,6 @@ package com.agrow.controller;
 
 import java.util.List;
 
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,41 +16,40 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
-import com.agrow.model.Cliente;
-import com.agrow.repository.ClienteRepository;
+import com.agrow.model.Auditoria;
+import com.agrow.repository.AuditoriaRepository;
 
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-public class ClienteController {
+public class AuditoriaController {
 	
     @Autowired
-    public ClienteRepository clienteRepository;
+    public AuditoriaRepository auditoriaRepository;
 	 
     
     
-    @GetMapping("/clientes")
-    public List<Cliente> getClientes() {
-        return clienteRepository.findAll();
+    @GetMapping("/auditorias")
+    public List<Auditoria> getAuditorias() {
+        return auditoriaRepository.findAll();
     }
 
-	@PostMapping("/cliente")
-	public Cliente addCliente(@RequestBody @Valid Cliente cliente) {
-		return clienteRepository.save(cliente);
+	@PostMapping("/auditoria")
+	public Auditoria addAuditoria(@RequestBody @Valid Auditoria auditoria) {
+		return auditoriaRepository.save(auditoria);
 	}
    
-	@PutMapping("/cliente")
-	public Cliente editCliente(@RequestBody @Valid Cliente cliente) {
-		return clienteRepository.save(cliente);
+	@PutMapping("/auditoria")
+	public Auditoria editAuditoria(@RequestBody @Valid Auditoria auditoria) {
+		return auditoriaRepository.save(auditoria);
 	}
 	
 
    
-	@DeleteMapping("/cliente/{id}")
-	public ResponseEntity<Void> deleteCliente(@PathVariable Long id) {
-		clienteRepository.deleteById(id);
+	@DeleteMapping("/auditoria/{id}")
+	public ResponseEntity<Void> deleteAuditoria(@PathVariable Long id) {
+		auditoriaRepository.deleteById(id);
 		return ResponseEntity.noContent().build();
 	}
-    
-
 }
+    

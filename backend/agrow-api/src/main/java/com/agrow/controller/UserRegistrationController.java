@@ -62,9 +62,9 @@ public class UserRegistrationController {
     
 
     @PostMapping("/user")
-    public ResponseEntity<UserAutheticatedDTO> registrate(@RequestBody UserRegistrationDTO userRegistrationDTO){
+    public ResponseEntity<UserRegistrationDTO> registrate(@RequestBody UserRegistrationDTO userRegistrationDTO){
         User user = userRegistrationService.registrate(userRegistrationDTO.toUser());
-        return  new ResponseEntity<UserAutheticatedDTO>(UserAutheticatedDTO.toDTO(user, "Bearer "), HttpStatus.CREATED);
+        return  new ResponseEntity<UserRegistrationDTO>(UserRegistrationDTO.toDTO(user, "Bearer "), HttpStatus.CREATED);
     }
     
  

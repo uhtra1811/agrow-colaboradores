@@ -14,12 +14,14 @@ public class User {
     private Long id;
 
     private String usuario;
+    private String empresa;
     private String senha;
     private String token;
 
-    public User(Long id,  String usuario, String senha){
+    public User(Long id,  String usuario, String empresa, String senha){
         this.id = id;
         this.usuario = usuario;
+        this.empresa = empresa;
         this.senha = senha;
     }
 
@@ -64,4 +66,13 @@ public class User {
     public String getToken() {
         return token;
     }
+
+	public String getEmpresa() {
+		return empresa;
+	}
+
+	public void setEmpresa(String empresa) {
+		this.empresa = empresa;
+	}
+    
 }
