@@ -49,14 +49,15 @@
   <button mat-icon-button  style="left: 15%; bottom:10%" ><mat-icon>search</mat-icon></button>
   <button mat-icon-button  style="left: 87%"  (click)="geraRelatorio()">  <mat-icon>file_copy</mat-icon> Exportar</button>
      <div class="filtro">
-        <input style="width: 8%; font-size: 12px; margin-left: 1%;"   [(ngModel)]="Id_AtendimentoFiltro"  (keyup)="filtroIdAtendimento()"      placeholder=" Id">
-        <input style="width: 8%; font-size: 12px; margin-left: 1%;"   [(ngModel)]="ClienteNomeFiltro"  (keyup)="filtroClienteAtendimento()" placeholder=" Cliente">
-        <input style="width: 8%; font-size: 12px; margin-left: 1%;"   [(ngModel)]="UsuarioNomeFiltro"  (keyup)="filtroUsuarioAtendimento()" placeholder=" Usuario">
-        <input style="width: 8%; font-size: 12px; margin-left: 1%;"   [(ngModel)]="MotivoFiltro"  (keyup)="filtroMotivoAtendimento()" placeholder=" Motivo">
-        <input style="width: 8%; font-size: 12px; margin-left: 1%;"   [(ngModel)]="ContatoFiltro"  (keyup)="filtroContatoAtendimento()" placeholder=" Contato">
-        <input style="width: 8%; font-size: 12px; margin-left: 1%;"   [(ngModel)]="SolucaoFiltro"  (keyup)="filtroSolucaoAtendimento()" placeholder=" Solução">
-        <input style="width: 8%; font-size: 12px; margin-left: 1%;"   [(ngModel)]="AvaliacaoFiltro"  (keyup)="filtroAvaliacaoAtendimento()" placeholder=" Avaliacao">
-        <input style="width: 20%; margin-left: 1%;" type="date"       [(ngModel)]="DataFiltro"  (click)="filtroDataAtendimento()" (keyup)="filtroDataAtendimento()" placeholder=" Data">
+        <input style="width: 4%; font-size: 12px; margin-left: 2px;"   [(ngModel)]="Id_AtendimentoFiltro"  (keyup)="filtroIdAtendimento()"      placeholder=" Id">
+        <input style="width: 8%; font-size: 12px; margin-left: 2px;"   [(ngModel)]="ClienteNomeFiltro"  (keyup)="filtroClienteAtendimento()" placeholder=" Cliente">
+        <input style="width: 8%; font-size: 12px; margin-left: 2px;"   [(ngModel)]="UsuarioNomeFiltro"  (keyup)="filtroUsuarioAtendimento()" placeholder=" Usuario">
+        <input style="width: 8%; font-size: 12px; margin-left: 2px;"   [(ngModel)]="MotivoFiltro"  (keyup)="filtroMotivoAtendimento()" placeholder=" Motivo">
+        <input style="width: 8%; font-size: 12px; margin-left: 2px;"   [(ngModel)]="ContatoFiltro"  (keyup)="filtroContatoAtendimento()" placeholder=" Contato">
+        <input style="width: 8%; font-size: 12px; margin-left: 2px;"   [(ngModel)]="SolucaoFiltro"  (keyup)="filtroSolucaoAtendimento()" placeholder=" Solução">
+        <input style="width: 8%; font-size: 12px; margin-left: 2px;"   [(ngModel)]="AvaliacaoFiltro"  (keyup)="filtroAvaliacaoAtendimento()" placeholder=" Avaliacao">
+        <input style="width: 8%; font-size: 12px; margin-left: 2px;"   [(ngModel)]="AtendenteFiltro"  (keyup)="filtroAtendenteAtendimento()" placeholder=" Atendente">
+        <input style="width: 12%; margin-left: 2px;" type="date"       [(ngModel)]="DataFiltro"  (click)="filtroDataAtendimento()" (keyup)="filtroDataAtendimento()" placeholder=" Data">
     </div>    
 </mat-toolbar>
 
@@ -71,6 +72,7 @@
           <th>Contato</th>
           <th>Solução</th>
           <th>Avaliação</th>
+          <th>Atendente</th>
           <th>Data</th>
           <th></th>
           <th></th>
@@ -78,13 +80,14 @@
   </thead>
   <tbody class="tbody">
     <tr *ngFor="let dataItem of AtendimentosLista">
-      <td>{{dataItem.id}}</td>
-      <td>{{dataItem.cliente}}</td>
-      <td>{{dataItem.usuario}}</td>
-      <td>{{dataItem.motivo}}</td>
-      <td>{{dataItem.meiodecontato}}</td>
-      <td>{{dataItem.solucao}}</td>
-      <td>{{dataItem.avaliacao}}</td>
+      <td style="word-wrap: break-word;">{{dataItem.id}}</td>
+      <td style="word-wrap: break-word;">{{dataItem.cliente}}</td>
+      <td style="word-wrap: break-word;">{{dataItem.usuario}}</td>
+      <td style="word-wrap: break-word;">{{dataItem.motivo}}</td>
+      <td style="word-wrap: break-word;">{{dataItem.meiodecontato}}</td>
+      <td style="word-wrap: break-word;">{{dataItem.solucao}}</td>
+      <td style="word-wrap: break-word;">{{dataItem.avaliacao}}</td>
+      <td style="word-wrap: break-word;">{{dataItem.atendente}}</td>
       <td type="date">{{dataItem.data | date: 'dd/MM/yyyy' }}</td>
       <td><button mat-icon-button (click)="editaAtendimento(dataItem)"  data-toggle="modal" data-target="#Modal">  <mat-icon>edit</mat-icon></button></td>
       <td><button mat-icon-button (click)="deletarAtendimento(dataItem)" >  <mat-icon>delete</mat-icon></button></td>

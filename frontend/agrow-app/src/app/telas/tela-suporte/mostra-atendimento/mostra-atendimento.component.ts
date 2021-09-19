@@ -27,6 +27,7 @@ export class MostraAtendimentoComponent implements OnInit {
   ContatoFiltro:string="";
   SolucaoFiltro:string="";
   AvaliacaoFiltro:string="";
+  AtendenteFiltro:string="";
   DataFiltro:string="";
 
 
@@ -66,7 +67,9 @@ export class MostraAtendimentoComponent implements OnInit {
   mostrarAtendimentos(){
     this.service.getAtendimentosLista().subscribe(data=>{
       this.AtendimentosLista=data;
+      console.log(data)
     });
+    
 
   }
   editaAtendimento(item: any){
@@ -92,14 +95,15 @@ export class MostraAtendimentoComponent implements OnInit {
                   meiodecontato:this.Meiodecontato_Atendimento,
                   solucao:this.Solucao_Atendimento,
                   avaliacao:this.value,
+                  atendente:localStorage.getItem('usuario'),
                   data:this.Data_Atendimento
                 }
       this.service.updateAtendimento(val).subscribe(res=>{
         alert("Editado com sucesso! Data:" + this.Data_Atendimento);
+        this.ngOnInit();
       },  
       error => {alert("Erro ao salvar,revise as informações preenchidas.")
       });
-      this.refreshAtendimentosLista();
     }
   
     deletarAtendimento(item: any){
@@ -169,6 +173,14 @@ export class MostraAtendimentoComponent implements OnInit {
     this.AtendimentosLista = this.AtendimentosListaSemFiltro.filter(function (el:any){
         return el.avaliacao.toString().toLowerCase().includes(
           AvaliacaoFiltro.toString().trim().toLowerCase()
+        )
+    });
+  }
+  filtroAtendenteAtendimento(){
+    var AtendenteFiltro:string = "" + this.AtendenteFiltro;
+    this.AtendimentosLista = this.AtendimentosListaSemFiltro.filter(function (el:any){
+        return el.atendente.toString().toLowerCase().includes(
+          AtendenteFiltro.toString().trim().toLowerCase()
         )
     });
   }

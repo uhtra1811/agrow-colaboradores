@@ -34,3 +34,7 @@ mat-toolbar{
   td {
       word-wrap:break-word;
   }
+
+  mat-spinner{
+      margin-left: 45%;
+  }

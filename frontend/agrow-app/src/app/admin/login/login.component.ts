@@ -19,9 +19,10 @@ export class LoginComponent implements OnInit{
 
   public usuario: Usuario = new Usuario();
   hide = true;
-  Nome_Cliente:string = '';
-  Password:string = '';
-
+  Usuario:string = '';
+  Empresa:string  = '';
+  Senha:string = '';
+  Token!:any;
 
   constructor( private service:SharedService, 
                http: HttpClient, 
@@ -37,16 +38,27 @@ export class LoginComponent implements OnInit{
      const headers = { 'Content-Type':'application/json',
                            'Authorization':'Bearer'
                      };
-     const body = {   usuario:this.Nome_Cliente,
-                      senha:this.Password 
+     const body = {   usuario:this.Usuario,
+                      senha:this.Senha 
                     };
    this.service.postLogin(body, { headers }).subscribe(res => {
-        var token:any = console.info(res,JSON.parse(JSON.stringify(res)).token);
-        localStorage.setItem("token", token);
-        this.router.navigate(['/admin'])},
+     console.log(res)
+     //   this.token = console.info(JSON.parse(JSON.stringify(res)).token);
+     this.Usuario = JSON.parse(JSON.stringify(res)).usuario
+     this.Empresa = JSON.parse(JSON.stringify(res)).empresa
+     this.Token = JSON.parse(JSON.stringify(res)).token
+     localStorage.setItem('usuario', this.Usuario);
+     localStorage.setItem('empresa', this.Empresa);
+     localStorage.setItem('token', this.Token);
+      //  this.router.navigate(['/admin'])},
+      
+    },
    error => {alert("Usuário ou senha incorreto.")
    });
   }
+  }
+  console(){
+    console.log(this.Token.token)
   }
 }
 

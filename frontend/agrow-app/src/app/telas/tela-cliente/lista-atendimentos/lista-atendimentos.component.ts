@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as FileSaver from 'file-saver';
 import { SharedService } from 'src/app/shared.service';
+import { LoginComponent } from 'src/app/admin/login/login.component'
 
 @Component({
   selector: 'app-lista-atendimentos',
@@ -24,7 +25,7 @@ export class ListaAtendimentosComponent implements OnInit {
 
   Id_AtendimentoFiltro!: string;
   ClienteNomeFiltro:string="";
-  UsuarioNomeFiltro:string="";
+  UsuarioNomeFiltro:any="";
   MotivoFiltro:string="";
   ContatoFiltro:string="";
   SolucaoFiltro:string="";
@@ -40,7 +41,8 @@ export class ListaAtendimentosComponent implements OnInit {
   Solucao_Atendimento!:string;
   Avaliacao_Atendimento:number = 0;
   Data_Atendimento!:string;
- 
+  MostraLoading:boolean = true;
+  MostrarTabela:boolean = false;
   value: number = 0;
 
   today:any = new Date();
@@ -52,22 +54,42 @@ export class ListaAtendimentosComponent implements OnInit {
 
  
   ngOnInit(): void {
+    this.UsuarioNomeFiltro = localStorage.getItem('usuario');
+    this.Usuario_Atendimento = this.UsuarioNomeFiltro;
+   
     this.mostrarAtendimentos();
+
+    this.delay(1800).then(any=>{
+      this.esconderLoading();
+      this.mostrarTabela();
+ });
+    
     this.refreshAtendimentosLista();
-  }
-  ngOnChanges(): void {
- 
-    this.refreshAtendimentosLista();
+    this.delay(1000).then(any=>{
+      this.filtroUsuarioAtendimento();
+ });
+    
   }
 
+  esconderLoading(){
+    this.MostraLoading = !this.MostraLoading;
+  }
+  mostrarTabela(){
+    this.MostrarTabela = !this.MostrarTabela;
+  }
+  async delay(ms: number) {
+    await new Promise<void>(resolve => setTimeout(()=>resolve(), ms)).then(()=>console.log("fired"));
+}
+  
   mostrarModal(){
+    
     this.MostraModal = !this.MostraModal;
+    
   }
 
   mostrarAtendimentos(){
     this.service.getAtendimentosLista().subscribe(data=>{
-      this.AtendimentosLista=data;
-    });
+      this.AtendimentosLista=data;});
 
   }
   editaAtendimento(item: any){
@@ -111,6 +133,7 @@ export class ListaAtendimentosComponent implements OnInit {
           Id_AtendimentoFiltro.toString()
         )
     });
+    console.log(this.AtendimentosLista)
   }
 
   filtroClienteAtendimento(){
@@ -129,6 +152,7 @@ export class ListaAtendimentosComponent implements OnInit {
         )
     });
   }
+  
   filtroContatoAtendimento(){
     var ContatoFiltro:string = "" + this.ContatoFiltro;
     this.AtendimentosLista = this.AtendimentosListaSemFiltro.filter(function (el:any){
@@ -163,6 +187,8 @@ export class ListaAtendimentosComponent implements OnInit {
     });
   }
 
+
+
   geraRelatorio(){
     this.service.download().subscribe(
       (res) => {
@@ -175,6 +201,7 @@ export class ListaAtendimentosComponent implements OnInit {
     this.service.getAtendimentosLista().subscribe(data=>{
       this.AtendimentosLista=data;
       this.AtendimentosListaSemFiltro=data});
+      
   }
 
   closeClick(){

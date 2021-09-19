@@ -10,10 +10,11 @@ input{
     margin-top: 2%;
 }
 
-#salvar{    
+button{    
     margin-top: 2%;
-    margin-left: 45%;
+    margin-left: 40%;
 }
+
 select{
     margin-left: 2%;
 }

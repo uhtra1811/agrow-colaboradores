@@ -21,6 +21,7 @@ export class CadastroAtendimentoComponent implements OnInit {
   Mensagem_Atendimento:string = "";
   Solucao_Atendimento:string = "";
   Avaliacao_Atendimento:string = "";
+  Atendente_Atendimento:any ="";
   Data_Atendimento:string = "";
   ClientesLista!:any[];
 
@@ -40,12 +41,15 @@ export class CadastroAtendimentoComponent implements OnInit {
     if(this.Cliente_Atendimento === "" || this.Cliente_Atendimento ==="-Selecione o Cliente-"){
       alert("Selecione o cliente.")}
     else{
-    var val =  {cliente:this.Cliente_Atendimento,
+    this.Atendente_Atendimento = localStorage.getItem("usuario");
+    var val =  {
+                cliente:this.Cliente_Atendimento,
                 usuario:this.Usuario_Atendimento,
                 motivo:this.Motivo_Atendimento,
                 meiodecontato:this.Meiodecontato_Atendimento,
                 solucao:this.Solucao_Atendimento,
                 avaliacao:this.Avaliacao_Atendimento,
+                atendente:this.Atendente_Atendimento,
                 data:this.Data_Atendimento
               };             
     this.service.addAtendimento(val).subscribe(res=>{
@@ -61,7 +65,6 @@ export class CadastroAtendimentoComponent implements OnInit {
       this.Solucao_Atendimento="";
   }
 }
-
 
   refreshClientesLista(){
     this.service.getClientesLista().subscribe(data=>{

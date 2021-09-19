@@ -28,7 +28,8 @@ import { NgRatingBarModule } from 'ng-rating-bar';
 import { ListaAtendimentosComponent } from './tela-cliente/lista-atendimentos/lista-atendimentos.component';
 import { ListaDesenvolvimentosComponent } from './tela-cliente/lista-desenvolvimentos/lista-desenvolvimentos.component';
 import { ListaTreinamentosComponent } from './tela-cliente/lista-treinamentos/lista-treinamentos.component';
-
+import { Usuario } from '../admin/login/usuario';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { ListaTreinamentosComponent } from './tela-cliente/lista-treinamentos/li
     MatIconModule,
     MatButtonModule,
     MatSliderModule,
-    NgRatingBarModule
+    NgRatingBarModule,
+    MatProgressSpinnerModule
   ],
   exports:[
     TelaGerenciaComponent,

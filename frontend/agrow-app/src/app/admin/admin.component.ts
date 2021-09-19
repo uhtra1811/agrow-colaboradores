@@ -13,6 +13,7 @@ export class AdminComponent implements OnInit {
 
   @Input() opened: any = false;
   mostrarMenu: boolean = true;
+  token:string = '';
 
   constructor(private router: Router) {}
  
@@ -26,6 +27,10 @@ export class AdminComponent implements OnInit {
   toggleSidebar(opened: any){
     this.opened= !this.opened;
   } 
-
+  console(){
+    localStorage.getItem('token');
+        this.token = localStorage.token;
+        console.log(this.token);
+  }
 }
 

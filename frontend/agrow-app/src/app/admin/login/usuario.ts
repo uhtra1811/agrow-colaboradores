@@ -1,4 +1,4 @@
 export class Usuario {
-    Nome_Cliente!:string;
-    Password!:string;
+    Usuario:string = 'arthur';
+    Senha:string = 'senha';
 }

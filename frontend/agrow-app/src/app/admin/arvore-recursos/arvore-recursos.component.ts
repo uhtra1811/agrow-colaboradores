@@ -190,15 +190,15 @@ mostraComponente(node: any){
     this.router.navigate(['/admin/lista-usuario']);
     this.buttonClicked.emit(this.opened);
   
-  }else if (node.name === 'Solicitar suporte'){  
+  }else if (node.name === 'Solicitar Suporte'){  
     this.router.navigate(['/admin/solicita-suporte']);
     this.buttonClicked.emit(this.opened);  
 
-  }else if (node.name === 'Solicitar desenvolvimento'){  
+  }else if (node.name === 'Solicitar Desenvolvimento'){  
     this.buttonClicked.emit(this.opened);
     this.router.navigate(['/admin/solicita-desenvolvimento']);
 
-  }else if (node.name ===  'Solicitar treinamento'){  
+  }else if (node.name ===  'Solicitar Treinamento'){  
     this.buttonClicked.emit(this.opened);
     this.router.navigate(['/admin/solicita-treinamento']);
 
@@ -217,6 +217,10 @@ mostraComponente(node: any){
   }else if (node.name ===  'Meus Treinamentos'){  
     this.buttonClicked.emit(this.opened);
     this.router.navigate(['/admin/cliente-treinamento']);
+
+  }else if (node.name ===  'Solicitar Suporte'){  
+    this.buttonClicked.emit(this.opened);
+    this.router.navigate(['/admin/solicita-suporte']);
   }
  }
 }
