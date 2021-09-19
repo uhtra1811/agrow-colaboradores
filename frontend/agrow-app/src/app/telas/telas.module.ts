@@ -30,6 +30,8 @@ import { ListaDesenvolvimentosComponent } from './tela-cliente/lista-desenvolvim
 import { ListaTreinamentosComponent } from './tela-cliente/lista-treinamentos/lista-treinamentos.component';
 import { Usuario } from '../admin/login/usuario';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { SolicitaAuditoriaComponent } from './tela-cliente/solicita-auditoria/solicita-auditoria.component';
+import { SolicitaMigracaoComponent } from './tela-cliente/solicita-migracao/solicita-migracao.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     SolicitaTreinamentoComponent,
     ListaAtendimentosComponent,
     ListaDesenvolvimentosComponent,
-    ListaTreinamentosComponent
+    ListaTreinamentosComponent,
+    SolicitaAuditoriaComponent,
+    SolicitaMigracaoComponent
   ],
   imports: [
     CommonModule,

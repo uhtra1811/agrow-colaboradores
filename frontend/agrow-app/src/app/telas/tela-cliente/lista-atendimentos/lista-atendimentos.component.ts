@@ -13,7 +13,9 @@ export class ListaAtendimentosComponent implements OnInit {
 
   constructor(private service:SharedService, private router: Router) { }
 
-  MostraAvaliar:boolean = true
+  MostrarAvaliacaoHabilitada:boolean = true
+  MostrarAvaliacaoDesabilitada:boolean = true
+  
  
   cad:any;
  
@@ -57,9 +59,13 @@ export class ListaAtendimentosComponent implements OnInit {
     this.UsuarioNomeFiltro = localStorage.getItem('usuario');
     this.Usuario_Atendimento = this.UsuarioNomeFiltro;
    
-    this.mostrarAtendimentos();
+    //this.mostrarAtendimentos();
 
-    this.delay(1800).then(any=>{
+    this.loading();
+  }
+
+  loading(){
+    this.delay(1500).then(any=>{
       this.esconderLoading();
       this.mostrarTabela();
  });
@@ -68,7 +74,6 @@ export class ListaAtendimentosComponent implements OnInit {
     this.delay(1000).then(any=>{
       this.filtroUsuarioAtendimento();
  });
-    
   }
 
   esconderLoading(){
@@ -104,6 +109,15 @@ export class ListaAtendimentosComponent implements OnInit {
     this.value = this.cad.avaliacao;
     this.Data_Atendimento= this.cad.data
     console.log(this.cad);
+    if(this.value > 0){
+      this.MostrarAvaliacaoHabilitada = false;
+      this.MostrarAvaliacaoDesabilitada = true;
+
+    }else{
+      this.MostrarAvaliacaoHabilitada = true;
+      this.MostrarAvaliacaoDesabilitada = false;
+    }
+  
   }
   
 
@@ -126,63 +140,12 @@ export class ListaAtendimentosComponent implements OnInit {
     });
   }
 
-  filtroIdAtendimento(){
-    var Id_AtendimentoFiltro:string = "" + this.Id_AtendimentoFiltro;
-    this.AtendimentosLista = this.AtendimentosListaSemFiltro.filter(function (el:any){
-        return el.id.toString().toLowerCase().includes(
-          Id_AtendimentoFiltro.toString()
-        )
-    });
-    console.log(this.AtendimentosLista)
-  }
 
-  filtroClienteAtendimento(){
-    var ClienteNomeFiltro:string = "" + this.ClienteNomeFiltro;
-    this.AtendimentosLista = this.AtendimentosListaSemFiltro.filter(function (el:any){
-        return el.cliente.toString().toLowerCase().includes(
-          ClienteNomeFiltro.toString().trim().toLowerCase()
-        )
-    });
-  }
   filtroUsuarioAtendimento(){
     var UsuarioNomeFiltro:string = "" + this.UsuarioNomeFiltro;
     this.AtendimentosLista = this.AtendimentosListaSemFiltro.filter(function (el:any){
         return el.usuario.toString().toLowerCase().includes(
           UsuarioNomeFiltro.toString().trim().toLowerCase()
-        )
-    });
-  }
-  
-  filtroContatoAtendimento(){
-    var ContatoFiltro:string = "" + this.ContatoFiltro;
-    this.AtendimentosLista = this.AtendimentosListaSemFiltro.filter(function (el:any){
-        return el.meiodecontato.toString().toLowerCase().includes(
-          ContatoFiltro.toString().trim().toLowerCase()
-        )
-    });
-  }
-  filtroMotivoAtendimento(){
-    var MotivoFiltro:string = "" + this.MotivoFiltro;
-    this.AtendimentosLista = this.AtendimentosListaSemFiltro.filter(function (el:any){
-        return el.motivo.toString().toLowerCase().includes(
-          MotivoFiltro.toString().trim().toLowerCase()
-        )
-    });
-  }
-
-  filtroSolucaoAtendimento(){
-    var SolucaoFiltro:string = "" + this.SolucaoFiltro;
-    this.AtendimentosLista = this.AtendimentosListaSemFiltro.filter(function (el:any){
-        return el.solucao.toString().toLowerCase().includes(
-          SolucaoFiltro.toString().trim().toLowerCase()
-        )
-    });
-  }
-  filtroDataAtendimento(){
-    var DataFiltro:string = "" + this.DataFiltro;
-    this.AtendimentosLista = this.AtendimentosListaSemFiltro.filter(function (el:any){
-        return el.data.toString().toLowerCase().includes(
-          DataFiltro.toString().trim().toLowerCase()
         )
     });
   }
@@ -202,9 +165,5 @@ export class ListaAtendimentosComponent implements OnInit {
       this.AtendimentosLista=data;
       this.AtendimentosListaSemFiltro=data});
       
-  }
-
-  closeClick(){
-    
   }
 }

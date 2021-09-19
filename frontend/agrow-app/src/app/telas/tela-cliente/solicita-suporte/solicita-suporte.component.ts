@@ -102,7 +102,7 @@ this.setarModulo();
                   cliente:this.Empresa,
                   usuario:this.Usuario,
                   motivo:this.Modulo + ' ' + this.Motivo,
-                  meiodecontato:'Software',
+                  meiodecontato:'aGrow',
                   solucao:'',
                   avaliacao:'',
                   data:this.Data_Atendimento
@@ -112,12 +112,8 @@ this.setarModulo();
       },  
       error => {alert("Erro ao salvar,revise as informações preenchidas.")
       });
-        /*this.Cliente_Atendimento="";
-        this.Usuario_Atendimento="";
-        this.Motivo_Atendimento="";
-        this.Meiodecontato_Atendimento= "";
-        this.Mensagem_Atendimento="";
-        this.Solucao_Atendimento="";*/
+        this.Motivo="";
+ 
     }
   }
   

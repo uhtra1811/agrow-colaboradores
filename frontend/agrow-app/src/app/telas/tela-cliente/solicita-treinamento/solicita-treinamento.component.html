@@ -3,22 +3,13 @@
 <div class="box">
     
     <div class="settings">
-            <label >Qual nível de treinamento deseja contratar? </label><br>
-            <input type="checkbox"><a>Nível Básico</a><br>
+            <label >Qual nível de treinamento deseja? </label><br>
+            <input  (click)="setarModulo()" [(ngModel)]="Basico" type="checkbox"><a>Nível Básico</a><br>
             <a style="font-size: 12px;">Apresentação do sistema e suas funcionalidades para te deixar familiarizado com o aGrow</a><br>
-            <input type="checkbox"><a>Nível Avançado</a><br>
-            <a style="font-size: 12px;">Revisão de conceitos em regras de negócio específicas, dúvidas gerais e dicas para melhorar e facilitar a gestão para quem já tem experiência com o aGrow </a> <br>
-   
-            <div>     
-                <label >Quais dos módulos do sistema você mais utiliza:</label><br>
-                <input type="checkbox"><a>Financeiro</a><br>
-                <input type="checkbox"><a>Rotinas</a><br>
-                <input type="checkbox"><a>Relatórios</a><br>
-                <input type="checkbox"><a>Cadastros</a><br>
-            </div>     
-        </div>
+            <input  (click)="setarModulo()" [(ngModel)]="Avancado" type="checkbox"><a>Nível Avançado</a><br>
+            <a style="font-size: 12px;">Revisão de conceitos em regras de negócio específicas, dúvidas gerais e dicas para melhorar e facilitar a gestão, elaborado para quem já tem experiência com o aGrow </a> <br>
+         
     
-  
     
     </div> 
 

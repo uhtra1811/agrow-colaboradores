@@ -7,27 +7,17 @@
        
         <div >     
             <label >Referente a qual módulo precisa de uma nova funcionalidade?</label><br>
-            <input type="checkbox"><a>Financeiro</a><br>
-            <input type="checkbox"><a>Rotinas</a><br>
-            <input type="checkbox"><a>Relatórios</a><br>
-            <input type="checkbox"><a>Cadastros</a><br>
-            <input type="checkbox"><a>Outros</a>
+            <input type="checkbox" (click)="setarModulo()" [(ngModel)]="Rotinas"><a> Rotinas</a> <a>    (Exemplo: Faturamento, Estoque, Sped Fiscal, Sicca e etc.)</a><br>
+            <input type="checkbox" (click)="setarModulo()" [(ngModel)]="Relatorios"><a> Relatórios</a><br>
+            <input type="checkbox" (click)="setarModulo()" [(ngModel)]="Cadastros"><a> Cadastros</a><br>
+            <input type="checkbox" (click)="setarModulo()" [(ngModel)]="Financeiro"><a> Financeiro</a><br>
             
         </div>
     
     
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Descreva sua necessidade da maneira mais detalhada possível:</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  placeholder="Digite aqui" [(ngModel)]="Motivo_Atendimento"></textarea>
-          </div>
-
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Como deseja ser contatado? </label>
-            <select>
-                <option>Whastapp</option>
-                <option>Telefone</option>
-                <option>Skype</option>
-              </select>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  placeholder="Digite aqui" [(ngModel)]="Motivo"></textarea>
           </div>
         <button id="salvar"  class="btn btn-success ">Enviar</button>
     

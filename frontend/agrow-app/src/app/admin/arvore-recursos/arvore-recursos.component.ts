@@ -88,7 +88,8 @@ const TREE_DATA: ArvoreRecursosNode[] = [
        {name: 'Solicitar Suporte'},
        {name: 'Solicitar Desenvolvimento'},
        {name: 'Solicitar Treinamento'},
-       {name: 'Solicitar Auditoria'}
+       {name: 'Solicitar Auditoria'},
+       {name: 'Solicitar Migração'}
      ]},
      {name: 'Relatórios',
        children:[
@@ -221,6 +222,14 @@ mostraComponente(node: any){
   }else if (node.name ===  'Solicitar Suporte'){  
     this.buttonClicked.emit(this.opened);
     this.router.navigate(['/admin/solicita-suporte']);
+
+  }else if (node.name ===  'Solicitar Auditoria'){  
+    this.buttonClicked.emit(this.opened);
+    this.router.navigate(['/admin/solicita-auditoria']);
+  
+  }else if (node.name ===  'Solicitar Migração'){  
+    this.buttonClicked.emit(this.opened);
+    this.router.navigate(['/admin/solicita-migracao']);
   }
  }
 }
