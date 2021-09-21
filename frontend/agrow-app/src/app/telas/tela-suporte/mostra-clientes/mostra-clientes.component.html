@@ -1,5 +1,5 @@
 <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl" role="document">
+  <div class="modal-dialog modal-x" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title" id="ModalLabel">Edita Atendimento</h1>
@@ -8,7 +8,37 @@
         </button>
       </div>
       <div class="modal-body">
-    <app-edita-cliente></app-edita-cliente>
+        <label class="col-sm-2 col-form-label">Cliente:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" 
+          placeholder="Digite o nome do cliente" [(ngModel)]="Cliente">
+       </div> 
+       <label class="col-sm-2 col-form-label">Licenças:</label>
+       <div class="col-sm-10">
+         <input type="text" class="form-control" 
+         placeholder="Digite o número de licenças" [(ngModel)]="Licencas">
+      </div> 
+      <label class="col-sm-2 col-form-label">Versão:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" 
+        placeholder="Digite o número da versão do cliente" [(ngModel)]="Versao">
+     </div> 
+      <label class="col-sm-2 col-form-label">Telefone:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" 
+        placeholder="Digite o telefone do cliente" [(ngModel)]="Telefone">
+     </div> 
+     <label class="col-sm-2 col-form-label">Firebird:</label>
+     <div class="col-sm-10">
+       <input type="text" class="form-control" 
+       placeholder="Digite a versão firebird" [(ngModel)]="Firebird">
+    </div> 
+    <label class="col-sm-2 col-form-label">Validação:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" 
+      placeholder="Digite o tempo de validação do cliente" [(ngModel)]="Validacao">
+   </div> 
+   <button (click)="updateCliente()" style="margin-left: 35%; margin-top: 2%;" class="btn btn-success">Editar</button>
       </div>
       <div class="modal-footer">
       </div>
@@ -18,17 +48,17 @@
 
 <mat-toolbar>
   <button mat-icon-button  style="left: 15%; bottom:10%" ><mat-icon>search</mat-icon></button>
-  <button mat-icon-button  style="left: 87%">  <mat-icon>file_copy</mat-icon> Exportar</button>
+  <button (click)="filtroIdCliente()" mat-icon-button  style="left: 87%">  <mat-icon>file_copy</mat-icon> Exportar</button>
      <div class="filtro" style="font-size: 12px;">
-        <input        placeholder=" Id">
-        <input     placeholder=" Cliente">
-        <input     placeholder=" Licenças">
-        <input     placeholder=" Versão">
-        <input     placeholder=" Telefone">
-        <input    placeholder=" Firebird">
-        <input    placeholder=" Validação">
-        <input    placeholder=" Satisfação">
-        <input  style="width: 12%;" type="date"    placeholder=" Data">
+        <input [(ngModel)]="Id_ClienteFiltro" (keyup)="filtroIdCliente()"  style="width: 4%; margin-left: 1%;"   placeholder=" Id">
+        <input style="width: 8%; margin-left: 1%;"   placeholder=" Cliente">
+        <input style="width: 8%; margin-left: 1%;"   placeholder=" Licenças">
+        <input style="width: 8%; margin-left: 1%;"   placeholder=" Versão">
+        <input style="width: 8%; margin-left: 1%;"   placeholder=" Telefone">
+        <input style="width: 8%; margin-left: 1%;"   placeholder=" Firebird">
+        <input style="width: 8%; margin-left: 1%;"   placeholder=" Validação">
+        <input style="width: 8%; margin-left: 1%; font-size: 10px;"   placeholder="Prox. Validação">
+        <input style="width: 8%; margin-left: 1%;"   placeholder=" Satisfação">
     </div>    
 </mat-toolbar>
 
@@ -59,8 +89,8 @@
           <td>{{dataItem.validacao}}</td>
           <td></td>
           <td></td>
-          <td><button mat-icon-button   data-toggle="modal" data-target="#Modal">  <mat-icon>edit</mat-icon></button></td>
-          <td><button mat-icon-button >  <mat-icon>delete</mat-icon></button></td>
+          <td><button (click) ="editarClienteModal(dataItem)" mat-icon-button   data-toggle="modal" data-target="#Modal">  <mat-icon>edit</mat-icon></button></td>
+          <td><button (click) ="deleteCliente(dataItem)" mat-icon-button >  <mat-icon>delete</mat-icon></button></td>
      
         </tr>
       </tbody>

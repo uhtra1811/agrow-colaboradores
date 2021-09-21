@@ -17,6 +17,12 @@ import {  HttpClientModule } from '@angular/common/http';
 import { TelasModule } from './telas/telas.module';
 import { FormsModule } from '@angular/forms';
 import { ListaUsuarioComponent } from './telas/tela-gerencia/lista-usuario/lista-usuario.component';
+import { ArvoreRecursosClienteComponent } from './admin/arvore-recursos-cliente/arvore-recursos-cliente.component';
+import { ArvoreRecursosSuporteComponent } from './admin/arvore-recursos-suporte/arvore-recursos-suporte.component';
+import { ArvoreRecursosTreinamentoComponent } from './admin/arvore-recursos-treinamento/arvore-recursos-treinamento.component';
+import { ArvoreRecursosDirecaoComponent } from './admin/arvore-recursos-direcao/arvore-recursos-direcao.component';
+import { ArvoreRecursosDesenvolvimentoComponent } from './admin/arvore-recursos-desenvolvimento/arvore-recursos-desenvolvimento.component';
+import { ArvoreRecursosComercialComponent } from './admin/arvore-recursos-comercial/arvore-recursos-comercial.component';
 
 
 @NgModule({
@@ -25,7 +31,13 @@ import { ListaUsuarioComponent } from './telas/tela-gerencia/lista-usuario/lista
     AdminComponent,
     LoginComponent,
     ArvoreRecursosComponent,
-    ListaUsuarioComponent
+    ListaUsuarioComponent,
+    ArvoreRecursosClienteComponent,
+    ArvoreRecursosSuporteComponent,
+    ArvoreRecursosTreinamentoComponent,
+    ArvoreRecursosDirecaoComponent,
+    ArvoreRecursosDesenvolvimentoComponent,
+    ArvoreRecursosComercialComponent
   ],
   imports: [
     BrowserModule,

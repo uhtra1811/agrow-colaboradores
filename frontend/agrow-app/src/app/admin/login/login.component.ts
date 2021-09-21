@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit{
   Empresa:string  = '';
   Senha:string = '';
   Token!:any;
+  Permissao!:any;
 
   constructor( private service:SharedService, 
                http: HttpClient, 
@@ -42,23 +43,27 @@ export class LoginComponent implements OnInit{
                       senha:this.Senha 
                     };
    this.service.postLogin(body, { headers }).subscribe(res => {
-     console.log(res)
+    
      //   this.token = console.info(JSON.parse(JSON.stringify(res)).token);
+     this.router.navigate(['/admin'])
      this.Usuario = JSON.parse(JSON.stringify(res)).usuario
      this.Empresa = JSON.parse(JSON.stringify(res)).empresa
      this.Token = JSON.parse(JSON.stringify(res)).token
+     this.Permissao = JSON.parse(JSON.stringify(res)).permissao
      localStorage.setItem('usuario', this.Usuario);
      localStorage.setItem('empresa', this.Empresa);
      localStorage.setItem('token', this.Token);
-      //  this.router.navigate(['/admin'])},
+     localStorage.setItem('permissao', this.Permissao);
+     },
       
-    },
+    
    error => {alert("Usuário ou senha incorreto.")
    });
   }
   }
   console(){
-    console.log(this.Token.token)
+    this.router.navigate(['/admin'])
+    
   }
 }
 

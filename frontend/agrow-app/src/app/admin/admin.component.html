@@ -1,5 +1,5 @@
 <mat-toolbar *ngIf="mostrarMenu" id="toolbar">
-    <button (click)="toggleSidebar(opened)" mat-icon-button>
+    <button  (click)="toggleSidebar(opened)" mat-icon-button>
       <mat-icon>menu</mat-icon>
     </button>
     <span style="margin-left: 1%;">aGrow</span>
@@ -17,7 +17,12 @@
 <div id="componentes"><router-outlet></router-outlet></div>
 
 <ng-sidebar-container><ng-sidebar  [(opened)]="opened">
-  <app-arvore-recursos (buttonClicked)="toggleSidebar($event)"></app-arvore-recursos>
+  <!--<app-arvore-recursos (buttonClicked)="toggleSidebar($event)"></app-arvore-recursos>-->
+  <app-arvore-recursos-cliente         *ngIf="Cliente" (buttonClicked)="toggleSidebar($event)"></app-arvore-recursos-cliente>
+  <app-arvore-recursos-suporte         *ngIf="Suporte" (buttonClicked)="toggleSidebar($event)"></app-arvore-recursos-suporte>
+  <app-arvore-recursos-direcao         *ngIf="Direcao"(buttonClicked)="toggleSidebar($event)"></app-arvore-recursos-direcao>
+  <app-arvore-recursos-treinamento     *ngIf="Treinamento" (buttonClicked)="toggleSidebar($event)"></app-arvore-recursos-treinamento>
+  <app-arvore-recursos-desenvolvimento *ngIf="Desenvolvimento"(buttonClicked)="toggleSidebar($event)"></app-arvore-recursos-desenvolvimento>
 </ng-sidebar></ng-sidebar-container>
 
 

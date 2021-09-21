@@ -16,10 +16,10 @@ export class SharedService {
     return this.http.post(this.APIUrl + '/cliente',val);
   }
   updateCliente(val:any){
-    return this.http.put(this.APIUrl + '/api/cliente',val);
+    return this.http.put(this.APIUrl + '/edita-cliente',val);
   }
   deleteCliente(val:any){
-    return this.http.delete(this.APIUrl + '/api/cliente/'+ val);
+    return this.http.delete(this.APIUrl + '/cliente/'+ val);
   }
   getClientesLista():Observable<any[]>{
     return this.http.get<any[]>(this.APIUrl + '/clientes'); 
