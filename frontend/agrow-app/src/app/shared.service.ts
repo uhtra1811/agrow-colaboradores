@@ -12,51 +12,101 @@ export class SharedService {
 
   constructor(private http:HttpClient, private router: Router) {}
   
-  addCliente(val:any){
+  addClienteService(val:any){
     return this.http.post(this.APIUrl + '/cliente',val);
   }
-  updateCliente(val:any){
+  updateClienteService(val:any){
     return this.http.put(this.APIUrl + '/edita-cliente',val);
   }
-  deleteCliente(val:any){
+  deleteClienteService(val:any){
     return this.http.delete(this.APIUrl + '/cliente/'+ val);
   }
-  getClientesLista():Observable<any[]>{
+  getClientesListaService():Observable<any[]>{
     return this.http.get<any[]>(this.APIUrl + '/clientes'); 
   }
 
 
-  addAtendimento(val:any){
+  addAtendimentoService(val:any){
     return this.http.post(this.APIUrl + '/atendimento',val);
   }
-  updateAtendimento(val:any){
+  updateAtendimentoService(val:any){
     return this.http.put(this.APIUrl + '/edita-atendimento',val);
   }
-  deleteAtendimento(val:any){
+  deleteAtendimentoService(val:any){
     return this.http.delete(this.APIUrl + '/atendimento/'+ val);
   }
-  getAtendimentosLista():Observable<any[]>{
+  getAtendimentosListaService():Observable<any[]>{
     return this.http.get<any[]>(this.APIUrl + '/atendimentos');
   }
 
+  addDesenvolvimentoService(val:any){
+    return this.http.post(this.APIUrl + '/desenvolvimento',val);
+  }
+  updateDesenvolvimentoService(val:any){
+    return this.http.put(this.APIUrl + '/edita-desenvolvimento',val);
+  }
+  deleteDesenvolvimentoService(val:any){
+    return this.http.delete(this.APIUrl + '/desenvolvimento/'+ val);
+  }
+  getDesenvolvimentosListaService():Observable<any[]>{
+    return this.http.get<any[]>(this.APIUrl + '/desenvolvimentos');
+  }
+
+  addTreinamentoService(val:any){
+    return this.http.post(this.APIUrl + '/treinamento',val);
+  }
+  updateTreinamentoService(val:any){
+    return this.http.put(this.APIUrl + '/edita-treinamento',val);
+  }
+  deleteTreinamentoService(val:any){
+    return this.http.delete(this.APIUrl + '/treinamento/'+ val);
+  }
+  getTreinamentosListaService():Observable<any[]>{
+    return this.http.get<any[]>(this.APIUrl + '/treinamentos');
+  }
 
 
+  addAuditoriaService(val:any){
+    return this.http.post(this.APIUrl + '/auditoria',val);
+  }
+  updateAuditoriaService(val:any){
+    return this.http.put(this.APIUrl + '/edita-auditoria',val);
+  }
+  deleteAuditoriaService(val:any){
+    return this.http.delete(this.APIUrl + '/auditoria/'+ val);
+  }
+  getAuditoriasListaService():Observable<any[]>{
+    return this.http.get<any[]>(this.APIUrl + '/auditorias');
+  }
 
 
+  addMigracaoService(val:any){
+    return this.http.post(this.APIUrl + '/migracao',val);
+  }
+  updateMigracaoService(val:any){
+    return this.http.put(this.APIUrl + '/edita-migracao',val);
+  }
+  deleteMigracaoService(val:any){
+    return this.http.delete(this.APIUrl + '/migracao/'+ val);
+  }
+  getMigracoesListaService():Observable<any[]>{
+    return this.http.get<any[]>(this.APIUrl + '/migracoes');
+  }
 
-  postLogin(headers:any, body:any){7
+
+  postLoginService(headers:any, body:any){7
     return this.http.post(this.APIUrl + '/login', headers, body);
 }
-  getListaUsuarios():Observable<any[]>{
+  getListaUsuariosService():Observable<any[]>{
     return this.http.get<any[]>(this.APIUrl + '/users');
 }
-  addUsuario(val:any){
+  addUsuarioService(val:any){
     return this.http.post(this.APIUrl + '/user',val);
 }
-  editUsuario(val:any){
+  editUsuarioService(val:any){
     return this.http.put(this.APIUrl + '/user',val);
 }
-  deleteUsuario(val:any){
+  deleteUsuarioService(val:any){
     return this.http.delete(this.APIUrl + '/user/' + val);
 }
 
@@ -66,10 +116,10 @@ export class SharedService {
 
 
 
-getRelatorio(val:any){
+getRelatorioService(val:any){
   return this.http.get(this.APIUrl + '/export/pdf'+ val);
 }
-download(): Observable<any> {
+downloadService(): Observable<any> {
   return this.http.get(this.APIUrl + "/teste",
   {responseType:"arraybuffer"})
 

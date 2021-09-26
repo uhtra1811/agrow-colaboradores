@@ -47,13 +47,13 @@ export class MostraClientesComponent implements OnInit {
   }
 
   mostrarClientes(){
-    this.service.getClientesLista().subscribe(data=>{
+    this.service.getClientesListaService().subscribe(data=>{
       this.ClientesLista=data;
       console.log(this.ClientesLista);
     });
   }
   refreshClientesLista(){
-    this.service.getClientesLista().subscribe(data=>{
+    this.service.getClientesListaService().subscribe(data=>{
       this.ClientesLista=data;
       this.ClientesListaSemFiltro=data;
     });
@@ -76,7 +76,7 @@ export class MostraClientesComponent implements OnInit {
   }
   deleteCliente(item: any){
     if(confirm('Deseja deletar?')){
-      this.service.deleteCliente(item.id).subscribe(data=>{
+      this.service.deleteClienteService(item.id).subscribe(data=>{
         alert("Deletado com sucesso");
         this.ngOnInit();
       },
@@ -97,7 +97,7 @@ export class MostraClientesComponent implements OnInit {
                telefone:this.Telefone,
                firebird:this.Firebird,
                validacao:this.Validacao};
-  this.service.updateCliente(val).subscribe(res=>{
+  this.service.updateClienteService(val).subscribe(res=>{
       alert("Editado com sucesso!");
       this.ngOnInit();
     },

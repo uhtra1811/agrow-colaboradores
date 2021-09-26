@@ -12,21 +12,23 @@ public class UserRegistrationDTO extends User {
     private String empresa; 
     private String token;
     private String senha;
+    private String permissao;
 
     public UserRegistrationDTO() {
 
     }
 
-    public UserRegistrationDTO(String usuario, String senha, String token, String empresa) {
+    public UserRegistrationDTO(String usuario, String senha, String token, String empresa, String permissao) {
 
         this.usuario = usuario;
-        this.empresa = empresa;
+        this.permissao = permissao;
         this.token = token;
         this.senha = senha;
+        this.empresa = empresa;
     }
     
     public static UserRegistrationDTO toDTO(User user, String tipo) {
-        return new UserRegistrationDTO(user.getUsuario(), user.getToken(),user.getEmpresa(), tipo);
+        return new UserRegistrationDTO(user.getUsuario(), user.getToken(),user.getPermissao(), tipo,user.getEmpresa());
     }
     
     public String getToken() {
@@ -38,12 +40,16 @@ public class UserRegistrationDTO extends User {
 	}
 
 	public User toUser() {
-        return new User(id, getUsuario(), getSenha(), getEmpresa());
+        return new User(id, getUsuario(), getEmpresa(),getSenha(), getPermissao());
     }
 
 
     public String getUsuario() {
         return usuario;
+    }
+
+    public String getPermissao() {
+        return permissao;
     }
 
     public void setUsuario(String usuario) {
@@ -67,6 +73,9 @@ public class UserRegistrationDTO extends User {
         this.senha = senha;
     }
 
+    public void setPermissao(String permissao) {
+        this.permissao = permissao;
+    }
 
     public Long getId() {
         return id;

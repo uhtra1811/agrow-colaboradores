@@ -22,23 +22,14 @@
   <table style="text-align: center;" class="table table-striped table-bordered" >
     <thead class="thead">
         <tr>
-            <th>Id</th>
-            <th>Cliente</th>
-            <th>Usuário</th>
-            <th>Motivo</th>
-            <th>Avaliação</th>
-            <th>Data</th>
+            <th>Código</th>
+            <th>Relatório</th>
         </tr>
     </thead>
     <tbody class="tbody">
       <tr *ngFor="let dataItem of DesenvolvimentosLista">
         <td>{{dataItem.id}}</td>
-        <td>{{dataItem.cliente}}</td>
-        <td>{{dataItem.usuario}}</td>
-        <td>{{dataItem.motivo}}</td>
-        <td>{{dataItem.avaliacao}}</td>
-        <td type="date">{{dataItem.data | date: 'dd/MM/yyyy' }}</td>
-        <td><button (click)="editaDesenvolvimento(dataItem)" data-toggle="modal" data-target="#Modal">Avaliar Desenvolvimento</button></td>
+        <td>{{dataItem.relatorio}}</td>
       </tr>
     </tbody>
   </table>

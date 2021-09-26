@@ -19,7 +19,7 @@
             <label for="exampleFormControlTextarea1" class="form-label">Descreva sua necessidade da maneira mais detalhada possível:</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  placeholder="Digite aqui" [(ngModel)]="Motivo"></textarea>
           </div>
-        <button id="salvar"  class="btn btn-success ">Enviar</button>
+        <button (click)="addDesenvolvimento()" id="salvar"  class="btn btn-success ">Enviar</button>
     
     </div> 
     </div>

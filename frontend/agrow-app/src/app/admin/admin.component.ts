@@ -27,15 +27,15 @@ export class AdminComponent implements OnInit {
   constructor(private router: Router) {}
  
   ngOnInit(): void {
-    //this.Tipo_Usuario = localStorage.getItem('usuario');
+    //this.Tipo_Usuario = sessionStorage.getItem('usuario');
     this.definirComponentesVisiveis();
 
   }
 
   definirComponentesVisiveis(){
-    this.Permissao = localStorage.getItem('permissao');
+    this.Permissao = sessionStorage.getItem('permissao');
     //Cliente
-    if(this.Permissao === '1'){
+    if(this.Permissao === 'Cliente'){
       this.Cliente = true;
       this.Suporte = false;
       this.Desenvolvimento = false;
@@ -44,7 +44,7 @@ export class AdminComponent implements OnInit {
       this.Comercial = false;
     }
     //Suporte
-    else if (this.Permissao === '2'){
+    else if (this.Permissao === 'Suporte'){
       this.Cliente = false;
       this.Suporte = true;
       this.Desenvolvimento = false;
@@ -53,7 +53,7 @@ export class AdminComponent implements OnInit {
       this.Comercial = false;
     }
     //Desenvolvimento
-    else if (this.Permissao === '3'){
+    else if (this.Permissao === 'Desenvolvimento'){
       this.Cliente = false;
       this.Suporte = false;
       this.Desenvolvimento = true;
@@ -62,7 +62,7 @@ export class AdminComponent implements OnInit {
       this.Comercial = false;
     }
     //Treinamento
-    else if (this.Permissao === '4'){
+    else if (this.Permissao === 'Treinamento'){
       this.Cliente = false;
       this.Suporte = false;
       this.Desenvolvimento = false;
@@ -71,7 +71,7 @@ export class AdminComponent implements OnInit {
       this.Comercial = false;
     }
     //Direcao
-    else if (this.Permissao === '5'){
+    else if (this.Permissao === 'Direcao'){
       this.Cliente = false;
       this.Suporte = false;
       this.Desenvolvimento = false;
@@ -80,7 +80,7 @@ export class AdminComponent implements OnInit {
       this.Comercial = false;
     }
     //Comercial
-    else if (this.Permissao === '6'){
+    else if (this.Permissao === 'Comercial'){
       this.Cliente = false;
       this.Suporte = false;
       this.Desenvolvimento = false;
@@ -89,7 +89,7 @@ export class AdminComponent implements OnInit {
       this.Comercial = true;
     }
     //Administrador
-    else if (this.Permissao === '7'){
+    else if (this.Permissao === 'Administrador'){
       this.Cliente = true;
       this.Suporte = true;
       this.Desenvolvimento = true;
@@ -106,9 +106,9 @@ export class AdminComponent implements OnInit {
     this.opened= !this.opened;
   } 
   console(){
-    localStorage.getItem('permissao');
-        this.token = localStorage.token;
-        this.Permissao = localStorage.permissao
+    sessionStorage.getItem('permissao');
+        this.token = sessionStorage.token;
+        this.Permissao = sessionStorage.permissao
         console.log(this.Permissao);
   
   }

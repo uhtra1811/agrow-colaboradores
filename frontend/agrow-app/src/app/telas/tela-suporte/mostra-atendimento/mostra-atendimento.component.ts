@@ -65,7 +65,7 @@ export class MostraAtendimentoComponent implements OnInit {
   }
 
   mostrarAtendimentos(){
-    this.service.getAtendimentosLista().subscribe(data=>{
+    this.service.getAtendimentosListaService().subscribe(data=>{
       this.AtendimentosLista=data;
       console.log(data)
     });
@@ -98,7 +98,7 @@ export class MostraAtendimentoComponent implements OnInit {
                   atendente:localStorage.getItem('usuario'),
                   data:this.Data_Atendimento
                 }
-      this.service.updateAtendimento(val).subscribe(res=>{
+      this.service.updateAtendimentoService(val).subscribe(res=>{
         alert("Editado com sucesso! Data:" + this.Data_Atendimento);
         this.ngOnInit();
       },  
@@ -108,7 +108,7 @@ export class MostraAtendimentoComponent implements OnInit {
   
     deletarAtendimento(item: any){
       if(confirm('Deseja deletar?')){
-        this.service.deleteAtendimento(item.id).subscribe(data=>{
+        this.service.deleteAtendimentoService(item.id).subscribe(data=>{
           alert("Deletado com sucesso");
        this.refreshAtendimentosLista(); }, 
         error => {alert("Erro ao deletar!");
@@ -195,7 +195,7 @@ export class MostraAtendimentoComponent implements OnInit {
   }
 
   geraRelatorio(){
-    this.service.download().subscribe(
+    this.service.downloadService().subscribe(
       (res) => {
         let blob = new Blob([res], { type: 'pdf' });
          FileSaver.saveAs(blob, "Atendimentos.pdf")
@@ -203,7 +203,7 @@ export class MostraAtendimentoComponent implements OnInit {
     });
   } 
   refreshAtendimentosLista(){
-    this.service.getAtendimentosLista().subscribe(data=>{
+    this.service.getAtendimentosListaService().subscribe(data=>{
       this.AtendimentosLista=data;
       this.AtendimentosListaSemFiltro=data});
   }

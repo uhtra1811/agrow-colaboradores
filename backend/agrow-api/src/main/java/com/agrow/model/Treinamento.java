@@ -19,7 +19,8 @@ public class Treinamento implements Serializable{
        private long id; 
        private String cliente;
        private String usuario;
-       private String motivo;
+       private String nivel;
+       private Long avaliacao;
        private String data;
      
     
@@ -41,11 +42,17 @@ public class Treinamento implements Serializable{
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
-	public String getMotivo() {
-		return motivo;
+    public String getNivel() {
+		return nivel;
 	}
-	public void setMotivo(String motivo) {
-		this.motivo = motivo;
+	public void setNivel(String nivel) {
+		this.nivel = nivel;
+	}
+	public Long getAvaliacao() {
+			return avaliacao;
+	}
+	public void setAvaliacao(Long avaliacao) {
+			this.avaliacao = avaliacao;
 	}
 	public String getData() {
 		return data;

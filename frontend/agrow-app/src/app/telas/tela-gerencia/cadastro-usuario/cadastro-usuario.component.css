@@ -1,0 +1,25 @@
+div.settings {
+    width: 50% ;
+    margin-left: 35%;
+    top: 15%;
+}
+
+label{
+    font-size: 18px;
+}
+
+input{
+    width: 65%;
+}
+select{
+    width: 54%;
+}
+#cad_cliente{
+    margin-top: 2%;
+    margin-left: 80%;
+}
+
+button{    
+    margin-top: 3%;
+    margin-left: 45%;
+}

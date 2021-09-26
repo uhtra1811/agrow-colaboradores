@@ -40,7 +40,7 @@ public class DesenvolvimentoController {
 		return desenvolvimentoRepository.save(desenvolvimento);
 	}
    
-	@PutMapping("/desenvolvimento")
+	@PutMapping("/edita-desenvolvimento")
 	public Desenvolvimento editDesenvolvimeto(@RequestBody @Valid Desenvolvimento desenvolvimento) {
 		return desenvolvimentoRepository.save(desenvolvimento);
 	}

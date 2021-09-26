@@ -28,7 +28,7 @@ export class AuthService {
                        senha:this.Password 
                     };
     
-    this.service.postLogin(body, { headers }); 
+    this.service.postLoginService(body, { headers }); 
     console.log(body,headers);
     this.router.navigate(['/']);};}
 }

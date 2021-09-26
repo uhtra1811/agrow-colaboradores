@@ -15,6 +15,11 @@ import { SolicitaTreinamentoComponent } from "./telas/tela-cliente/solicita-trei
 import { ListaAtendimentosComponent } from "./telas/tela-cliente/lista-atendimentos/lista-atendimentos.component";
 import { SolicitaAuditoriaComponent } from "./telas/tela-cliente/solicita-auditoria/solicita-auditoria.component";
 import { SolicitaMigracaoComponent } from "./telas/tela-cliente/solicita-migracao/solicita-migracao.component";
+import { ListaDesenvolvimentosComponent } from "./telas/tela-cliente/lista-desenvolvimentos/lista-desenvolvimentos.component";
+import { ListaTreinamentosComponent } from "./telas/tela-cliente/lista-treinamentos/lista-treinamentos.component";
+import { ListaAuditoriasComponent } from "./telas/tela-cliente/lista-auditorias/lista-auditorias.component";
+import { ListaMigracoesComponent } from "./telas/tela-cliente/lista-migracoes/lista-migracoes.component";
+import { ListaRelatoriosAgrowComponent } from "./telas/lista-relatorios-agrow/lista-relatorios-agrow.component";
 
 
   const APP_ROUTES: Routes = [ 
@@ -34,7 +39,12 @@ import { SolicitaMigracaoComponent } from "./telas/tela-cliente/solicita-migraca
         {path: 'solicita-treinamento', component: SolicitaTreinamentoComponent},
         {path: 'cliente-atendimentos', component: ListaAtendimentosComponent},
         {path: 'solicita-auditoria', component: SolicitaAuditoriaComponent},
-        {path: 'solicita-migracao', component: SolicitaMigracaoComponent}
+        {path: 'solicita-migracao', component: SolicitaMigracaoComponent},
+        {path: 'cliente-desenvolvimentos', component: ListaDesenvolvimentosComponent},
+        {path: 'cliente-treinamentos', component: ListaTreinamentosComponent},
+        {path: 'cliente-migracoes', component: ListaMigracoesComponent},
+        {path: 'cliente-auditorias', component: ListaAuditoriasComponent},
+        {path: 'relatorios-agrow', component: ListaRelatoriosAgrowComponent}
       ]}
   
   ];

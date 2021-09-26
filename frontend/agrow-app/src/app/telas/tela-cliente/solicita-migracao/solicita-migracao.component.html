@@ -1,1 +1,14 @@
-<p>solicita-migracao works!</p>
+<div class="settings">
+    <div >     
+        <label style="margin-bottom: 2%;">Vai fazer um upgrade e trocar seu servidor?</label><br>
+        <a>Para migrar o aGrow para um novo servidor, nossa equipe irá precisar fazer uma série de configurações e será necessário uma pausa na utilização do sistema que pode levar de 1 a 2 horas. Solicite o agendamento desse processo abaixo.</a><br>
+
+        <label>Para que dia você gostaria de agendar a migração?</label>
+        <input type="date" class="form-control" [(ngModel)]="Data_Atendimento">
+    
+    </div>
+
+    
+</div> 
+<button (click)="addMigracao()" id="salvar"  class="btn btn-success ">Solicitar Orçamento</button>
+

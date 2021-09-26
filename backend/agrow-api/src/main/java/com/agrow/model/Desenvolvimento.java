@@ -19,7 +19,7 @@ public class Desenvolvimento  implements Serializable{
 		private String cliente;
         private String usuario;
         private String motivo;
-        private String solucao;
+        private String data;
         private String avaliacao;
         
 		public long getId() {
@@ -46,11 +46,11 @@ public class Desenvolvimento  implements Serializable{
 		public void setMotivo(String motivo) {
 			this.motivo = motivo;
 		}
-		public String getSolucao() {
-			return solucao;
+		public String getData() {
+			return data;
 		}
-		public void setSolucao(String solucao) {
-			this.solucao = solucao;
+		public void setData(String data) {
+			this.data = data;
 		}
 		public String getAvaliacao() {
 			return avaliacao;

@@ -7,7 +7,7 @@
         </div>
           <ng-rating-bar  style="margin-left: 38%;"  *ngIf="MostrarAvaliacaoHabilitada" [(value)]="value" [ratingCount]="5"></ng-rating-bar>
           <ng-rating-bar  style="margin-left: 38%;"  *ngIf="MostrarAvaliacaoDesabilitada"  [disabled]="true" [(value)]="value" [ratingCount]="5"></ng-rating-bar>
-        <button (click)="avaliarDesenvolvimentoService()" style="margin: 15px 15px;" class="btn btn-success">Avaliar</button>
+        <button (click)="avaliarMigracaoService()" style="margin: 15px 15px;" class="btn btn-success">Avaliar</button>
         </div>
         <div class="modal-footer">
         </div>
@@ -23,24 +23,24 @@
     <thead class="thead">
         <tr>
             <th>Id</th>
-            <th>Cliente</th>
+            <th>Empresa</th>
             <th>Usuário</th>
-            <th>Motivo</th>
             <th>Avaliação</th>
             <th>Data</th>
+            <th></th>
         </tr>
     </thead>
     <tbody class="tbody">
-      <tr *ngFor="let dataItem of DesenvolvimentosLista">
+      <tr *ngFor="let dataItem of MigracoesLista">
         <td>{{dataItem.id}}</td>
         <td>{{dataItem.cliente}}</td>
         <td>{{dataItem.usuario}}</td>
-        <td>{{dataItem.motivo}}</td>
         <td>{{dataItem.avaliacao}}</td>
         <td type="date">{{dataItem.data | date: 'dd/MM/yyyy' }}</td>
-        <td><button (click)="editaDesenvolvimento(dataItem)" data-toggle="modal" data-target="#Modal">Avaliar Desenvolvimento</button></td>
+        <td><button (click)="editaMigracao(dataItem)" data-toggle="modal" data-target="#Modal">Avaliar Desenvolvimento</button></td>
       </tr>
     </tbody>
   </table>
   </div>
   <mat-spinner *ngIf="MostraLoading"></mat-spinner>
+  

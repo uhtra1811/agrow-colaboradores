@@ -38,7 +38,7 @@ public class TreinamentoController {
 		return treinamentoRepository.save(treinamento);
 	}
    
-	@PutMapping("/treinamento")
+	@PutMapping("/edita-treinamento")
 	public Treinamento editTreinamento(@RequestBody @Valid Treinamento treinamento) {
 		return treinamentoRepository.save(treinamento);
 	}

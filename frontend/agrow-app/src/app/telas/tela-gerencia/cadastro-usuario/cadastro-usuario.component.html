@@ -1,9 +1,9 @@
 
-      
+<div class="settings"> 
     <label class="col-sm-2 col-form-label">Empresa</label>
     <div class="col-sm-10">
         <input type="text" class="form-control"
-        placeholder="Digie o nome da empresa" [(ngModel)]="Empresa">
+        placeholder="Digite o nome da empresa" [(ngModel)]="Empresa">
     </div> 
 
     <label class="col-sm-2 col-form-label">Usuário</label>
@@ -19,4 +19,15 @@
         placeholder="Escolha uma senha" [(ngModel)]="Senha">
     </div> 
 
-    <button  (click)="addUsuario()"  class="btn btn-success ">Adicionar</button>
+    <label class="col-sm-6 col-form-label">Selecione o nível de acesso</label>
+    <select  class="form-select" [(ngModel)]="Permissao">
+        <option>Cliente</option>
+        <option>Suporte</option>
+        <option>Desenvolvimento</option>
+        <option>Treinamento</option>
+        <option>Comercial</option>
+        <option>Diretor</option>
+        <option>Administrador</option>
+    </select>
+</div>      
+    <button (click)="addUsuario()"  class="btn btn-success ">Adicionar</button>

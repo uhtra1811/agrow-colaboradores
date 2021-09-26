@@ -25,10 +25,11 @@ const TREE_DATA: ArvoreRecursosNode[] = [
      ]},
      {name: 'Relatórios',
        children:[
-       {name: 'Meus Atendimentos'},
-       {name: 'Lista de Solicitações de Treinamento'},
-       {name: 'Lista de Solicitações de Desenvolvimento'},
-       {name: 'Lista de Solicitações de Auditoria'},
+       {name: 'Lista de Atendimentos'},
+       {name: 'Lista de Treinamentos'},
+       {name: 'Lista de Desenvolvimento'},
+       {name: 'Lista de Auditorias'},
+       {name: 'Lista de Migrações'},
        {name: 'Lista de Relatórios aGrow'}
     ]},
    ],
@@ -76,54 +77,8 @@ export class ArvoreRecursosClienteComponent{
  
 
 mostraComponente(node: any){
-  if(node.name ==='Suporte'){
-    this.router.navigate(['/']);
-
-  }else if (node.name === 'Cadastrar Atendimento'){ 
-    this.router.navigate(['/admin/cadastro-atendimento']);
-    this.buttonClicked.emit(this.opened);
-
-  }else if (node.name === 'Edita Atendimento'){  
-    this.router.navigate(['/admin/edita-atendimento']);
-    this.buttonClicked.emit(this.opened);
   
-  }else if (node.name === 'Cadastrar Cliente'){  
-    this.router.navigate(['/admin/cadastro-cliente']);
-    this.buttonClicked.emit(this.opened);
-  
-  }else if (node.name === 'Lista de Atendimentos'){  
-    this.router.navigate(['/admin/lista-atendimentos']);
-    this.buttonClicked.emit(this.opened);
-  
-  }else if (node.name === 'Lista de Clientes'){  
-    this.router.navigate(['/admin/lista-clientes']);
-    this.buttonClicked.emit(this.opened);
-  
-  }else if (node.name === 'Solicitações'){  
-    this.router.navigate(['/edita-atendimento']);
-    this.buttonClicked.emit(this.opened);
-  
-  }else if (node.name === 'Lista de Treinamentos'){  
-    this.router.navigate(['/edita-atendimento']);
-    this.buttonClicked.emit(this.opened);
-  
-  }else if (node.name === 'Cadastrar de Apresentações'){  
-    this.router.navigate(['/edita-atendimento']);
-    this.buttonClicked.emit(this.opened);
-  
-  }else if (node.name === 'Lista de Apresentações'){  
-    this.router.navigate(['/edita-atendimento']);
-    this.buttonClicked.emit(this.opened);
-  
-  }else if (node.name === 'Cadastro de Usuário'){  
-    this.router.navigate(['/admin/cadastro-usuario']);
-    this.buttonClicked.emit(this.opened);;
-  
-  }else if (node.name === 'Lista de Usuários'){  
-    this.router.navigate(['/admin/lista-usuario']);
-    this.buttonClicked.emit(this.opened);
-  
-  }else if (node.name === 'Solicitar Suporte'){  
+  if (node.name === 'Solicitar Suporte'){  
     this.router.navigate(['/admin/solicita-suporte']);
     this.buttonClicked.emit(this.opened);  
 
@@ -135,33 +90,37 @@ mostraComponente(node: any){
     this.buttonClicked.emit(this.opened);
     this.router.navigate(['/admin/solicita-treinamento']);
 
-  }else if (node.name ===  'Avaliação'){  
-    this.buttonClicked.emit(this.opened);
-    this.router.navigate(['/admin/avaliacao']);
-
-  }else if (node.name ===  'Meus Atendimentos'){  
-    this.buttonClicked.emit(this.opened);
-    this.router.navigate(['/admin/cliente-atendimentos']);
-
-  }else if (node.name ===  'Solicitações de Desenvolvimento'){  
-    this.buttonClicked.emit(this.opened);
-    this.router.navigate(['/admin/cliente-desenvolvimento']);
-
-  }else if (node.name ===  'Meus Treinamentos'){  
-    this.buttonClicked.emit(this.opened);
-    this.router.navigate(['/admin/cliente-treinamento']);
-
-  }else if (node.name ===  'Solicitar Suporte'){  
-    this.buttonClicked.emit(this.opened);
-    this.router.navigate(['/admin/solicita-suporte']);
-
-  }else if (node.name ===  'Solicitar Auditoria'){  
+  }  else if (node.name ===  'Solicitar Auditoria'){  
     this.buttonClicked.emit(this.opened);
     this.router.navigate(['/admin/solicita-auditoria']);
   
   }else if (node.name ===  'Solicitar Migração'){  
     this.buttonClicked.emit(this.opened);
     this.router.navigate(['/admin/solicita-migracao']);
+
+  }else if (node.name ===  'Lista de Atendimentos'){  
+    this.buttonClicked.emit(this.opened);
+    this.router.navigate(['/admin/cliente-atendimentos']);
+
+  }else if (node.name ===  'Lista de Desenvolvimento'){  
+    this.buttonClicked.emit(this.opened);
+    this.router.navigate(['/admin/cliente-desenvolvimentos']);
+
+  }else if (node.name ===  'Lista de Treinamentos'){  
+    this.buttonClicked.emit(this.opened);
+    this.router.navigate(['/admin/cliente-treinamentos']);
+  
+  }else if (node.name ===  'Lista de Auditorias'){  
+    this.buttonClicked.emit(this.opened);
+    this.router.navigate(['/admin/cliente-auditorias']);
+  
+  }else if (node.name ===  'Lista de Migrações'){  
+    this.buttonClicked.emit(this.opened);
+    this.router.navigate(['/admin/cliente-migracoes']);
+  
+  }else if (node.name ===  'Lista de Relatórios aGrow'){  
+    this.buttonClicked.emit(this.opened);
+    this.router.navigate(['/admin/relatorios-agrow']);
   }
  }
 }

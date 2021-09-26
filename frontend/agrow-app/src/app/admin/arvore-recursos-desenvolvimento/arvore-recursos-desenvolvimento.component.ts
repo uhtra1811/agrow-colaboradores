@@ -11,21 +11,16 @@ interface ArvoreRecursosNode {
 
 const TREE_DATA: ArvoreRecursosNode[] = [
   {
-    name: 'Suporte',
+    name: 'Desenvolvimento',
      children: 
     [
-      {name: 'Cadastros', 
-      children:[
-            {name: 'Cadastrar Atendimento'},
-            {name: 'Cadastrar Cliente'}
-          ],},
       {name: 'Relatórios', 
       children:[
-           {name: 'Lista de Atendimentos'},
-           {name: 'Lista de Clientes'},
-           {name: 'Lista de Relatórios aGrow'}
-      ]},
-      {name: 'Solicitar Tomada de Decisão'}
+            {name: 'Auxílio ao Suporte'},
+            {name: 'Lista de Desenvolvimentos'},
+            {name: 'Lista de Clientes'},
+            {name: 'Lista de Relatórios aGrow'}
+          ],}
     ],
   }
  ];

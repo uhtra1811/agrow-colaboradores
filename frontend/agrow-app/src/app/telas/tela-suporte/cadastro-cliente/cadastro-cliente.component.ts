@@ -52,7 +52,7 @@ export class CadastroClienteComponent implements OnInit {
                 telefone:this.Telefone,
                 firebird:this.Firebird,
                 validacao:this.Validacao};
-    this.service.addCliente(val).subscribe(res=>{
+    this.service.addClienteService(val).subscribe(res=>{
       alert("Adicionado com sucesso!");
     },
     error => {alert("Erro ao salvar,revise as informações preenchidas.")
@@ -68,7 +68,7 @@ export class CadastroClienteComponent implements OnInit {
 }
  
 refreshClientesLista(){
-  this.service.getClientesLista().subscribe(data=>{
+  this.service.getClientesListaService().subscribe(data=>{
     this.ClientesLista=data;
   });
 }

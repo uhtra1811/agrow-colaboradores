@@ -40,7 +40,7 @@ public class ClienteController {
 		return clienteRepository.save(cliente);
 	}
    
-	@PutMapping("/cliente")
+	@PutMapping("/edita-cliente")
 	public Cliente editCliente(@RequestBody @Valid Cliente cliente) {
 		return clienteRepository.save(cliente);
 	}

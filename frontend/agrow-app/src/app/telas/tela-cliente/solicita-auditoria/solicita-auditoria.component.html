@@ -1,1 +1,13 @@
-<p>solicita-auditoria works!</p>
+<div class="settings">
+    <div >     
+        <label style="margin-bottom: 2%;">O que é nosso serviço de auditoria?</label><br>
+        <a>Nossa equipe irá entrar em contato para entender sua regra de negócio, e analisar sua base de dados para te apresentar uma forma mais fácil e eficiente de utilizar o ERP aGrow.</a><br>
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Descreva o motivo da solicitação de auditoria:</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  placeholder="Digite aqui" [(ngModel)]="Motivo"></textarea>
+      </div>
+</div> 
+<button (click)="addAuditoria()" id="salvar"  class="btn btn-success ">Solicitar Orçamento</button>
+

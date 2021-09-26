@@ -15,6 +15,7 @@ export class CadastroUsuarioComponent implements OnInit {
     Usuario!:string;
     Senha!:string;
     Empresa!:string;
+    Permissao!:string;
 
     ngOnInit(): void {
 
@@ -23,13 +24,15 @@ export class CadastroUsuarioComponent implements OnInit {
     addUsuario(){
       var val = {usuario: this.Usuario,
                  senha: this.Senha,
-                 empresa: this.Empresa
+                 empresa: this.Empresa,
+                 permissao: this.Permissao
                 };
-      this.service.addUsuario(val).subscribe(res=>{
+      this.service.addUsuarioService(val).subscribe(res=>{
         alert("Usuário cadastrado com sucesso!")
       });   
       this.Usuario="";
       this.Senha="";       
-      this.Empresa="";      
+      this.Empresa="";    
+      
     }
 }

@@ -13,14 +13,20 @@ export class SolicitaSuporteComponent implements OnInit {
 
   Empresa:any ='';
   Usuario:any ='';
-  Modulo:string = '';
+
+  Checkbox:number = 0;
+  
   Financeiro:boolean = false;
   Rotinas:boolean = false;
   Relatorios:boolean = false;
   Cadastros:boolean = false;
+  Produto:boolean = false;
+
+  Modulo:string = '';
   Motivo:string= '';
   Contato:string='';
-  Checkbox:number = 0;
+
+
   Token: any = ''; 
   Data_Atendimento:string = '';
 
@@ -58,6 +64,7 @@ this.setarModulo();
       this.Rotinas = false;
       this.Relatorios = false;
       this.Cadastros = false;
+      this.Produto=false;
 
     }else if (this.Rotinas == true){
       this.Modulo = 'Rotinas';
@@ -66,6 +73,7 @@ this.setarModulo();
       this.Financeiro = false;
       this.Relatorios = false;
       this.Cadastros = false;
+      this.Produto=false;
 
     }else if (this.Relatorios == true){
       this.Modulo = 'Relatorios';
@@ -74,6 +82,7 @@ this.setarModulo();
       this.Rotinas = false;
       this.Financeiro = false;
       this.Cadastros = false;
+      this.Produto=false;
     
     }else if (this.Cadastros == true){
       this.Modulo = 'Cadastros';
@@ -82,22 +91,33 @@ this.setarModulo();
       this.Rotinas = false;
       this.Relatorios = false;
       this.Financeiro = false;
-      }  
+      this.Produto=false;
 
+    }else if (this.Produto == true){
+        this.Modulo = 'Produto';
+        this.Checkbox = this.Checkbox + 1; 
+        this.permitirUmCheckbox();  
+        this.Rotinas = false;
+        this.Relatorios = false;
+        this.Financeiro = false;
+        this.Cadastros=false;  
     }
+  }
     permitirUmCheckbox(){
       if(this.Checkbox > 0){
         this.Financeiro = false;
         this.Rotinas = false;
         this.Relatorios = false;
         this.Cadastros = false;
+        this.Produto=false;
       }
+  
     }
   
     addAtendimento(){
       this.setarModulo();
-      this.Empresa = localStorage.getItem('empresa')
-      this.Usuario = localStorage.getItem('usuario')
+      this.Empresa = sessionStorage.getItem('empresa')
+      this.Usuario = sessionStorage.getItem('usuario')
       var val =  {
                   cliente:this.Empresa,
                   usuario:this.Usuario,
@@ -107,8 +127,8 @@ this.setarModulo();
                   avaliacao:'',
                   data:this.Data_Atendimento
                 };             
-      this.service.addAtendimento(val).subscribe(res=>{
-        alert("Adicionado com sucesso! Data:" + this.Data_Atendimento);
+      this.service.addAtendimentoService(val).subscribe(res=>{
+        alert("Adicionado com sucesso!");
       },  
       error => {alert("Erro ao salvar,revise as informações preenchidas.")
       });

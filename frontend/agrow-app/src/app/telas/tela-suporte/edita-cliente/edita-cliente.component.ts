@@ -33,7 +33,7 @@ export class EditaClienteComponent implements OnInit {
                telefone:this.Telefone,
                firebird:this.Firebird,
                validacao:this.Validacao};
-  this.service.updateCliente(val).subscribe(res=>{
+  this.service.updateClienteService(val).subscribe(res=>{
       alert("Editado com sucesso!");
     },
   error => {alert("Erro ao editar,revise as informações preenchidas.")

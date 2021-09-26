@@ -32,6 +32,9 @@ import { Usuario } from '../admin/login/usuario';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { SolicitaAuditoriaComponent } from './tela-cliente/solicita-auditoria/solicita-auditoria.component';
 import { SolicitaMigracaoComponent } from './tela-cliente/solicita-migracao/solicita-migracao.component';
+import { ListaMigracoesComponent } from './tela-cliente/lista-migracoes/lista-migracoes.component';
+import { ListaAuditoriasComponent } from './tela-cliente/lista-auditorias/lista-auditorias.component';
+import { ListaRelatoriosAgrowComponent } from './lista-relatorios-agrow/lista-relatorios-agrow.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +60,10 @@ import { SolicitaMigracaoComponent } from './tela-cliente/solicita-migracao/soli
     ListaDesenvolvimentosComponent,
     ListaTreinamentosComponent,
     SolicitaAuditoriaComponent,
-    SolicitaMigracaoComponent
+    SolicitaMigracaoComponent,
+    ListaMigracoesComponent,
+    ListaAuditoriasComponent,
+    ListaRelatoriosAgrowComponent
   ],
   imports: [
     CommonModule,

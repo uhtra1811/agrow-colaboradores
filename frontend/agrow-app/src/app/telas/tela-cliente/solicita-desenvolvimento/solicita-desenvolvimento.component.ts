@@ -81,8 +81,8 @@ export class SolicitaDesenvolvimentoComponent implements OnInit {
   
     addDesenvolvimento(){
       this.setarModulo();
-      this.Empresa = localStorage.getItem('empresa')
-      this.Usuario = localStorage.getItem('usuario')
+      this.Empresa = sessionStorage.getItem('empresa')
+      this.Usuario = sessionStorage.getItem('usuario')
       var val =  {
                   cliente:this.Empresa,
                   usuario:this.Usuario,
@@ -92,7 +92,7 @@ export class SolicitaDesenvolvimentoComponent implements OnInit {
                   avaliacao:'',
                   data:this.Data_Atendimento
                 };             
-      this.service.addAtendimento(val).subscribe(res=>{
+      this.service.addDesenvolvimentoService(val).subscribe(res=>{
         alert("Adicionado com sucesso!");
       },  
       error => {alert("Erro ao salvar,revise as informações preenchidas.")

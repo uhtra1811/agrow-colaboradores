@@ -52,7 +52,7 @@ export class CadastroAtendimentoComponent implements OnInit {
                 atendente:this.Atendente_Atendimento,
                 data:this.Data_Atendimento
               };             
-    this.service.addAtendimento(val).subscribe(res=>{
+    this.service.addAtendimentoService(val).subscribe(res=>{
       alert("Adicionado com sucesso! Data:" + this.Data_Atendimento);
     },  
     error => {alert("Erro ao salvar,revise as informações preenchidas.")
@@ -67,7 +67,7 @@ export class CadastroAtendimentoComponent implements OnInit {
 }
 
   refreshClientesLista(){
-    this.service.getClientesLista().subscribe(data=>{
+    this.service.getClientesListaService().subscribe(data=>{
       this.ClientesLista=data;
     });
     

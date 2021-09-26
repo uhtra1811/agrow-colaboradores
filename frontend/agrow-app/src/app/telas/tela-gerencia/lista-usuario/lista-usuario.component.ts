@@ -46,7 +46,7 @@ export class ListaUsuarioComponent implements OnInit, OnChanges{
   }
 
   mostrarUsuarios(){
-    this.service.getListaUsuarios().subscribe(data=>{
+    this.service.getListaUsuariosService().subscribe(data=>{
     this.ListaUsuarios=data;
     });
   }
@@ -64,13 +64,13 @@ export class ListaUsuarioComponent implements OnInit, OnChanges{
                usuario:this.Usuario,
                senha:this.Senha
               };    console.log(val);
-    this.service.editUsuario(val).subscribe(res=> alert("Editado com sucesso!"));
+    this.service.editUsuarioService(val).subscribe(res=> alert("Editado com sucesso!"));
     this.refreshUsuariosLista();
   }
 
   apagaUsuario(val:any){
       if(confirm('Deseja deletar?')){
-        this.service.deleteUsuario(val.id).subscribe(res=> alert("Deletado com sucesso!"),
+        this.service.deleteUsuarioService(val.id).subscribe(res=> alert("Deletado com sucesso!"),
         error=> alert("Erro ao deletar!")
         );
       }
@@ -79,15 +79,15 @@ export class ListaUsuarioComponent implements OnInit, OnChanges{
   
 
   refreshUsuariosLista(){
-    this.service.getListaUsuarios().subscribe(data=>{
+    this.service.getListaUsuariosService().subscribe(data=>{
     this.ListaUsuarios=data;
     this.ListaUsuariosSemFiltro=data;
     }) &&   
-      this.service.getListaUsuarios().subscribe(data=>{
+      this.service.getListaUsuariosService().subscribe(data=>{
       this.ListaUsuarios=data;
       this.ListaUsuariosSemFiltro=data;
     })&&
-      this.service.getListaUsuarios().subscribe(data=>{
+      this.service.getListaUsuariosService().subscribe(data=>{
       this.ListaUsuarios=data;
       this.ListaUsuariosSemFiltro=data;
     });
@@ -113,7 +113,7 @@ export class ListaUsuarioComponent implements OnInit, OnChanges{
   }
 
   geraRelatorio(){
-    this.service.download().subscribe(
+    this.service.downloadService().subscribe(
       (res) => {
         let blob = new Blob([res], { type: 'pdf' });
          FileSaver.saveAs(blob, "Atendimentos.pdf")

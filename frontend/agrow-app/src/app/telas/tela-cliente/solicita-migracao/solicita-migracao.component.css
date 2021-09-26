@@ -1,0 +1,44 @@
+div.settings {
+    width: 50% ;
+    margin-left: 25%;
+}
+label{
+    font-size: 18px;
+    margin-top: 5%;
+}
+input{
+    width: 30%;
+    margin-top: 2%;
+}
+#salvar{    
+    margin-top: 2%;
+    margin-left: 40%;
+}
+select{
+    margin-left: 2%;
+}
+
+/*div.box{
+    position: absolute;
+    width:  100%;
+
+    background-color: aqua;
+    top: 15%;
+}
+
+div.settings {
+    position: relative;
+    width: 50% ;
+    margin-left: 30%;
+    top: 15%;
+    display:grid;
+    grid-template-columns: max-content 100%;
+    grid-gap:15px;
+
+}
+
+div.settings label{ 
+    text-align:right; 
+}
+
+*/

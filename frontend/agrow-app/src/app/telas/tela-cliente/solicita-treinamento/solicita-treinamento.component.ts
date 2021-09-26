@@ -11,14 +11,14 @@ export class SolicitaTreinamentoComponent implements OnInit {
 
   Empresa:any ='';
   Usuario:any ='';
-  Modulo:string = '';
+  Nivel:string = '';
   Basico:boolean = false;
   Avancado:boolean = false;
   Motivo:string= '';
   Contato:string='';
   Checkbox:number = 0;
   Token: any = ''; 
-  Data_Atendimento:string = '';
+  Data_Treinamento:string = '';
 
   today:any = new Date();
   dd = String(this.today.getDate()).padStart(2, '0');
@@ -30,18 +30,19 @@ export class SolicitaTreinamentoComponent implements OnInit {
   constructor(private service:SharedService, private router: Router ) { }
 
   ngOnInit(): void {
-    this.Data_Atendimento=this.todayis;
+    this.Data_Treinamento=this.todayis;
   }
+
 
   setarModulo(){
     if(this.Basico == true){
-      this.Modulo = 'Basico';
+      this.Nivel = 'Básico';
       this.Checkbox = this.Checkbox + 1; 
       this.permitirUmCheckbox();   
       this.Avancado = false;
 
     }else if (this.Avancado == true){
-      this.Modulo = 'Avancado';
+      this.Nivel = 'Avançado';
       this.Checkbox = this.Checkbox + 1; 
       this.permitirUmCheckbox();   
       this.Basico = false;
@@ -55,26 +56,30 @@ export class SolicitaTreinamentoComponent implements OnInit {
       }
     }
   
-    addDesenvolvimento(){
+    addTreinamento(){
       this.setarModulo();
-      this.Empresa = localStorage.getItem('empresa')
-      this.Usuario = localStorage.getItem('usuario')
+      if(this.Nivel === ''){
+        alert("Selecione uma das opções!");
+      }
+      else{
+      this.setarModulo();
+      this.Empresa = sessionStorage.getItem('empresa')
+      this.Usuario = sessionStorage.getItem('usuario')
       var val =  {
                   cliente:this.Empresa,
                   usuario:this.Usuario,
-                  motivo:this.Modulo + ' ' + this.Motivo,
+                  nivel:this.Nivel,
                   meiodecontato:'aGrow',
-                  solucao:'',
-                  avaliacao:'',
-                  data:this.Data_Atendimento
+                  data:this.Data_Treinamento
                 };             
-      this.service.addAtendimento(val).subscribe(res=>{
+      this.service.addTreinamentoService(val).subscribe(res=>{
         alert("Adicionado com sucesso!");
       },  
       error => {alert("Erro ao salvar,revise as informações preenchidas.")
       });
-        this.Motivo="";
+        this.Nivel="";
     
     }
-  }
+  } 
+}
   

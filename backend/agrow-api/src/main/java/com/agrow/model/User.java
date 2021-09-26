@@ -17,12 +17,16 @@ public class User {
     private String empresa;
     private String senha;
     private String token;
+    private String permissao; 
+    
 
-    public User(Long id,  String usuario, String empresa, String senha){
+
+	public User(Long id,  String usuario, String empresa, String senha, String permissao){
         this.id = id;
         this.usuario = usuario;
         this.empresa = empresa;
         this.senha = senha;
+        this.permissao = permissao; 
     }
 
     public User(String usuario, String senha){
@@ -66,6 +70,13 @@ public class User {
     public String getToken() {
         return token;
     }
+    public String getPermissao() {
+		return permissao;
+	}
+
+	public void setPermissao(String permissao) {
+		this.permissao = permissao;
+	}
 
 	public String getEmpresa() {
 		return empresa;

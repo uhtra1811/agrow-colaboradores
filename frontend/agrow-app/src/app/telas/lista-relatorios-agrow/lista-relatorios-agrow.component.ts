@@ -5,11 +5,11 @@ import { SharedService } from 'src/app/shared.service';
 
 
 @Component({
-  selector: 'app-lista-desenvolvimentos',
-  templateUrl: './lista-desenvolvimentos.component.html',
-  styleUrls: ['./lista-desenvolvimentos.component.css']
+  selector: 'app-lista-relatorios-agrow',
+  templateUrl: './lista-relatorios-agrow.component.html',
+  styleUrls: ['./lista-relatorios-agrow.component.css']
 })
-export class ListaDesenvolvimentosComponent implements OnInit {
+export class ListaRelatoriosAgrowComponent implements OnInit {
 
   constructor(private service:SharedService, private router: Router) { }
 
@@ -56,7 +56,7 @@ export class ListaDesenvolvimentosComponent implements OnInit {
 
  
   ngOnInit(): void {
-    this.UsuarioNomeFiltro = sessionStorage.getItem('usuario');
+    this.UsuarioNomeFiltro = localStorage.getItem('usuario');
     this.Usuario_Desenvolvimento = this.UsuarioNomeFiltro;
    
     //this.mostrarDesenvolvimentos();
@@ -130,7 +130,7 @@ export class ListaDesenvolvimentosComponent implements OnInit {
                   cliente:this.Cliente_Desenvolvimento,
                   usuario:this.Usuario_Desenvolvimento,
                   motivo:this.Motivo_Desenvolvimento,
-                  data:this.Data_Desenvolvimento,
+                  meiodecontato:this.Meiodecontato_Desenvolvimento,
                   solucao:this.Solucao_Desenvolvimento,
                   avaliacao:this.value,
                 //  data:this.Data_Desenvolvimento

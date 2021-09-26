@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as FileSaver from 'file-saver';
 import { SharedService } from 'src/app/shared.service';
-import { LoginComponent } from 'src/app/admin/login/login.component'
+
 
 @Component({
-  selector: 'app-lista-atendimentos',
-  templateUrl: './lista-atendimentos.component.html',
-  styleUrls: ['./lista-atendimentos.component.css']
+  selector: 'app-lista-auditorias',
+  templateUrl: './lista-auditorias.component.html',
+  styleUrls: ['./lista-auditorias.component.css']
 })
-export class ListaAtendimentosComponent implements OnInit {
+export class ListaAuditoriasComponent implements OnInit {
 
   constructor(private service:SharedService, private router: Router) { }
 
@@ -22,10 +22,10 @@ export class ListaAtendimentosComponent implements OnInit {
   ModalTitle!:string;
   MostraModal:boolean = false;
 
-  AtendimentosLista!:any[];
-  AtendimentosListaSemFiltro!:any[];
+  AuditoriasLista!:any[];
+  AuditoriasListaSemFiltro!:any[];
 
-  Id_AtendimentoFiltro!: string;
+  Id_AuditoriaFiltro!: string;
   ClienteNomeFiltro:string="";
   UsuarioNomeFiltro:any="";
   MotivoFiltro:string="";
@@ -34,15 +34,15 @@ export class ListaAtendimentosComponent implements OnInit {
   DataFiltro:string="";
 
 
-  Id_Atendimento!: number;
-  Cliente_Atendimento!:string;
-  Usuario_Atendimento!:string;
-  Motivo_Atendimento!:string;
-  Meiodecontato_Atendimento!:string;
-  Mensagem_Atendimento!:string;
-  Solucao_Atendimento!:string;
-  Avaliacao_Atendimento:number = 0;
-  Data_Atendimento!:string;
+  Id_Auditoria!: number;
+  Cliente_Auditoria!:string;
+  Usuario_Auditoria!:string;
+  Motivo_Auditoria!:string;
+  Meiodecontato_Auditoria!:string;
+  Mensagem_Auditoria!:string;
+  Solucao_Auditoria!:string;
+  Avaliacao_Auditoria:number = 0;
+  Data_Auditoria!:string;
   MostraLoading:boolean = true;
   MostrarTabela:boolean = false;
   value: number = 0;
@@ -56,12 +56,14 @@ export class ListaAtendimentosComponent implements OnInit {
 
  
   ngOnInit(): void {
-    this.UsuarioNomeFiltro = sessionStorage.getItem('usuario');
-    this.Usuario_Atendimento = this.UsuarioNomeFiltro;
+    this.UsuarioNomeFiltro = localStorage.getItem('usuario');
+    this.Usuario_Auditoria = this.UsuarioNomeFiltro;
    
-    //this.mostrarAtendimentos();
+    //this.mostrarAuditorias();
 
     this.loading();
+    this.mostrarAuditorias();
+    this.refreshAuditoriasLista();
   }
 
   loading(){
@@ -70,9 +72,9 @@ export class ListaAtendimentosComponent implements OnInit {
       this.mostrarTabela();
  });
     
-    this.refreshAtendimentosLista();
+    this.refreshAuditoriasLista();
     this.delay(1000).then(any=>{
-      this.filtroUsuarioAtendimento();
+      this.filtroUsuarioAuditoria();
  });
   }
 
@@ -92,22 +94,22 @@ export class ListaAtendimentosComponent implements OnInit {
     
   }
 
-  mostrarAtendimentos(){
-    this.service.getAtendimentosListaService().subscribe(data=>{
-      this.AtendimentosLista=data;});
+  mostrarAuditorias(){
+    this.service.getAuditoriasListaService().subscribe(data=>{
+      this.AuditoriasLista=data;});
 
   }
-  editaAtendimento(item: any){
+  editaAuditoria(item: any){
     this.cad=item;
-    this.Id_Atendimento= this.cad.id
-    this.Cliente_Atendimento= this.cad.cliente
-    this.Usuario_Atendimento= this.cad.usuario
-    this.Motivo_Atendimento= this.cad.motivo
-    this.Meiodecontato_Atendimento= this.cad.meiodecontato
-    this.Mensagem_Atendimento= this.cad
-    this.Solucao_Atendimento= this.cad.solucao
+    this.Id_Auditoria= this.cad.id
+    this.Cliente_Auditoria= this.cad.cliente
+    this.Usuario_Auditoria= this.cad.usuario
+    this.Motivo_Auditoria= this.cad.motivo
+    this.Meiodecontato_Auditoria= this.cad.meiodecontato
+    this.Mensagem_Auditoria= this.cad
+    this.Solucao_Auditoria= this.cad.solucao
     this.value = this.cad.avaliacao;
-    this.Data_Atendimento= this.cad.data
+    this.Data_Auditoria= this.cad.data
     console.log(this.cad);
     if(this.value > 0){
       this.MostrarAvaliacaoHabilitada = false;
@@ -122,18 +124,18 @@ export class ListaAtendimentosComponent implements OnInit {
   
 
   
-  avaliarAtendimentoService(){
+  avaliarAuditoriaService(){
     var val =  {             
-                  id:this.Id_Atendimento,
-                  cliente:this.Cliente_Atendimento,
-                  usuario:this.Usuario_Atendimento,
-                  motivo:this.Motivo_Atendimento,
-                  meiodecontato:this.Meiodecontato_Atendimento,
-                  solucao:this.Solucao_Atendimento,
+                  id:this.Id_Auditoria,
+                  cliente:this.Cliente_Auditoria,
+                  usuario:this.Usuario_Auditoria,
+                  motivo:this.Motivo_Auditoria,
+                  meiodecontato:this.Meiodecontato_Auditoria,
+                  solucao:this.Solucao_Auditoria,
                   avaliacao:this.value,
-                  data:this.Data_Atendimento
+                //  data:this.Data_Auditoria
               };
-    this.service.updateAtendimentoService(val).subscribe(res=>{
+    this.service.updateAuditoriaService(val).subscribe(res=>{
       alert("Avaliado com sucesso!");
     },  
     error => {alert("Erro ao salvar,revise as informações preenchidas.")
@@ -141,9 +143,9 @@ export class ListaAtendimentosComponent implements OnInit {
   }
 
 
-  filtroUsuarioAtendimento(){
-    var UsuarioNomeFiltro:string = "" + this.UsuarioNomeFiltro;
-    this.AtendimentosLista = this.AtendimentosListaSemFiltro.filter(function (el:any){
+  filtroUsuarioAuditoria(){
+    var UsuarioNomeFiltro:string = "" + this.Usuario_Auditoria;
+    this.AuditoriasLista = this.AuditoriasListaSemFiltro.filter(function (el:any){
         return el.usuario.toString().toLowerCase().includes(
           UsuarioNomeFiltro.toString().trim().toLowerCase()
         )
@@ -156,14 +158,14 @@ export class ListaAtendimentosComponent implements OnInit {
     this.service.downloadService().subscribe(
       (res) => {
         let blob = new Blob([res], { type: 'pdf' });
-         FileSaver.saveAs(blob, "Atendimentos.pdf")
+         FileSaver.saveAs(blob, "Auditorias.pdf")
 
     });
   } 
-  refreshAtendimentosLista(){
-    this.service.getAtendimentosListaService().subscribe(data=>{
-      this.AtendimentosLista=data;
-      this.AtendimentosListaSemFiltro=data});
+  refreshAuditoriasLista(){
+    this.service.getAuditoriasListaService().subscribe(data=>{
+      this.AuditoriasLista=data;
+      this.AuditoriasListaSemFiltro=data});
       
   }
 }
