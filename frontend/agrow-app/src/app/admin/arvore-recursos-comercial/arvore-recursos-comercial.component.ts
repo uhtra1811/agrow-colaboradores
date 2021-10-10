@@ -21,12 +21,12 @@ const TREE_DATA: ArvoreRecursosNode[] = [
       ]},
       {name: 'Relatórios',
         children:[
-        {name: 'Lista de Solicitações de Treinamentos'},
-        {name: 'Lista de Solicitações de Orçamento'},
+        {name: 'Lista de Treinamentos'},
+        {name: 'Lista de Migração'},
+        {name: 'Lista de Auditoria'},
         {name: 'Lista de Relatórios aGrow'},  
         {name: 'Lista de Clientes'}   
      ]},
-     {name: 'Solicitar Tomada de Decisão'}
     ],
   },
  ];
@@ -99,11 +99,7 @@ mostraComponente(node: any){
     this.router.navigate(['/edita-atendimento']);
     this.buttonClicked.emit(this.opened);
   
-  }else if (node.name === 'Lista de Treinamentos'){  
-    this.router.navigate(['/edita-atendimento']);
-    this.buttonClicked.emit(this.opened);
-  
-  }else if (node.name === 'Cadastrar de Apresentações'){  
+  }  else if (node.name === 'Cadastrar de Apresentações'){  
     this.router.navigate(['/edita-atendimento']);
     this.buttonClicked.emit(this.opened);
   
@@ -158,6 +154,22 @@ mostraComponente(node: any){
   }else if (node.name ===  'Solicitar Migração'){  
     this.buttonClicked.emit(this.opened);
     this.router.navigate(['/admin/solicita-migracao']);
+  
+  }else if (node.name ===  'Cadastrar Treinamento'){  
+    this.buttonClicked.emit(this.opened);
+    this.router.navigate(['/admin/cadastro-treinamento']);
+  
+  }else if (node.name ===  'Lista de Treinamentos'){  
+    this.buttonClicked.emit(this.opened);
+    this.router.navigate(['/admin/mostra-treinamento']);
+  
+  }else if (node.name ===  'Lista de Migração'){  
+    this.buttonClicked.emit(this.opened);
+    this.router.navigate(['/admin/lista-migracao']);
+  
+  }else if (node.name ===  'Lista de Auditoria'){  
+    this.buttonClicked.emit(this.opened);
+    this.router.navigate(['/admin/lista-auditoria']);
   }
  }
 }

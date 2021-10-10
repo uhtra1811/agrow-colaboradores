@@ -8,11 +8,14 @@
         </button>
       </div>
       <div class="modal-body">
-        <label class="col-sm-2 col-form-label">Cliente:</label>
+        <label class="col-sm-2 col-form-label">Selecione o Cliente:</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" 
-            placeholder="Digite o nome do Cliente" [(ngModel)]="Cliente_Atendimento">
-        </div> 
+            <select  class="form-select" [(ngModel)]="Cliente_Atendimento">
+                <option *ngFor="let cli of ClientesLista">
+                    {{cli.cliente}}
+                </option>
+            </select>
+         </div>
         <label class="col-sm-2 col-form-label">Usuário:</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" 
@@ -33,6 +36,14 @@
             <input type="text" class="form-control" 
             placeholder="Digite a Solucao" [(ngModel)]="Solucao_Atendimento">
         </div>
+        <label class="col-sm-6 col-form-label">Foi necessário auxílio do desenvolvimento?</label>
+        <div class="col-sm-10">
+            <select  class="form-select" [(ngModel)]="Auxilio_Atendimento">
+              <option>Não</option>
+              <option>Sim</option>
+            
+            </select>
+         </div>
         <label class="col-sm-2 col-form-label">Data:</label>
         <div class="col-sm-10">
             <input type="date" class="form-control" [(ngModel)]="Data_Atendimento">

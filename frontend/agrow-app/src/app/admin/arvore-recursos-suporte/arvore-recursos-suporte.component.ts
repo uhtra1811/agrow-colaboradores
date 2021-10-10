@@ -25,7 +25,6 @@ const TREE_DATA: ArvoreRecursosNode[] = [
            {name: 'Lista de Clientes'},
            {name: 'Lista de Relatórios aGrow'}
       ]},
-      {name: 'Solicitar Tomada de Decisão'}
     ],
   }
  ];

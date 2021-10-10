@@ -130,10 +130,8 @@ export class ListaAuditoriasComponent implements OnInit {
                   cliente:this.Cliente_Auditoria,
                   usuario:this.Usuario_Auditoria,
                   motivo:this.Motivo_Auditoria,
-                  meiodecontato:this.Meiodecontato_Auditoria,
-                  solucao:this.Solucao_Auditoria,
                   avaliacao:this.value,
-                //  data:this.Data_Auditoria
+                  data:this.Data_Auditoria
               };
     this.service.updateAuditoriaService(val).subscribe(res=>{
       alert("Avaliado com sucesso!");

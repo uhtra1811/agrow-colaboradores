@@ -20,6 +20,7 @@ public class Auditoria  implements Serializable{
 			private String cliente;
 	        private String usuario;
 	        private String motivo;
+	        private String avaliacao;
 			private String data;
 			
 			public long getId() {
@@ -45,6 +46,13 @@ public class Auditoria  implements Serializable{
 			}
 			public void setMotivo(String motivo) {
 				this.motivo = motivo;
+			}
+			
+			public String getAvaliacao() {
+				return avaliacao;
+			}
+			public void setAvaliacao(String avaliacao) {
+				this.avaliacao = avaliacao;
 			}
 			public String getData() {
 				return data;

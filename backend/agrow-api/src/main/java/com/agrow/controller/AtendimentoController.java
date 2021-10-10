@@ -69,7 +69,7 @@ public class AtendimentoController {
 	@GetMapping("/atendimentos-pdf")
 	public void testReport(ModelMap model, HttpServletResponse response) throws IOException, JRException {
 	    Iterable<Atendimento> atendimentoList = getAtendimentos();
-	    File file = ResourceUtils.getFile("classpath:Flower_Landscape.jrxml");
+	    File file = ResourceUtils.getFile("classpath:reports/atendimentos.jrxml");
 		JasperReport jasper = JasperCompileManager.compileReport(file.getAbsolutePath());
 			
 		JRBeanCollectionDataSource ds = new JRBeanCollectionDataSource((Collection<?>) atendimentoList);

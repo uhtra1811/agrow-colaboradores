@@ -49,8 +49,8 @@ export class SolicitaAuditoriaComponent implements OnInit {
 
     addAuditoria(){
    
-      this.Empresa = localStorage.getItem('empresa')
-      this.Usuario = localStorage.getItem('usuario')
+      this.Empresa = sessionStorage.getItem('empresa')
+      this.Usuario = sessionStorage.getItem('usuario')
       var val =  {
                   cliente:this.Empresa,
                   usuario:this.Usuario,

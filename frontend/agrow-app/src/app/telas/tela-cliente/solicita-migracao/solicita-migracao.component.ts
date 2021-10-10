@@ -49,8 +49,8 @@ export class SolicitaMigracaoComponent implements OnInit {
 
     addMigracao(){
    
-      this.Empresa = localStorage.getItem('empresa')
-      this.Usuario = localStorage.getItem('usuario')
+      this.Empresa = sessionStorage.getItem('empresa')
+      this.Usuario = sessionStorage.getItem('usuario')
       var val =  {
                   cliente:this.Empresa,
                   usuario:this.Usuario,
@@ -68,6 +68,7 @@ export class SolicitaMigracaoComponent implements OnInit {
         this.Motivo="";
  
     }
+   
   }
   
   

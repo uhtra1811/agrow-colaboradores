@@ -19,6 +19,7 @@ public class Migracao implements Serializable{
        	private long id;
    		private String cliente;
    		private String usuario;
+   		private String avaliacao;
     	private String data;
     
 	   public long getId() {
@@ -38,6 +39,13 @@ public class Migracao implements Serializable{
 	}
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
+	}
+	
+	public String getAvaliacao() {
+		return avaliacao;
+	}
+	public void setAvaliacao(String avaliacao) {
+		this.avaliacao = avaliacao;
 	}
 	public String getData() {
 		return data;

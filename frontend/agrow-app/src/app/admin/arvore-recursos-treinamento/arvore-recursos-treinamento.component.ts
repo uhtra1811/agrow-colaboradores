@@ -24,7 +24,6 @@ const TREE_DATA: ArvoreRecursosNode[] = [
         {name: 'Lista de Relatórios aGrow'},  
         {name: 'Lista de Clientes'}   
      ]},
-     {name: 'Solicitar Tomada de Decisão'}
     ],
   },
  ];
@@ -97,10 +96,6 @@ mostraComponente(node: any){
     this.router.navigate(['/edita-atendimento']);
     this.buttonClicked.emit(this.opened);
   
-  }else if (node.name === 'Lista de Treinamentos'){  
-    this.router.navigate(['/edita-atendimento']);
-    this.buttonClicked.emit(this.opened);
-  
   }else if (node.name === 'Cadastrar de Apresentações'){  
     this.router.navigate(['/edita-atendimento']);
     this.buttonClicked.emit(this.opened);
@@ -156,6 +151,14 @@ mostraComponente(node: any){
   }else if (node.name ===  'Solicitar Migração'){  
     this.buttonClicked.emit(this.opened);
     this.router.navigate(['/admin/solicita-migracao']);
-  }
+
+  }else if (node.name ===  'Cadastrar Treinamento'){  
+    this.buttonClicked.emit(this.opened);
+    this.router.navigate(['/admin/cadastro-treinamento']);
+  
+  }else if (node.name ===  'Lista de Treinamentos'){  
+  this.buttonClicked.emit(this.opened);
+  this.router.navigate(['/admin/mostra-treinamento']);
+}
  }
 }

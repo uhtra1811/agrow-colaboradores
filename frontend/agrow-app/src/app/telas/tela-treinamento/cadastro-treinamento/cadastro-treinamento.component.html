@@ -1,0 +1,31 @@
+<button id="cad_cliente" class="btn btn-success" (click)="cadastrarCliente()">Cadastrar Cliente</button>
+<div class="box">
+<div class="settings">
+    <label class="col-sm-2 col-form-label">Cliente:</label>
+    <div class="col-sm-10">
+        <select  class="form-select" [(ngModel)]="Cliente_Treinamento">
+            <option selected>-Selecione o Cliente-</option>
+            <option *ngFor="let cli of ClientesLista">
+                {{cli.cliente}}
+            </option>
+        </select>
+     </div>
+    <label class="col-sm-2 col-form-label">Usuário:</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" 
+        placeholder="Digite o nome do Usuario" [(ngModel)]="Usuario_Treinamento">
+    </div> 
+    <label class="col-sm-2 col-form-label">Nível Treinamento:</label>
+    <div class="col-sm-10">
+        <select  class="form-select" [(ngModel)]="Nivel_Treinamento">
+            <option>Básico</option>
+            <option>Avançado</option>
+        </select>
+    </div> 
+    <label class="col-sm-2 col-form-label">Data:</label>
+    <div class="col-sm-10">
+        <input type="date" class="form-control" [(ngModel)]="Data_Treinamento">
+    </div>
+</div> 
+</div>
+<button id="salvar" (click)="addTreinamento()"  class="btn btn-success ">Salvar</button>

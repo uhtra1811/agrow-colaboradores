@@ -149,9 +149,13 @@ mostraComponente(node: any){
     this.buttonClicked.emit(this.opened);
     this.router.navigate(['/admin/solicita-auditoria']);
   
-  }else if (node.name ===  'Solicitar Migração'){  
+  }else if (node.name ===  'Auxílio ao Suporte'){  
     this.buttonClicked.emit(this.opened);
-    this.router.navigate(['/admin/solicita-migracao']);
+    this.router.navigate(['/admin/mostra-auxilio-suporte']);
+  
+  }else if (node.name ===  'Lista de Desenvolvimentos'){  
+    this.buttonClicked.emit(this.opened);
+    this.router.navigate(['/admin/mostra-desenvolvimentos']);
   }
  }
 }

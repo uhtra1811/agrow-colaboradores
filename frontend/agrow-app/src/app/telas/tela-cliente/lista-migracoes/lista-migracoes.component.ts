@@ -56,7 +56,7 @@ export class ListaMigracoesComponent implements OnInit {
 
  
   ngOnInit(): void {
-    this.UsuarioNomeFiltro = localStorage.getItem('usuario');
+    this.UsuarioNomeFiltro = sessionStorage.getItem('usuario');
     this.Usuario_Migracao = this.UsuarioNomeFiltro;
    
     //this.mostrarMigracaos();

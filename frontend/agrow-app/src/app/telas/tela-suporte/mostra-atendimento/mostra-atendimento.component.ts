@@ -38,10 +38,12 @@ export class MostraAtendimentoComponent implements OnInit {
   Meiodecontato_Atendimento!:string;
   Mensagem_Atendimento!:string;
   Solucao_Atendimento!:string;
+  Auxilio_Atendimento!:string;
   Data_Atendimento!:string;
  
   value:number = 0;
 
+  ClientesLista!:any[];
 
   today:any = new Date();
   dd = String(this.today.getDate()).padStart(2, '0');
@@ -54,12 +56,18 @@ export class MostraAtendimentoComponent implements OnInit {
   ngOnInit(): void {
     this.mostrarAtendimentos();
     this.refreshAtendimentosLista();
+    this.refreshClientesLista();
   }
   ngOnChanges(): void {
  
     this.refreshAtendimentosLista();
   }
-
+  refreshClientesLista(){
+    this.service.getClientesListaService().subscribe(data=>{
+      this.ClientesLista=data;
+    });
+    
+  }
   mostrarModal(){
     this.MostraModal = !this.MostraModal;
   }
@@ -79,7 +87,7 @@ export class MostraAtendimentoComponent implements OnInit {
     this.Usuario_Atendimento= this.cad.usuario
     this.Motivo_Atendimento= this.cad.motivo
     this.Meiodecontato_Atendimento= this.cad.meiodecontato
-    this.Mensagem_Atendimento= this.cad
+    this.Auxilio_Atendimento= this.cad.auxilio
     this.Solucao_Atendimento= this.cad.solucao
     this.value = this.cad.avaliacao;
     this.Data_Atendimento= this.cad.data
@@ -93,9 +101,10 @@ export class MostraAtendimentoComponent implements OnInit {
                   usuario:this.Usuario_Atendimento,
                   motivo:this.Motivo_Atendimento,
                   meiodecontato:this.Meiodecontato_Atendimento,
+                  auxilio:this.Auxilio_Atendimento,
                   solucao:this.Solucao_Atendimento,
                   avaliacao:this.value,
-                  atendente:localStorage.getItem('usuario'),
+                  atendente:sessionStorage.getItem('usuario'),
                   data:this.Data_Atendimento
                 }
       this.service.updateAtendimentoService(val).subscribe(res=>{

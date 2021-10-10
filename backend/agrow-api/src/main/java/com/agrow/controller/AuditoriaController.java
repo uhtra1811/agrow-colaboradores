@@ -39,7 +39,7 @@ public class AuditoriaController {
 		return auditoriaRepository.save(auditoria);
 	}
    
-	@PutMapping("/auditoria")
+	@PutMapping("/edita-auditoria")
 	public Auditoria editAuditoria(@RequestBody @Valid Auditoria auditoria) {
 		return auditoriaRepository.save(auditoria);
 	}

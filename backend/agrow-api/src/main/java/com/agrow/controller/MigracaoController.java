@@ -38,7 +38,7 @@ public class MigracaoController {
 		return migracaoRepository.save(migracao);
 	}
    
-	@PutMapping("/migracao")
+	@PutMapping("/edita-migracao")
 	public Migracao editMigracao(@RequestBody @Valid Migracao migracao) {
 		return migracaoRepository.save(migracao);
 	}

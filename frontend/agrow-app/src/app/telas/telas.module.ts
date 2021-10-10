@@ -35,6 +35,12 @@ import { SolicitaMigracaoComponent } from './tela-cliente/solicita-migracao/soli
 import { ListaMigracoesComponent } from './tela-cliente/lista-migracoes/lista-migracoes.component';
 import { ListaAuditoriasComponent } from './tela-cliente/lista-auditorias/lista-auditorias.component';
 import { ListaRelatoriosAgrowComponent } from './lista-relatorios-agrow/lista-relatorios-agrow.component';
+import { CadastroTreinamentoComponent } from './tela-treinamento/cadastro-treinamento/cadastro-treinamento.component';
+import { MostraTreinamentoComponent } from './tela-treinamento/mostra-treinamento/mostra-treinamento.component';
+import { MostraAuxilioSuporteComponent } from './tela-desenvolvimento/mostra-auxilio-suporte/mostra-auxilio-suporte.component';
+import { MostraDesenvolvimentosComponent } from './tela-desenvolvimento/mostra-desenvolvimentos/mostra-desenvolvimentos.component';
+import { ListaMigracaoComponent } from './tela-comercial/lista-migracao/lista-migracao.component';
+import { ListaAuditoriaComponent } from './tela-comercial/lista-auditoria/lista-auditoria.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +69,13 @@ import { ListaRelatoriosAgrowComponent } from './lista-relatorios-agrow/lista-re
     SolicitaMigracaoComponent,
     ListaMigracoesComponent,
     ListaAuditoriasComponent,
-    ListaRelatoriosAgrowComponent
+    ListaRelatoriosAgrowComponent,
+    CadastroTreinamentoComponent,
+    MostraTreinamentoComponent,
+    MostraAuxilioSuporteComponent,
+    MostraDesenvolvimentosComponent,
+    ListaMigracaoComponent,
+    ListaAuditoriaComponent
   ],
   imports: [
     CommonModule,

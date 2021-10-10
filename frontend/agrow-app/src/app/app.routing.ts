@@ -20,6 +20,12 @@ import { ListaTreinamentosComponent } from "./telas/tela-cliente/lista-treinamen
 import { ListaAuditoriasComponent } from "./telas/tela-cliente/lista-auditorias/lista-auditorias.component";
 import { ListaMigracoesComponent } from "./telas/tela-cliente/lista-migracoes/lista-migracoes.component";
 import { ListaRelatoriosAgrowComponent } from "./telas/lista-relatorios-agrow/lista-relatorios-agrow.component";
+import { CadastroTreinamentoComponent } from "./telas/tela-treinamento/cadastro-treinamento/cadastro-treinamento.component";
+import { MostraTreinamentoComponent } from "./telas/tela-treinamento/mostra-treinamento/mostra-treinamento.component";
+import { MostraDesenvolvimentosComponent } from "./telas/tela-desenvolvimento/mostra-desenvolvimentos/mostra-desenvolvimentos.component";
+import { MostraAuxilioSuporteComponent } from "./telas/tela-desenvolvimento/mostra-auxilio-suporte/mostra-auxilio-suporte.component";
+import { ListaMigracaoComponent } from "./telas/tela-comercial/lista-migracao/lista-migracao.component";
+import { ListaAuditoriaComponent } from "./telas/tela-comercial/lista-auditoria/lista-auditoria.component";
 
 
   const APP_ROUTES: Routes = [ 
@@ -44,7 +50,15 @@ import { ListaRelatoriosAgrowComponent } from "./telas/lista-relatorios-agrow/li
         {path: 'cliente-treinamentos', component: ListaTreinamentosComponent},
         {path: 'cliente-migracoes', component: ListaMigracoesComponent},
         {path: 'cliente-auditorias', component: ListaAuditoriasComponent},
-        {path: 'relatorios-agrow', component: ListaRelatoriosAgrowComponent}
+        {path: 'relatorios-agrow', component: ListaRelatoriosAgrowComponent},
+        {path: 'cadastro-treinamento', component: CadastroTreinamentoComponent},
+        {path: 'mostra-treinamento', component: MostraTreinamentoComponent},
+        {path: 'cadastro-treinamento', component: CadastroTreinamentoComponent},
+        {path: 'mostra-treinamento', component: MostraTreinamentoComponent},
+        {path: 'mostra-desenvolvimentos', component: MostraDesenvolvimentosComponent},
+        {path: 'mostra-auxilio-suporte', component: MostraAuxilioSuporteComponent},
+        {path: 'lista-migracao', component: ListaMigracaoComponent},
+        {path: 'lista-auditoria', component: ListaAuditoriaComponent}
       ]}
   
   ];

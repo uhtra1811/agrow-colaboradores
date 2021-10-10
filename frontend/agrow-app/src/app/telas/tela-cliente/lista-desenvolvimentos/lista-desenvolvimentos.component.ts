@@ -130,10 +130,8 @@ export class ListaDesenvolvimentosComponent implements OnInit {
                   cliente:this.Cliente_Desenvolvimento,
                   usuario:this.Usuario_Desenvolvimento,
                   motivo:this.Motivo_Desenvolvimento,
-                  data:this.Data_Desenvolvimento,
-                  solucao:this.Solucao_Desenvolvimento,
                   avaliacao:this.value,
-                //  data:this.Data_Desenvolvimento
+                  data:this.Data_Desenvolvimento
               };
     this.service.updateDesenvolvimentoService(val).subscribe(res=>{
       alert("Avaliado com sucesso!");

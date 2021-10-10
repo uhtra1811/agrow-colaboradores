@@ -21,6 +21,7 @@ public class Treinamento implements Serializable{
        private String usuario;
        private String nivel;
        private Long avaliacao;
+       private String atendente;
        private String data;
      
     
@@ -53,6 +54,13 @@ public class Treinamento implements Serializable{
 	}
 	public void setAvaliacao(Long avaliacao) {
 			this.avaliacao = avaliacao;
+	}
+	
+	public String getAtendente() {
+		return atendente;
+	}
+	public void setAtendente(String atendente) {
+		this.atendente = atendente;
 	}
 	public String getData() {
 		return data;
