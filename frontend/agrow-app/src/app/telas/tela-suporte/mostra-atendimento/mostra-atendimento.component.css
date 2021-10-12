@@ -1,6 +1,7 @@
 table{
     position: relative;
-    table-layout:fixed;
+
+    padding:  20%;
 }
 
 mat-toolbar{

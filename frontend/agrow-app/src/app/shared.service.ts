@@ -39,6 +39,13 @@ export class SharedService {
     return this.http.get<any[]>(this.APIUrl + '/atendimentos');
   }
 
+
+
+
+  addAtendimentoRelatorioService(val:any){
+    return this.http.post(this.APIUrl + '/atendimento-relatorio',val);
+  }
+
   addDesenvolvimentoService(val:any){
     return this.http.post(this.APIUrl + '/desenvolvimento',val);
   }
@@ -124,4 +131,5 @@ downloadService(): Observable<any> {
   {responseType:"arraybuffer"})
 
 }
-}
+} 
+
