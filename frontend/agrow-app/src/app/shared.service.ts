@@ -126,8 +126,9 @@ export class SharedService {
 getRelatorioService(val:any){
   return this.http.get(this.APIUrl + '/export/pdf'+ val);
 }
+
 downloadService(): Observable<any> {
-  return this.http.get(this.APIUrl + "/teste",
+  return this.http.get(this.APIUrl + "/atendimentos-pdf1",
   {responseType:"arraybuffer"})
 
 }

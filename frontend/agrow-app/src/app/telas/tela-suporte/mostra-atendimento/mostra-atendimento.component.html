@@ -64,7 +64,7 @@
         <h1 >Relatório de Atendimentos</h1>
       </div>
       <div class="modal-body">
-        <button style="margin-left: 35%;" class="btn btn-success center">Gerar PDF</button> 
+        <button (click)="insertRelatorioAtendimento()" style="margin-left: 35%;" class="btn btn-success center">Gerar PDF</button> 
       </div>    
       </div>
       <div class="modal-footer">
@@ -76,7 +76,7 @@
 
 <mat-toolbar>
   <button mat-icon-button  style="left: 15%; bottom:10%" ><mat-icon>search</mat-icon></button>
-  <button mat-icon-button  style="left: 87%"   (click)="insertRelatorioAtendimento()" data-toggle="modal" data-target="#ModalRelatorio">  <mat-icon>file_copy</mat-icon> Exportar</button>
+  <button mat-icon-button  style="left: 87%"   (click)="acionaTrigger()" data-toggle="modal" data-target="#ModalRelatorio">  <mat-icon>file_copy</mat-icon> Exportar</button>
      <div class="filtro">
         <input style="width: 4%; font-size: 12px; margin-left: 2px;"   [(ngModel)]="Id_AtendimentoFiltro"  (keyup)="filtroIdAtendimento()"      placeholder=" Id">
         <input style="width: 8%; font-size: 12px; margin-left: 2px;"   [(ngModel)]="ClienteNomeFiltro"  (keyup)="filtroClienteAtendimento()" placeholder=" Cliente">

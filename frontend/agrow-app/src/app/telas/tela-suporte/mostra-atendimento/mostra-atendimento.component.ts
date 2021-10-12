@@ -217,20 +217,31 @@ export class MostraAtendimentoComponent implements OnInit {
       this.AtendimentosListaSemFiltro=data});
   }
 
+
+
   insertRelatorioAtendimento(){
 
       var val = this.AtendimentosLista
-              
+     
       this.service.addAtendimentoRelatorioService(val).subscribe(res=>{
-         console.log(val)
-        alert("Editado com sucesso!");
        
-        
+      
+       
+        this.geraRelatorio();
       },  
-      error => {alert("Erro ao salvar,revise as informações preenchidas.")
+      error => {alert("Erro ao gerar relatorio")
       });
     }
 
+    acionaTrigger(){
+      var val1 =  {
+        cliente:"Empresa"
+      };             
+       this.service.addAuditoriaService(val1).subscribe();
+  
+    }
+   
+ 
   closeClick(){
     
   }

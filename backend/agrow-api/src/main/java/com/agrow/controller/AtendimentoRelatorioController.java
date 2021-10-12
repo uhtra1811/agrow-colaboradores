@@ -26,8 +26,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.agrow.model.Atendimento;
 import com.agrow.model.AtendimentoRelatorio;
+import com.agrow.model.Auditoria;
 import com.agrow.model.User;
 import com.agrow.repository.AtendimentoRelatorioRepository;
+import com.agrow.repository.AuditoriaRepository;
 
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -43,7 +45,7 @@ public class AtendimentoRelatorioController {
 
     @Autowired
     public AtendimentoRelatorioRepository atendimentoRelatorioRepository;
-	 
+    public AuditoriaRepository auditoriaRepository;
 
     @GetMapping("/atendimentos1")
     public List<AtendimentoRelatorio> getAtendimentos() {
@@ -52,9 +54,16 @@ public class AtendimentoRelatorioController {
 
 	@PostMapping("/atendimento-relatorio")
 	public List<AtendimentoRelatorio> addAtendimentoRelatorio(@RequestBody  @Valid List<AtendimentoRelatorio> atendimentoRelatorio) {
+		
 		return  (List<AtendimentoRelatorio>) atendimentoRelatorioRepository.saveAll(atendimentoRelatorio);
 	}
 
+	
+	@PostMapping("/auditoria1")
+	public Auditoria addAuditoria1(@RequestBody @Valid Auditoria auditoria) {
+		return auditoriaRepository.save(auditoria);
+	}
+   
    
 	@PutMapping("/edita-atendimentoRelatorio")
 	public AtendimentoRelatorio editAtendimento(@RequestBody @Valid AtendimentoRelatorio atendimentoRelatorio) {
