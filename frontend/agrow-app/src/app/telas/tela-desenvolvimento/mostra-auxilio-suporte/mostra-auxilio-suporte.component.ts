@@ -232,12 +232,7 @@ export class MostraAuxilioSuporteComponent implements OnInit {
 
 
   geraRelatorio(){
-    this.service.downloadService().subscribe(
-      (res) => {
-        let blob = new Blob([res], { type: 'pdf' });
-         FileSaver.saveAs(blob, "Atendimentos.pdf")
 
-    });
   } 
   refreshAtendimentosLista(){
     this.service.getAtendimentosListaService().subscribe(data=>{

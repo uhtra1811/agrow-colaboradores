@@ -17,7 +17,7 @@
 	<field name="motivo" class="java.lang.String"></field>
 	<field name="meiodecontato" class="java.lang.String"></field>
 	<field name="solucao" class="java.lang.String"></field>
-	<field name="data" class="java.lang.String"></field>
+	<field name="data" class="java.lang.Date"></field>
 	<field name="avaliacao" class="java.lang.String"></field>
 	<field name="minutos" class="java.lang.String"></field>
 	<field name="auxilio" class="java.lang.String"></field>

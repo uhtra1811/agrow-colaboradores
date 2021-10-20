@@ -203,22 +203,29 @@ export class MostraAtendimentoComponent implements OnInit {
     });
   }
 
-  geraRelatorio(){
-    this.service.downloadService().subscribe(
-      (res) => {
-        let blob = new Blob([res], { type: 'pdf' });
-         FileSaver.saveAs(blob, "Atendimentos.pdf")
 
-    });
-  } 
   refreshAtendimentosLista(){
     this.service.getAtendimentosListaService().subscribe(data=>{
       this.AtendimentosLista=data;
       this.AtendimentosListaSemFiltro=data});
   }
 
+  geraRelatorio(){
+    this.service.downloadRelatorioAtendimentos().subscribe(
+      (res) => {
+        let blob = new Blob([res], { type: 'pdf' });
+         FileSaver.saveAs(blob, "Atendimentos.pdf")
 
+    });
+  } 
+  acionaTrigger(){
+    var val1 =  {
+      edita:"1"
+    };             
+     this.service.addRelatorioService(val1).subscribe();
 
+  }
+ 
   insertRelatorioAtendimento(){
 
       var val = this.AtendimentosLista
@@ -233,16 +240,17 @@ export class MostraAtendimentoComponent implements OnInit {
       });
     }
 
-    acionaTrigger(){
-      var val1 =  {
-        cliente:"Empresa"
-      };             
-       this.service.addAuditoriaService(val1).subscribe();
-  
-    }
-   
+
  
-  closeClick(){
+  exportarRelatorio(){
+    this.acionaTrigger();
+    
+    this.delay(1000).then(any=>{
+       this.insertRelatorioAtendimento();});
     
   }
+
+  async delay(ms: number) {
+    await new Promise<void>(resolve => setTimeout(()=>resolve(), ms)).then(()=>console.log("fired"));
+}
 }

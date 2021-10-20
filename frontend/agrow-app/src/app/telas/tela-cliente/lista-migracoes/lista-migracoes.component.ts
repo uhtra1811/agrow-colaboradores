@@ -154,19 +154,54 @@ export class ListaMigracoesComponent implements OnInit {
 
 
 
+
+  refreshMigracoesLista(){
+    this.service.getMigracoesListaService().subscribe(data=>{
+      this.MigracoesLista=data;
+      this.MigracoesListaSemFiltro=data});
+      
+  }
+
+
+
   geraRelatorio(){
-    this.service.downloadService().subscribe(
+    this.service.downloadRelatorioMigracaoCliente().subscribe(
       (res) => {
         let blob = new Blob([res], { type: 'pdf' });
          FileSaver.saveAs(blob, "Migracaos.pdf")
 
     });
   } 
-  refreshMigracoesLista(){
-    this.service.getMigracoesListaService().subscribe(data=>{
-      this.MigracoesLista=data;
-      this.MigracoesListaSemFiltro=data});
+  acionaTrigger(){
+    var val1 =  {
+      edita:"1"
+    };             
+     this.service.addRelatorioService(val1).subscribe();
+
+  }
+ 
+  insertRelatorioMigracao(){
+
+      var val = this.MigracoesLista
+     
+      this.service.addMigracaoRelatorioService(val).subscribe(res=>{
+       
       
+       
+        this.geraRelatorio();
+      },  
+      error => {alert("Erro ao gerar relatorio")
+      });
+    }
+
+
+ 
+  exportarRelatorio(){
+    this.acionaTrigger();
+    
+    this.delay(1000).then(any=>{
+       this.insertRelatorioMigracao();});
+    
   }
 
 }

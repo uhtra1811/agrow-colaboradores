@@ -153,12 +153,8 @@ export class ListaAuditoriaComponent implements OnInit {
 
 
   geraRelatorio(){
-    this.service.downloadService().subscribe(
-      (res) => {
-        let blob = new Blob([res], { type: 'pdf' });
-         FileSaver.saveAs(blob, "Auditorias.pdf")
 
-    });
+
   } 
   refreshAuditoriasLista(){
     this.service.getAuditoriasListaService().subscribe(data=>{

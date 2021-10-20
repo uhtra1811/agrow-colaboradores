@@ -151,19 +151,51 @@ export class ListaDesenvolvimentosComponent implements OnInit {
   }
 
 
-
-  geraRelatorio(){
-    this.service.downloadService().subscribe(
-      (res) => {
-        let blob = new Blob([res], { type: 'pdf' });
-         FileSaver.saveAs(blob, "Desenvolvimentos.pdf")
-
-    });
-  } 
   refreshDesenvolvimentosLista(){
     this.service.getDesenvolvimentosListaService().subscribe(data=>{
       this.DesenvolvimentosLista=data;
       this.DesenvolvimentosListaSemFiltro=data});
       
   }
+
+  geraRelatorio(){
+    this.service.downloadRelatorioDesenvolvimentoCliente().subscribe(
+      (res) => {
+        let blob = new Blob([res], { type: 'pdf' });
+         FileSaver.saveAs(blob, "Desenvolvimentos.pdf")
+
+    });
+  } 
+  acionaTrigger(){
+    var val1 =  {
+      edita:"1"
+    };             
+     this.service.addRelatorioService(val1).subscribe();
+
+  }
+ 
+  insertRelatorioDesenvolvimento(){
+
+      var val = this.DesenvolvimentosLista
+     
+      this.service.addDesenvolvimentoRelatorioService(val).subscribe(res=>{
+       
+      
+       
+        this.geraRelatorio();
+      },  
+      error => {alert("Erro ao gerar relatorio")
+      });
+    }
+
+
+ 
+  exportarRelatorio(){
+    this.acionaTrigger();
+    
+    this.delay(1000).then(any=>{
+       this.insertRelatorioDesenvolvimento();});
+    
+  }
+
 }

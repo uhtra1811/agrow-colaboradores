@@ -153,15 +153,6 @@ export class ListaRelatoriosAgrowComponent implements OnInit {
   }
 
 
-
-  geraRelatorio(){
-    this.service.downloadService().subscribe(
-      (res) => {
-        let blob = new Blob([res], { type: 'pdf' });
-         FileSaver.saveAs(blob, "Desenvolvimentos.pdf")
-
-    });
-  } 
   refreshDesenvolvimentosLista(){
     this.service.getDesenvolvimentosListaService().subscribe(data=>{
       this.DesenvolvimentosLista=data;

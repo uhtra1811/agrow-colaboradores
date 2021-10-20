@@ -31,7 +31,7 @@
   <button mat-icon-button  style="left: 20%;"><mat-icon>search</mat-icon></button>
   <input [(ngModel)]="Id_UsuarioFiltro" class="form-control" (keyup)="filtroIdUsuario()" placeholder=" Id" style="width: 4%; margin-left: 20%;">
   <input [(ngModel)]="UsuarioNomeFiltro" class="form-control" (keyup)="filtroUsuario()" placeholder=" Usuário" style="width: 20%; margin-left: 2%;">
-  <button mat-icon-button (click)="geraRelatorio()" style="margin-left: 45%;">  <mat-icon>file_copy</mat-icon> Exportar</button>
+  <button mat-icon-button  style="margin-left: 45%;">  <mat-icon>file_copy</mat-icon> Exportar</button>
 </mat-toolbar>
 
 <table class="table ">
@@ -52,6 +52,6 @@
         <td><button mat-icon-button (click)="abrirModalEditaUsuario(dataItem)"   data-toggle="modal" data-target="#Modal">  <mat-icon>edit</mat-icon></button></td>
         <td><button mat-icon-button (click)="apagaUsuario(dataItem)">  <mat-icon>delete</mat-icon></button></td>
       </tr>
-      <button style="visibility: hidden;"  (click)="geraRelatorio()">Relatório</button>
+      <button style="visibility: hidden;" >Relatório</button>
     </tbody>
 </table>

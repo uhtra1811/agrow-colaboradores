@@ -145,15 +145,6 @@ export class MostraTreinamentoComponent implements OnInit {
     });
   }
 
-  geraRelatorio(){
-    this.service.downloadService().subscribe(
-      (res) => {
-        let blob = new Blob([res], { type: 'pdf' });
-         FileSaver.saveAs(blob, "Treinamentos.pdf")
-
-    });
-  } 
-
   refreshTreinamentosLista(){
     this.service.getTreinamentosListaService().subscribe(data=>{
       this.TreinamentosLista=data;

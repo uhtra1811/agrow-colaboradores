@@ -154,12 +154,7 @@ export class ListaMigracaoComponent implements OnInit {
 
 
   geraRelatorio(){
-    this.service.downloadService().subscribe(
-      (res) => {
-        let blob = new Blob([res], { type: 'pdf' });
-         FileSaver.saveAs(blob, "Migracaos.pdf")
 
-    });
   } 
   refreshMigracoesLista(){
     this.service.getMigracoesListaService().subscribe(data=>{

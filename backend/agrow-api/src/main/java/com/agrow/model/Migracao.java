@@ -1,6 +1,8 @@
 package com.agrow.model;
 
 import java.io.Serializable;
+import java.sql.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,7 +22,7 @@ public class Migracao implements Serializable{
    		private String cliente;
    		private String usuario;
    		private String avaliacao;
-    	private String data;
+    	private Date data;
     
 	   public long getId() {
 		return id;
@@ -47,10 +49,10 @@ public class Migracao implements Serializable{
 	public void setAvaliacao(String avaliacao) {
 		this.avaliacao = avaliacao;
 	}
-	public String getData() {
+	public Date getData() {
 		return data;
 	}
-	public void setData(String data) {
+	public void setData(Date data) {
 		this.data = data;
 	}
        

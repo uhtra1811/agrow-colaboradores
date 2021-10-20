@@ -152,18 +152,52 @@ export class ListaAuditoriasComponent implements OnInit {
 
 
 
-  geraRelatorio(){
-    this.service.downloadService().subscribe(
-      (res) => {
-        let blob = new Blob([res], { type: 'pdf' });
-         FileSaver.saveAs(blob, "Auditorias.pdf")
-
-    });
-  } 
   refreshAuditoriasLista(){
     this.service.getAuditoriasListaService().subscribe(data=>{
       this.AuditoriasLista=data;
       this.AuditoriasListaSemFiltro=data});
       
   }
+
+
+  geraRelatorio(){
+    this.service.downloadRelatorioAuditoriaCliente().subscribe(
+      (res) => {
+        let blob = new Blob([res], { type: 'pdf' });
+         FileSaver.saveAs(blob, "Auditorias.pdf")
+
+    });
+  } 
+  acionaTrigger(){
+    var val1 =  {
+      edita:"1"
+    };             
+     this.service.addRelatorioService(val1).subscribe();
+
+  }
+ 
+  insertRelatorioAuditoria(){
+
+      var val = this.AuditoriasLista
+     
+      this.service.addAuditoriaRelatorioService(val).subscribe(res=>{
+       
+      
+       
+        this.geraRelatorio();
+      },  
+      error => {alert("Erro ao gerar relatorio")
+      });
+    }
+
+
+ 
+  exportarRelatorio(){
+    this.acionaTrigger();
+    
+    this.delay(1000).then(any=>{
+       this.insertRelatorioAuditoria();});
+    
+  }
+
 }

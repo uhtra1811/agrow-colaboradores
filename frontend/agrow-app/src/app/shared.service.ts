@@ -42,9 +42,7 @@ export class SharedService {
 
 
 
-  addAtendimentoRelatorioService(val:any){
-    return this.http.post(this.APIUrl + '/atendimento-relatorio',val);
-  }
+
 
   addDesenvolvimentoService(val:any){
     return this.http.post(this.APIUrl + '/desenvolvimento',val);
@@ -120,17 +118,79 @@ export class SharedService {
 
 
 
-
-
-
-getRelatorioService(val:any){
-  return this.http.get(this.APIUrl + '/export/pdf'+ val);
+addAtendimentoRelatorioService(val:any){
+  return this.http.post(this.APIUrl + '/atendimento-relatorio',val);
 }
 
-downloadService(): Observable<any> {
-  return this.http.get(this.APIUrl + "/atendimentos-pdf1",
+downloadRelatorioAtendimentos(): Observable<any> {
+  return this.http.get(this.APIUrl + "/atendimentos-pdf",
   {responseType:"arraybuffer"})
 
 }
+downloadRelatorioAtendimentosCliente(): Observable<any> {
+  return this.http.get(this.APIUrl + "/atendimentos-cliente-pdf",
+  {responseType:"arraybuffer"})
+
+}
+
+
+
+
+addTreinamentoRelatorioService(val:any){
+  return this.http.post(this.APIUrl + '/treinamento-relatorio',val);
+}
+
+downloadRelatorioTreinamentosCliente(): Observable<any> {
+  return this.http.get(this.APIUrl + "/treinamento-cliente-pdf",
+  {responseType:"arraybuffer"})
+
+}
+
+
+
+
+
+
+addDesenvolvimentoRelatorioService(val:any){
+  return this.http.post(this.APIUrl + '/desenvolvimento-relatorio',val);
+}
+
+downloadRelatorioDesenvolvimentoCliente(): Observable<any> {
+  return this.http.get(this.APIUrl + "/desenvolvimento-cliente-pdf",
+  {responseType:"arraybuffer"})
+
+}
+
+
+
+
+
+addAuditoriaRelatorioService(val:any){
+  return this.http.post(this.APIUrl + '/auditoria-relatorio',val);
+}
+
+downloadRelatorioAuditoriaCliente(): Observable<any> {
+  return this.http.get(this.APIUrl + "/auditoria-cliente-pdf",
+  {responseType:"arraybuffer"})
+
+}
+
+
+
+
+
+addMigracaoRelatorioService(val:any){
+  return this.http.post(this.APIUrl + '/migracao-relatorio',val);
+}
+
+downloadRelatorioMigracaoCliente(): Observable<any> {
+  return this.http.get(this.APIUrl + "/migracao-cliente-pdf",
+  {responseType:"arraybuffer"})
+
+}
+addRelatorioService(val1:any){
+  return this.http.post(this.APIUrl + '/edita-relatorio',val1);
+}
+
 } 
 

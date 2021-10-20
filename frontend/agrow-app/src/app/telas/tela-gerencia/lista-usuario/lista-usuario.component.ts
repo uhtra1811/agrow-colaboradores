@@ -112,12 +112,6 @@ export class ListaUsuarioComponent implements OnInit, OnChanges{
     });
   }
 
-  geraRelatorio(){
-    this.service.downloadService().subscribe(
-      (res) => {
-        let blob = new Blob([res], { type: 'pdf' });
-         FileSaver.saveAs(blob, "Atendimentos.pdf")
 
-    });
-  } 
+
 }

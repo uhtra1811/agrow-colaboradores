@@ -2,12 +2,12 @@ package com.agrow.repository;
 
 import java.util.List;
 
+
 import javax.validation.Valid;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.agrow.model.Atendimento;
 import com.agrow.model.AtendimentoRelatorio;
 
 

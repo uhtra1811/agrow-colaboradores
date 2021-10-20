@@ -145,14 +145,7 @@ export class ListaTreinamentosComponent implements OnInit {
     });
   }
 
-  geraRelatorio(){
-    this.service.downloadService().subscribe(
-      (res) => {
-        let blob = new Blob([res], { type: 'pdf' });
-         FileSaver.saveAs(blob, "Treinamentos.pdf")
-
-    });
-  } 
+   
 
   refreshTreinamentosLista(){
     this.service.getTreinamentosListaService().subscribe(data=>{
@@ -160,4 +153,50 @@ export class ListaTreinamentosComponent implements OnInit {
       this.TreinamentosListaSemFiltro=data});
       
   }
+
+
+
+
+
+  geraRelatorio(){
+    this.service.downloadRelatorioTreinamentosCliente().subscribe(
+      (res) => {
+        let blob = new Blob([res], { type: 'pdf' });
+         FileSaver.saveAs(blob, "Treinamentos.pdf")
+
+    });
+  } 
+  acionaTrigger(){
+    var val1 =  {
+      edita:"1"
+    };             
+     this.service.addRelatorioService(val1).subscribe();
+
+  }
+ 
+  insertRelatorioTreinamento(){
+
+      var val = this.TreinamentosLista
+     
+      this.service.addTreinamentoRelatorioService(val).subscribe(res=>{
+       
+      
+       
+        this.geraRelatorio();
+      },  
+      error => {alert("Erro ao gerar relatorio")
+      });
+    }
+
+
+ 
+  exportarRelatorio(){
+    this.acionaTrigger();
+    
+    this.delay(1000).then(any=>{
+       this.insertRelatorioTreinamento();});
+    
+  }
+
+
 }

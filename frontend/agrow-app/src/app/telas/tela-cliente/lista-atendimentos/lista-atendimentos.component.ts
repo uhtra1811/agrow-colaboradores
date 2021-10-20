@@ -151,19 +151,52 @@ export class ListaAtendimentosComponent implements OnInit {
   }
 
 
-
-  geraRelatorio(){
-    this.service.downloadService().subscribe(
-      (res) => {
-        let blob = new Blob([res], { type: 'pdf' });
-         FileSaver.saveAs(blob, "Atendimentos.pdf")
-
-    });
-  } 
   refreshAtendimentosLista(){
     this.service.getAtendimentosListaService().subscribe(data=>{
       this.AtendimentosLista=data;
       this.AtendimentosListaSemFiltro=data});
       
   }
+
+  geraRelatorio(){
+    this.service.downloadRelatorioAtendimentosCliente().subscribe(
+      (res) => {
+        let blob = new Blob([res], { type: 'pdf' });
+         FileSaver.saveAs(blob, "Atendimentos.pdf")
+
+    });
+  } 
+  acionaTrigger(){
+    var val1 =  {
+      edita:"1"
+    };             
+     this.service.addRelatorioService(val1).subscribe();
+
+  }
+ 
+  insertRelatorioAtendimento(){
+
+      var val = this.AtendimentosLista
+     
+      this.service.addAtendimentoRelatorioService(val).subscribe(res=>{
+       
+      
+       
+        this.geraRelatorio();
+      },  
+      error => {alert("Erro ao gerar relatorio")
+      });
+    }
+
+
+ 
+  exportarRelatorio(){
+    this.acionaTrigger();
+    
+    this.delay(1000).then(any=>{
+       this.insertRelatorioAtendimento();});
+    
+  }
+
+
 }

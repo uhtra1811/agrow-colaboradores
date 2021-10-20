@@ -1,8 +1,7 @@
 package com.agrow.model;
 
 import java.io.Serializable;
-
-
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,7 +28,7 @@ public class Atendimento implements Serializable{
         private String avaliacao;
         private String atendente;
         private String minutos;
-		private String data;
+		private Date data;
         
         
      
@@ -104,10 +103,10 @@ public class Atendimento implements Serializable{
 		}
 
 
-		public String getData() {
+		public Date getData() {
 			return data;
 		}
-		public void setData(String data) {
+		public void setData(Date data) {
 			this.data = data;
 		}
         
