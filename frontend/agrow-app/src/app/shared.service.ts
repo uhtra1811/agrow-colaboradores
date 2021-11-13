@@ -192,5 +192,10 @@ addRelatorioService(val1:any){
   return this.http.post(this.APIUrl + '/edita-relatorio',val1);
 }
 
-} 
 
+
+getRelatorioERPListaService():Observable<any[]>{
+  return this.http.get<any[]>(this.APIUrl + '/relatorio-erp'); 
+}
+
+}

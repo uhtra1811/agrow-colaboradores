@@ -15,8 +15,8 @@
     </button>
 </mat-toolbar>
 <div id="componentes"><router-outlet></router-outlet></div>
-
-<ng-sidebar-container><ng-sidebar  [(opened)]="opened">
+<div *ngIf="MostraSideBar">
+<ng-sidebar-container ><ng-sidebar  [(opened)]="opened">
   <!--<app-arvore-recursos (buttonClicked)="toggleSidebar($event)"></app-arvore-recursos>-->
   <app-arvore-recursos-cliente         *ngIf="Cliente" (buttonClicked)="toggleSidebar($event)"></app-arvore-recursos-cliente>
   <app-arvore-recursos-suporte         *ngIf="Suporte" (buttonClicked)="toggleSidebar($event)"></app-arvore-recursos-suporte>
@@ -27,4 +27,4 @@
 </ng-sidebar></ng-sidebar-container>
 
 
-
+</div>

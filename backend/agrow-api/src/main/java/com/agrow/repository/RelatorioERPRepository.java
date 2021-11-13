@@ -2,13 +2,13 @@ package com.agrow.repository;
 
 import java.util.List;
 
-
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.agrow.model.ClienteRelatorio;
+
+import com.agrow.model.RelatorioERP;
 
 @Repository
-public interface ClienteRelatorioRepository extends CrudRepository<ClienteRelatorio, Long> {
-	    List<ClienteRelatorio> findAll();
-	}
+public interface RelatorioERPRepository extends CrudRepository<RelatorioERP, Long>{
+    List<RelatorioERP> findAll();
+}

@@ -51,7 +51,12 @@ export class CadastroClienteComponent implements OnInit {
                 versao:this.Versao,
                 telefone:this.Telefone,
                 firebird:this.Firebird,
-                validacao:this.Validacao};
+                validacao:this.Validacao,
+                satisfacao_atendimento:1,
+                satisfacao_treinamento:1,
+                satisfacao_desenvolvimento:1,
+                satisfacao_auditoria:1,
+                satisfacao_migracao:1};
     this.service.addClienteService(val).subscribe(res=>{
       alert("Adicionado com sucesso!");
     },

@@ -29,6 +29,7 @@ export class MostraClientesComponent implements OnInit {
   Telefone!:string;
   Firebird!:string;
   Validacao!:string;
+  Validar!:string;
 
   Id_ClienteFiltro!: string;
   ClienteFiltro!:string;
@@ -37,6 +38,7 @@ export class MostraClientesComponent implements OnInit {
   TelefoneFiltro!:string;
   FirebirdFiltro!:string;
   ValidacaoFiltro!:string;
+  ValidarFiltro!:string;
 
   ModalTitle!:string;
 
@@ -44,6 +46,7 @@ export class MostraClientesComponent implements OnInit {
   ngOnInit(): void {
     this.mostrarClientes();
     this.refreshClientesLista();
+    this.acionaTrigger();
   }
 
   mostrarClientes(){
@@ -72,6 +75,7 @@ export class MostraClientesComponent implements OnInit {
     this.Telefone= this.cad.telefone
     this.Firebird= this.cad.firebird
     this.Validacao= this.cad.validacao
+    this.Validar= this.cad.validar
  
   }
   deleteCliente(item: any){
@@ -96,7 +100,8 @@ export class MostraClientesComponent implements OnInit {
                versao:this.Versao,
                telefone:this.Telefone,
                firebird:this.Firebird,
-               validacao:this.Validacao};
+               validacao:this.Validacao,
+               validar:this.Validar};
   this.service.updateClienteService(val).subscribe(res=>{
       alert("Editado com sucesso!");
       this.ngOnInit();
@@ -109,6 +114,7 @@ export class MostraClientesComponent implements OnInit {
       this.Telefone="";
       this.Firebird="";
       this.Validacao="";
+      this.Validar="";
 
   }
 
@@ -173,8 +179,24 @@ export class MostraClientesComponent implements OnInit {
     });
   }
 
+  filtroValidarCliente(){
+    var ValidarFiltro:string = "" + this.ValidarFiltro;
+    this.ClientesLista = this.ClientesListaSemFiltro.filter(function (el:any){
+        return el.avaliacao.toString().toLowerCase().includes(
+          ValidarFiltro.toString().trim().toLowerCase()
+        )
+    });
+  }
 
   console(){
     console.log(this.Id_ClienteFiltro)
+  }
+
+  acionaTrigger(){
+    var val1 =  {
+      edita:"1"
+    };             
+     this.service.addRelatorioService(val1).subscribe();
+
   }
 }

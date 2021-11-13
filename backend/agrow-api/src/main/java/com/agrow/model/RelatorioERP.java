@@ -2,21 +2,19 @@ package com.agrow.model;
 
 import java.io.Serializable;
 
+
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="RELATORIO")
-public class Relatorio implements Serializable{
+@Table(name="RELATORIO_ERP")
+public class RelatorioERP  implements Serializable{
 	  private static final long serialVersionUID = 1L; 
       
       @Id 
-      @GeneratedValue(strategy=GenerationType.AUTO)
       private long id; 
-      private String edita;
+      private String relatorio;
       
       
 	public long getId() {
@@ -25,11 +23,11 @@ public class Relatorio implements Serializable{
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getEdita() {
-		return edita;
+	public String getRelatorioERP() {
+		return relatorio;
 	}
-	public void setEdita(String edita) {
-		this.edita = edita;
+	public void setRelatorioERP(String edita) {
+		this.relatorio = edita;
 	}
 
 }

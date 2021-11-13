@@ -41,6 +41,8 @@ export class MostraAtendimentoComponent implements OnInit {
   Auxilio_Atendimento!:string;
   Data_Atendimento!:string;
  
+  MostraFiltro: boolean = false;
+  
   value:number = 0;
 
   ClientesLista!:any[];
@@ -62,6 +64,11 @@ export class MostraAtendimentoComponent implements OnInit {
  
     this.refreshAtendimentosLista();
   }
+
+  mostrarFiltro(){
+    this.MostraFiltro = !this.MostraFiltro;
+  }
+
   refreshClientesLista(){
     this.service.getClientesListaService().subscribe(data=>{
       this.ClientesLista=data;
@@ -108,7 +115,7 @@ export class MostraAtendimentoComponent implements OnInit {
                   data:this.Data_Atendimento
                 }
       this.service.updateAtendimentoService(val).subscribe(res=>{
-        alert("Editado com sucesso! Data:" + this.Data_Atendimento);
+        alert("Editado com sucesso!");
         this.ngOnInit();
       },  
       error => {alert("Erro ao salvar,revise as informações preenchidas.")
@@ -118,7 +125,7 @@ export class MostraAtendimentoComponent implements OnInit {
     deletarAtendimento(item: any){
       if(confirm('Deseja deletar?')){
         this.service.deleteAtendimentoService(item.id).subscribe(data=>{
-          alert("Deletado com sucesso");
+          alert("Deletado com sucesso!");
        this.refreshAtendimentosLista(); }, 
         error => {alert("Erro ao deletar!");
         });
@@ -196,11 +203,12 @@ export class MostraAtendimentoComponent implements OnInit {
 
   filtroDataAtendimento(){
     var DataFiltro:string = "" + this.DataFiltro;
+    console.log(this.DataFiltro)
     this.AtendimentosLista = this.AtendimentosListaSemFiltro.filter(function (el:any){
         return el.data.toString().toLowerCase().includes(
           DataFiltro.toString().trim().toLowerCase()
         )
-    });
+    }); 
   }
 
 

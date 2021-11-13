@@ -22,7 +22,7 @@ public class TreinamentoRelatorio implements Serializable{
        private String cliente;
        private String usuario;
        private String nivel;
-       private Long avaliacao;
+       private Double avaliacao;
        private String atendente;
        private Date data;
      
@@ -51,10 +51,10 @@ public class TreinamentoRelatorio implements Serializable{
 	public void setNivel(String nivel) {
 		this.nivel = nivel;
 	}
-	public Long getAvaliacao() {
+	public Double getAvaliacao() {
 			return avaliacao;
 	}
-	public void setAvaliacao(Long avaliacao) {
+	public void setAvaliacao(Double avaliacao) {
 			this.avaliacao = avaliacao;
 	}
 	

@@ -21,7 +21,7 @@ public class Migracao implements Serializable{
        	private long id;
    		private String cliente;
    		private String usuario;
-   		private String avaliacao;
+   		private Double avaliacao;
     	private Date data;
     
 	   public long getId() {
@@ -43,10 +43,10 @@ public class Migracao implements Serializable{
 		this.usuario = usuario;
 	}
 	
-	public String getAvaliacao() {
+	public Double getAvaliacao() {
 		return avaliacao;
 	}
-	public void setAvaliacao(String avaliacao) {
+	public void setAvaliacao(Double avaliacao) {
 		this.avaliacao = avaliacao;
 	}
 	public Date getData() {

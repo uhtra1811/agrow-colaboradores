@@ -1,6 +1,8 @@
 table{
     position: relative;
+    text-align: center;
 }
+
 
 mat-toolbar{
     position: relative;

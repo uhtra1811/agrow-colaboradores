@@ -22,8 +22,8 @@ export class ListaRelatoriosAgrowComponent implements OnInit {
   ModalTitle!:string;
   MostraModal:boolean = false;
 
-  DesenvolvimentosLista!:any[];
-  DesenvolvimentosListaSemFiltro!:any[];
+  RelatorioERPLista!:any[];
+  RelatorioERPListaSemFiltro!:any[];
 
   Id_DesenvolvimentoFiltro!: string;
   ClienteNomeFiltro:string="";
@@ -34,15 +34,11 @@ export class ListaRelatoriosAgrowComponent implements OnInit {
   DataFiltro:string="";
 
 
-  Id_Desenvolvimento!: number;
-  Cliente_Desenvolvimento!:string;
-  Usuario_Desenvolvimento!:string;
-  Motivo_Desenvolvimento!:string;
-  Meiodecontato_Desenvolvimento!:string;
-  Mensagem_Desenvolvimento!:string;
-  Solucao_Desenvolvimento!:string;
-  Avaliacao_Desenvolvimento:number = 0;
-  Data_Desenvolvimento!:string;
+  Id_RelatorioERP!: number;
+  Id_RelatorioERPFiltro!: number;
+  RelatorioERP!:string;
+  RelatorioERPFiltro!:string;
+
   MostraLoading:boolean = true;
   MostrarTabela:boolean = false;
   value: number = 0;
@@ -57,106 +53,49 @@ export class ListaRelatoriosAgrowComponent implements OnInit {
  
   ngOnInit(): void {
     this.UsuarioNomeFiltro = localStorage.getItem('usuario');
-    this.Usuario_Desenvolvimento = this.UsuarioNomeFiltro;
+   
    
     //this.mostrarDesenvolvimentos();
-
-    this.loading();
-    this.mostrarDesenvolvimentos();
-    this.refreshDesenvolvimentosLista();
-  }
-
-  loading(){
-    this.delay(1500).then(any=>{
-      this.esconderLoading();
-      this.mostrarTabela();
- });
     
-    this.refreshDesenvolvimentosLista();
-    this.delay(1000).then(any=>{
-      this.filtroUsuarioDesenvolvimento();
- });
-  }
+    this.mostrarRelatorioERP();
+//    this.refreshMostrarRelatorioERP();
 
-  esconderLoading(){
-    this.MostraLoading = !this.MostraLoading;
-  }
-  mostrarTabela(){
-    this.MostrarTabela = !this.MostrarTabela;
-  }
-  async delay(ms: number) {
-    await new Promise<void>(resolve => setTimeout(()=>resolve(), ms)).then(()=>console.log("fired"));
-}
-  
-  mostrarModal(){
-    
-    this.MostraModal = !this.MostraModal;
-    
-  }
-
-  mostrarDesenvolvimentos(){
-    this.service.getDesenvolvimentosListaService().subscribe(data=>{
-      this.DesenvolvimentosLista=data;});
-
-  }
-  editaDesenvolvimento(item: any){
-    this.cad=item;
-    this.Id_Desenvolvimento= this.cad.id
-    this.Cliente_Desenvolvimento= this.cad.cliente
-    this.Usuario_Desenvolvimento= this.cad.usuario
-    this.Motivo_Desenvolvimento= this.cad.motivo
-    this.Meiodecontato_Desenvolvimento= this.cad.meiodecontato
-    this.Mensagem_Desenvolvimento= this.cad
-    this.Solucao_Desenvolvimento= this.cad.solucao
-    this.value = this.cad.avaliacao;
-    this.Data_Desenvolvimento= this.cad.data
-    console.log(this.cad);
-    if(this.value > 0){
-      this.MostrarAvaliacaoHabilitada = false;
-      this.MostrarAvaliacaoDesabilitada = true;
-
-    }else{
-      this.MostrarAvaliacaoHabilitada = true;
-      this.MostrarAvaliacaoDesabilitada = false;
-    }
-  
-  }
-  
-
-  
-  avaliarDesenvolvimentoService(){
-    var val =  {             
-                  id:this.Id_Desenvolvimento,
-                  cliente:this.Cliente_Desenvolvimento,
-                  usuario:this.Usuario_Desenvolvimento,
-                  motivo:this.Motivo_Desenvolvimento,
-                  meiodecontato:this.Meiodecontato_Desenvolvimento,
-                  solucao:this.Solucao_Desenvolvimento,
-                  avaliacao:this.value,
-                //  data:this.Data_Desenvolvimento
-              };
-    this.service.updateDesenvolvimentoService(val).subscribe(res=>{
-      alert("Avaliado com sucesso!");
-    },  
-    error => {alert("Erro ao salvar,revise as informações preenchidas.")
-    });
   }
 
 
-  filtroUsuarioDesenvolvimento(){
-    var UsuarioNomeFiltro:string = "" + this.Usuario_Desenvolvimento;
-    this.DesenvolvimentosLista = this.DesenvolvimentosListaSemFiltro.filter(function (el:any){
-        return el.usuario.toString().toLowerCase().includes(
-          UsuarioNomeFiltro.toString().trim().toLowerCase()
+  mostrarRelatorioERP(){
+    this.service.getRelatorioERPListaService().subscribe(data=>{
+      this.RelatorioERPLista=data;
+      this.RelatorioERPListaSemFiltro=data;}            
+      );
+  }
+
+
+
+  filtroIdRelatorioERP(){
+    var Id_RelatorioERPFiltro:string = "" + this.Id_RelatorioERPFiltro;
+    this.RelatorioERPLista = this.RelatorioERPListaSemFiltro.filter(function (el:any){
+        return el.id.toString().toLowerCase().includes(
+          Id_RelatorioERPFiltro.toString().trim().toLowerCase()
         )
     });
   }
 
 
-  refreshDesenvolvimentosLista(){
-    this.service.getDesenvolvimentosListaService().subscribe(data=>{
-      this.DesenvolvimentosLista=data;
-      this.DesenvolvimentosListaSemFiltro=data});
+  filtroRelatorioERP(){
+    var RelatorioERPFiltro:string = "" + this.RelatorioERPFiltro;
+    this.RelatorioERPLista = this.RelatorioERPListaSemFiltro.filter(function (el:any){
+        return el.relatorioERP.toString().toLowerCase().includes(
+          RelatorioERPFiltro.toString().trim().toLowerCase()
+        )
+    });
+  }
+
+
+  refreshMostrarRelatorioERP(){
+    this.service.getRelatorioERPListaService().subscribe(data=>{
+      this.RelatorioERPLista=data;
+      this.RelatorioERPListaSemFiltro=data});
       
   }
 }

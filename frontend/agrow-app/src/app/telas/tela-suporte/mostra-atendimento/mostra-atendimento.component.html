@@ -60,10 +60,10 @@
 
 
 <mat-toolbar>
-  <button mat-icon-button  style="left: 15%; bottom:10%" ><mat-icon>search</mat-icon></button>
+  <button mat-icon-button  style="left: 19%; " (click)="mostrarFiltro()"><mat-icon>search</mat-icon>Filtrar</button>
   <button mat-icon-button  style="left: 87%"   (click)="exportarRelatorio()" data-toggle="modal" data-target="#ModalRelatorio">  <mat-icon>file_copy</mat-icon> Exportar</button>
-     <div class="filtro">
-        <input style="width: 4%; font-size: 12px; margin-left: 2px;"   [(ngModel)]="Id_AtendimentoFiltro"  (keyup)="filtroIdAtendimento()"      placeholder=" Id">
+
+        <!--
         <input style="width: 8%; font-size: 12px; margin-left: 2px;"   [(ngModel)]="ClienteNomeFiltro"  (keyup)="filtroClienteAtendimento()" placeholder=" Cliente">
         <input style="width: 8%; font-size: 12px; margin-left: 2px;"   [(ngModel)]="UsuarioNomeFiltro"  (keyup)="filtroUsuarioAtendimento()" placeholder=" Usuario">
         <input style="width: 8%; font-size: 12px; margin-left: 2px;"   [(ngModel)]="MotivoFiltro"  (keyup)="filtroMotivoAtendimento()" placeholder=" Motivo">
@@ -72,7 +72,43 @@
         <input style="width: 8%; font-size: 12px; margin-left: 2px;"   [(ngModel)]="AvaliacaoFiltro"  (keyup)="filtroAvaliacaoAtendimento()" placeholder=" Avaliacao">
         <input style="width: 8%; font-size: 12px; margin-left: 2px;"   [(ngModel)]="AtendenteFiltro"  (keyup)="filtroAtendenteAtendimento()" placeholder=" Atendente">
         <input style="width: 12%; margin-left: 2px;" type="date"       [(ngModel)]="DataFiltro"  (click)="filtroDataAtendimento()" (keyup)="filtroDataAtendimento()" placeholder=" Data">
-    </div>    
+    </div>    -->
+</mat-toolbar>
+<!--
+<mat-toolbar >
+
+    <div class="row">
+
+     <div class="col-sm-1">
+       <input class="form-control"  [(ngModel)]="Id_AtendimentoFiltro"  (keyup)="filtroIdAtendimento()"      placeholder=" Id">
+     </div>
+     <div class="col">
+      <input  class="form-control"    [(ngModel)]="ClienteNomeFiltro"  (keyup)="filtroClienteAtendimento()" placeholder=" Cliente">
+    </div>
+     <div class="col">
+       <input  class="form-control"    [(ngModel)]="UsuarioNomeFiltro"  (keyup)="filtroUsuarioAtendimento()" placeholder=" Usuario">
+     </div>
+     <div class="col">
+       <input  class="form-control"    [(ngModel)]="MotivoFiltro"  (keyup)="filtroMotivoAtendimento()" placeholder=" Motivo">
+     </div>
+     <div class="col">
+       <input  class="form-control"    [(ngModel)]="ContatoFiltro"  (keyup)="filtroContatoAtendimento()" placeholder=" Contato">
+     </div>
+     <div class="col">
+       <input  class="form-control"    [(ngModel)]="SolucaoFiltro"  (keyup)="filtroSolucaoAtendimento()" placeholder=" Solução">
+     </div>
+     <div class="col">
+       <input  class="form-control"    [(ngModel)]="AvaliacaoFiltro"  (keyup)="filtroAvaliacaoAtendimento()" placeholder=" Avaliacao">
+     </div>
+     <div class="col">
+       <input  class="form-control"    [(ngModel)]="AtendenteFiltro"  (keyup)="filtroAtendenteAtendimento()" placeholder=" Atendente">
+     </div>
+     <div class="col">
+       <input  class="form-control"  [(ngModel)]="DataFiltro"  (click)="filtroDataAtendimento()" (keyup)="filtroDataAtendimento()" placeholder=" Data">
+     </div>
+
+    </div>
+
 </mat-toolbar>
 
 <div id="lista">
@@ -108,4 +144,87 @@
     </tr>
   </tbody>
 </table>
-</div>
+
+
+
+
+</div>-->
+
+<table class="table  table-bordered">
+  <thead class="table-success" *ngIf="MostraFiltro">
+    <tr>
+      <th style="width: 6%;">
+        <div class="col">
+          <input class="form-control" [(ngModel)]="Id_AtendimentoFiltro"  (keyup)="filtroIdAtendimento()"     >  
+         </div>
+      </th>
+      <th>
+      <div class="col">
+        <input  class="form-control"    [(ngModel)]="ClienteNomeFiltro"  (keyup)="filtroClienteAtendimento()" >    
+       </div>
+    </th>
+      <th>
+       <div class="col">
+         <input  class="form-control"    [(ngModel)]="UsuarioNomeFiltro"  (keyup)="filtroUsuarioAtendimento()" >     
+         </div>
+      </th>
+       <th>
+       <div class="col">
+         <input  class="form-control"    [(ngModel)]="MotivoFiltro"  (keyup)="filtroMotivoAtendimento()" >    
+         </div>
+      </th>
+       <th style="width: 8%;">
+       <div class="col">
+         <input  class="form-control"    [(ngModel)]="ContatoFiltro"  (keyup)="filtroContatoAtendimento()">
+       </div>
+      </th>
+       <th style="width: 10%;">
+       <div class="col">
+         <input  class="form-control"    [(ngModel)]="SolucaoFiltro"  (keyup)="filtroSolucaoAtendimento()">      
+         </div>
+      </th>
+       <th >
+       <div class="col">
+         <input  class="form-control"    [(ngModel)]="AtendenteFiltro"  (keyup)="filtroAtendenteAtendimento()" >
+       </div>
+       <th style="width: 18%;">
+        <div class="col">
+          <input type="date" class="form-control" [(ngModel)]="DataFiltro"  (keyup)="filtroDataAtendimento()" (click)="filtroDataAtendimento()">
+      </div>
+      </th>
+      
+      <th style="width: 5%;"></th>
+      <th style="width: 5%;"></th>
+      </tr>
+  </thead>
+  <thead class="table-success">
+    <tr>
+      <th>Id</th>
+      <th>Cliente</th>
+      <th>Usuario</th>
+      <th>Motivo</th>
+      <th>Contato</th>
+      <th>Solução</th>
+      <th>Atendente</th>
+      <th>Data</th>
+      
+      <th></th>
+      <th></th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dataItem of AtendimentosLista">
+      <td style="word-wrap: break-word;">{{dataItem.id}}</td>
+      <td style="word-wrap: break-word;">{{dataItem.cliente}}</td>
+      <td style="word-wrap: break-word;">{{dataItem.usuario}}</td>
+      <td style="word-wrap: break-word;">{{dataItem.motivo}}</td>
+      <td style="word-wrap: break-word;">{{dataItem.meiodecontato}}</td>
+      <td style="word-wrap: break-word;">{{dataItem.solucao}}</td>
+      <td style="word-wrap: break-word;">{{dataItem.atendente}}</td>
+      <td type="date">{{dataItem.data | date: 'dd/MM/yyyy' }}</td>
+      <td><button mat-icon-button (click)="editaAtendimento(dataItem)"  data-toggle="modal" data-target="#Modal">  <mat-icon>edit</mat-icon></button></td>
+      <td><button mat-icon-button (click)="deletarAtendimento(dataItem)" >  <mat-icon>delete</mat-icon></button></td>
+    </tr>
+    <button style="visibility: hidden;" >Relatório</button>
+  </tbody>
+</table>

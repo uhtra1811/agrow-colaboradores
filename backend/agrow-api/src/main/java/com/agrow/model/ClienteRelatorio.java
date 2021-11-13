@@ -1,6 +1,7 @@
 package com.agrow.model;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,8 +25,20 @@ public class ClienteRelatorio implements Serializable{
         private String versao;
         private String telefone;
         private double firebird;
-        private String validacao;
+        private Date validacao;
+        private Double satisfacao;
         
+        
+        
+
+		public Double getSatisfacao() {
+			return satisfacao;
+		}
+
+		public void setSatisfacao(Double satisfacao) {
+			this.satisfacao = satisfacao;
+		}
+
         
         
 		public String getTelefone() {
@@ -60,11 +73,11 @@ public class ClienteRelatorio implements Serializable{
 			this.firebird = firebird;
 		}
 
-		public String getValidacao() {
+		public Date getValidacao() {
 			return validacao;
 		}
 
-		public void setValidacao(String validacao) {
+		public void setValidacao(Date validacao) {
 			this.validacao = validacao;
 		}
 

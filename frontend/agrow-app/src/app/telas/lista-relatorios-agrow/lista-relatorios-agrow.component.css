@@ -1,6 +1,9 @@
 table{
     position: relative;
+    table-layout: fixed;
+    text-align: center;
 }
+
 
 mat-toolbar{
     position: relative;
@@ -22,19 +25,21 @@ mat-toolbar{
     padding-right: 20%;
 }
 
+mat-toolbar{
+    background-color: rgb(77, 156, 84);
+    color: white;
+}
+
 
 .filtro{
-    margin-left: 12%;
-    color: black;
+    margin-left: 18%;
     background-color: rgb(77, 156, 84);
     font-size: 12px;
     
 
 } 
+
   td {
       word-wrap:break-word;
   }
 
-  mat-spinner{
-      margin-left: 45%;
-  }

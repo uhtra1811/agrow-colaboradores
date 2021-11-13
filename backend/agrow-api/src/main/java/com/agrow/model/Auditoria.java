@@ -1,6 +1,7 @@
 package com.agrow.model;
 
 import java.io.Serializable;
+
 import java.sql.Date;
 
 import javax.persistence.Entity;
@@ -22,7 +23,7 @@ public class Auditoria  implements Serializable{
 			private String cliente;
 	        private String usuario;
 	        private String motivo;
-	        private String avaliacao;
+	        private Double avaliacao;
 			private Date data;
 			
 			public long getId() {
@@ -50,10 +51,10 @@ public class Auditoria  implements Serializable{
 				this.motivo = motivo;
 			}
 			
-			public String getAvaliacao() {
+			public Double getAvaliacao() {
 				return avaliacao;
 			}
-			public void setAvaliacao(String avaliacao) {
+			public void setAvaliacao(Double avaliacao) {
 				this.avaliacao = avaliacao;
 			}
 			public Date getData() {

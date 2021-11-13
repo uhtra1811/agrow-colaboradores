@@ -176,7 +176,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{avaliacao}]]></textFieldExpression>
 			</textField>
-			<textField textAdjust="StretchHeight" pattern="d/M/Y">
+			<textField textAdjust="StretchHeight" pattern="dd/M/Y">
 				<reportElement x="460" y="0" width="92" height="20" uuid="a7ef017f-4a2c-4bfe-b014-be92df032c54">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="15429a15-b79e-4c14-a16f-8e508b134d45"/>
 				</reportElement>

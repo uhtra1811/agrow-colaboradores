@@ -62,7 +62,7 @@ input{
 table {
 
   /*   table-layout:fixed;*/
-  
+  text-align: center;
   }
   td {
       word-wrap:break-word;

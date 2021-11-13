@@ -22,7 +22,7 @@ public class Desenvolvimento  implements Serializable{
         private String usuario;
         private String motivo;
         private Date data;
-        private String avaliacao;
+        private Double avaliacao;
         
 		public long getId() {
 			return id;
@@ -54,10 +54,10 @@ public class Desenvolvimento  implements Serializable{
 		public void setData(Date data) {
 			this.data = data;
 		}
-		public String getAvaliacao() {
+		public Double getAvaliacao() {
 			return avaliacao;
 		}
-		public void setAvaliacao(String avaliacao) {
+		public void setAvaliacao(Double avaliacao) {
 			this.avaliacao = avaliacao;
 		}
 }        

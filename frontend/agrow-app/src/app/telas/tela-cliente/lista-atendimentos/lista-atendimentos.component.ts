@@ -135,6 +135,7 @@ export class ListaAtendimentosComponent implements OnInit {
               };
     this.service.updateAtendimentoService(val).subscribe(res=>{
       alert("Avaliado com sucesso!");
+      this.acionaTrigger();
     },  
     error => {alert("Erro ao salvar,revise as informações preenchidas.")
     });

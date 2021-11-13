@@ -125,7 +125,9 @@ this.setarModulo();
                   meiodecontato:'aGrow',
                   solucao:'',
                   avaliacao:'',
-                  data:this.Data_Atendimento
+                  data:this.Data_Atendimento,
+                  atendente:'',
+                  auxilio:''
                 };             
       this.service.addAtendimentoService(val).subscribe(res=>{
         alert("Adicionado com sucesso!");

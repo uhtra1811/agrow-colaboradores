@@ -23,6 +23,8 @@ export class AdminComponent implements OnInit {
   Direcao:boolean = false;
   Comercial:boolean = false;
 
+  @Input() MostraSideBar:any = false;
+
   Tipo_Usuario1:string = '369';
   constructor(private router: Router) {}
  
@@ -103,8 +105,30 @@ export class AdminComponent implements OnInit {
   }
 
   toggleSidebar(opened: any){
-    this.opened= !this.opened;
+    console.log(this.opened)
+    if(this.MostraSideBar == false){
+      this.abrirSidebar(opened);}
+      else{
+        this.fecharSidebar(opened);
+      }
+    
   } 
+  abrirSidebar(opened:any){
+    this.MostraSideBar= !this.MostraSideBar;;
+    this.delay(100).then(any=>{
+      this.opened= !this.opened;
+      
+ });
+  }
+  fecharSidebar(opened:any){
+    this.opened= !this.opened;
+    this.delay(100).then(any=>{
+      
+      this.MostraSideBar= !this.MostraSideBar;;
+      
+ });
+  }
+
   console(){
     sessionStorage.getItem('permissao');
         this.token = sessionStorage.token;
@@ -112,5 +136,9 @@ export class AdminComponent implements OnInit {
         console.log(this.Permissao);
   
   }
+
+  async delay(ms: number) {
+    await new Promise<void>(resolve => setTimeout(()=>resolve(), ms)).then(()=>console.log("fired"));
+}
 }
 

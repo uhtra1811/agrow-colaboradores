@@ -17,7 +17,7 @@
 	<field name="motivo" class="java.lang.String"></field>
 	<field name="meiodecontato" class="java.lang.String"></field>
 	<field name="solucao" class="java.lang.String"></field>
-	<field name="data" class="java.lang.Date"></field>
+	<field name="data" class="java.sql.Date"></field>
 	<field name="avaliacao" class="java.lang.String"></field>
 	<field name="minutos" class="java.lang.String"></field>
 	<field name="auxilio" class="java.lang.String"></field>
@@ -236,7 +236,7 @@
 					<textFieldExpression><![CDATA[$F{solucao}]]></textFieldExpression>
 				</textField>
 				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
-					<reportElement style="Detail" positionType="Float" x="579" y="0" width="10" height="14" uuid="2403a3b5-3758-4911-bcca-c86bffb1405f">
+					<reportElement style="Detail" positionType="Float" x="579" y="0" width="20" height="14" uuid="2403a3b5-3758-4911-bcca-c86bffb1405f">
 						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="665ebe10-074f-43dd-9fbf-932230673331"/>
 					</reportElement>
 					<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
@@ -265,7 +265,7 @@
 					</textElement>
 					<textFieldExpression><![CDATA[$F{atendente}]]></textFieldExpression>
 				</textField>
-				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true"  pattern="dd/M/Y">
 					<reportElement style="Detail" positionType="Float" x="450" y="0" width="62" height="14" uuid="e1e2681a-7cf7-4238-ac8e-99c8bf4bf759">
 						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="78cc163d-7032-4647-8837-a438198af27e"/>
 					</reportElement>

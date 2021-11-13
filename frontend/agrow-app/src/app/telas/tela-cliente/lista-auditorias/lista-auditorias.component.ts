@@ -135,6 +135,7 @@ export class ListaAuditoriasComponent implements OnInit {
               };
     this.service.updateAuditoriaService(val).subscribe(res=>{
       alert("Avaliado com sucesso!");
+      this.acionaTrigger();
     },  
     error => {alert("Erro ao salvar,revise as informações preenchidas.")
     });

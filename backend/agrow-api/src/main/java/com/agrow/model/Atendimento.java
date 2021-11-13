@@ -25,7 +25,7 @@ public class Atendimento implements Serializable{
         private String meiodecontato;
         private String auxilio;
         private String solucao;
-        private String avaliacao;
+        private Double avaliacao;
         private String atendente;
         private String minutos;
 		private Date data;
@@ -80,10 +80,10 @@ public class Atendimento implements Serializable{
 		public void setAuxilio(String auxilio) {
 			this.auxilio = auxilio;
 		}
-		public String getAvaliacao() {
+		public Double getAvaliacao() {
 			return avaliacao;
 		}
-		public void setAvaliacao(String avaliacao) {
+		public void setAvaliacao(Double avaliacao) {
 			this.avaliacao = avaliacao;
 		}
 		public String getAtendente() {

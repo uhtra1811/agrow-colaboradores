@@ -52,9 +52,11 @@ interface FlatNode {
 export class ArvoreRecursosClienteComponent{
 
   opened = false;
+  MostraSideBar = false;
   mostrarMenu: boolean = true;
   mostraArvore: boolean = true;
   @Output() buttonClicked: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() buttonClicked2: EventEmitter<boolean> = new EventEmitter<boolean>();
 
 
   private _transformer = (node: ArvoreRecursosNode, level: number) => {
@@ -81,6 +83,7 @@ mostraComponente(node: any){
   if (node.name === 'Solicitar Suporte'){  
     this.router.navigate(['/admin/solicita-suporte']);
     this.buttonClicked.emit(this.opened);  
+    this.buttonClicked2.emit(this.opened);  
 
   }else if (node.name === 'Solicitar Desenvolvimento'){  
     this.buttonClicked.emit(this.opened);

@@ -1,9 +1,9 @@
+
 table{
     position: relative;
-
+    table-layout: fixed;
     padding:  20%;
 }
-
 mat-toolbar{
     position: relative;
     background-color: rgb(77, 156, 84);
@@ -14,6 +14,11 @@ mat-toolbar{
     font-size: 16px;
     padding-left: 20%;
     padding-right: 20%;
+}
+table{
+    position: relative;
+
+    padding:  20%;
 }*/
 
 #lista{    
@@ -25,7 +30,7 @@ mat-toolbar{
 
 
 .filtro{
-    margin-left: 12%;
+
     color: black;
     background-color: rgb(77, 156, 84);
     font-size: 12px;
