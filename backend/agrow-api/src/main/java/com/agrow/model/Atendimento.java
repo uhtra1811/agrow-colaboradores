@@ -29,6 +29,8 @@ public class Atendimento implements Serializable{
         private String atendente;
         private String minutos;
 		private Date data;
+		private String Pendente; 
+		
         
         
      
@@ -109,5 +111,16 @@ public class Atendimento implements Serializable{
 		public void setData(Date data) {
 			this.data = data;
 		}
+
+
+		public String getPendente() {
+			return Pendente;
+		}
+
+
+		public void setPendente(String pendente) {
+			Pendente = pendente;
+		}
+		
         
 }

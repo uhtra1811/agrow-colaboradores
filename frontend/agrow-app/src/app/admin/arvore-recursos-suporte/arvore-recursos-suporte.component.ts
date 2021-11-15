@@ -21,6 +21,7 @@ const TREE_DATA: ArvoreRecursosNode[] = [
           ],},
       {name: 'Relatórios', 
       children:[
+           {name: 'Lista de Atendimentos Pendentes'},
            {name: 'Lista de Atendimentos'},
            {name: 'Lista de Clientes'},
            {name: 'Lista de Relatórios aGrow'}
@@ -156,6 +157,12 @@ mostraComponente(node: any){
   }else if (node.name ===  'Solicitar Migração'){  
     this.buttonClicked.emit(this.opened);
     this.router.navigate(['/admin/solicita-migracao']);
+  }else if (node.name === 'Lista de Atendimentos Pendentes'){
+    this.buttonClicked.emit(this.opened);
+    this.router.navigate(['/admin/lista-atendimentos-pendentes'])
+  }else if (node.name ===  'Lista de Relatórios aGrow'){  
+    this.buttonClicked.emit(this.opened);
+    this.router.navigate(['/admin/relatorios-agrow']);
   }
  }
 }

@@ -52,24 +52,62 @@
 </div>
 
 <mat-toolbar>
-  <button mat-icon-button  style="left: 15%; bottom:10%" ><mat-icon>search</mat-icon></button>
-  <button (click)="filtroIdCliente()" mat-icon-button  style="left: 87%">  <mat-icon>file_copy</mat-icon> Exportar</button>
-     <div class="filtro" style="font-size: 12px;">
-        <input [(ngModel)]="Id_ClienteFiltro" (keyup)="filtroIdCliente()"  style="width: 4%; margin-left: 1%;"   placeholder=" Id">
-        <input style="width: 8%; margin-left: 1%;"   placeholder=" Cliente">
-        <input style="width: 8%; margin-left: 1%;"   placeholder=" Licenças">
-        <input style="width: 8%; margin-left: 1%;"   placeholder=" Versão">
-        <input style="width: 8%; margin-left: 1%;"   placeholder=" Telefone">
-        <input style="width: 8%; margin-left: 1%;"   placeholder=" Firebird">
-        <input style="width: 8%; margin-left: 1%;"   placeholder=" Validação">
-        <input style="width: 8%; margin-left: 1%; font-size: 10px;"   placeholder="Prox. Validação">
-        <input style="width: 8%; margin-left: 1%;"   placeholder=" Satisfação">
-    </div>    
+  <button (click)="mostrarFiltro()" mat-icon-button  style="left: 15%; bottom:10%" ><mat-icon>search</mat-icon>Filtrar</button>
+  <button  mat-icon-button  style="left: 87%">  <mat-icon>file_copy</mat-icon> Exportar</button>
 </mat-toolbar>
 
-<div id="lista">
-
   <table class="table  table-bordered">
+    <thead class="table-success" *ngIf="MostraFiltro">
+      <tr>
+        <th style="width: 6%;">
+          <div class="col">
+            <input class="form-control" [(ngModel)]="Id_ClienteFiltro" (keyup)="filtroIdCliente()"  >
+           </div>
+        </th>
+        <th style="width: 20%;">
+          <div class="col">
+            <input class="form-control" [(ngModel)]="ClienteFiltro" (keyup)="filtroCliente()"  >
+           </div>
+        </th>
+        <th>
+        <div class="col">
+          <input class="form-control" [(ngModel)]="LicencasFiltro" (keyup)="filtroLicencasCliente()" >
+         </div>
+      </th>
+        <th>
+         <div class="col">
+          <input class="form-control" [(ngModel)]="VersaoFiltro" (keyup)="filtroVersaoCliente()" >
+           </div>
+        </th>
+         <th>
+         <div class="col">
+          <input class="form-control" [(ngModel)]="TelefoneFiltro" (keyup)="filtroTelefoneCliente()"  >
+           </div>
+        </th>
+         <th style="width: 8%;">
+         <div class="col">
+          <input class="form-control" [(ngModel)]="FirebirdFiltro" (keyup)="filtroFirebirdCliente()"  >
+         </div>
+        </th>
+         <th style="width: 10%;">
+         <div class="col">
+          <input class="form-control" [(ngModel)]="ValidacaoFiltro" (keyup)="filtroValidacaoCliente()"  >
+           </div>
+        </th>
+         <th >
+         <div class="col">
+          <input class="form-control" type="date" [(ngModel)]="ValidarFiltro" (keyup)="filtroValidarCliente()"  >
+         </div>
+         <th style="width: 5%;">
+          <div class="col">
+            <input class="form-control" [(ngModel)]="SatisfacaoFiltro" (keyup)="filtroSatisfacaoCliente()"   >
+        </div>
+        </th>
+
+        <th style="width: 5%;"></th>
+        <th style="width: 5%;"></th>
+        </tr>
+    </thead>
     <thead class="table-success">
           <tr>
             <th>Id</th>
@@ -83,6 +121,7 @@
             <th>Satisfação</th>
             <th></th>
             <th></th>
+            
           </tr>
       </thead>
       <tbody>
@@ -98,10 +137,8 @@
           <td>{{dataItem.satisfacao | number:'1.0-0'}}</td>
           <td><button (click) ="editarClienteModal(dataItem)" mat-icon-button   data-toggle="modal" data-target="#Modal">  <mat-icon>edit</mat-icon></button></td>
           <td><button (click) ="deleteCliente(dataItem)" mat-icon-button >  <mat-icon>delete</mat-icon></button></td>
-    
         </tr>
       </tbody>
     </table>
     
    
-    </div>>

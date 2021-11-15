@@ -23,6 +23,13 @@ import { ArvoreRecursosTreinamentoComponent } from './admin/arvore-recursos-trei
 import { ArvoreRecursosDirecaoComponent } from './admin/arvore-recursos-direcao/arvore-recursos-direcao.component';
 import { ArvoreRecursosDesenvolvimentoComponent } from './admin/arvore-recursos-desenvolvimento/arvore-recursos-desenvolvimento.component';
 import { ArvoreRecursosComercialComponent } from './admin/arvore-recursos-comercial/arvore-recursos-comercial.component';
+import { AuthGuardSuporte } from './guards/auth-suporte.guard';
+import { AuthGuardDesenvolvimento } from './guards/auth-desenvolvimento.guard';
+import { AuthGuardCliente } from './guards/auth-cliente.guard';
+import { AuthGuardTreinamento } from './guards/auth-treinamento.guard';
+import { AuthGuardDirecao } from './guards/auth-direcao.guard';
+import { AuthGuardComercial } from './guards/auth-comercial.guard';
+import { AuthGuardListaCliente } from './guards/auth-lista-cliente.guard';
 
 
 @NgModule({
@@ -58,7 +65,14 @@ import { ArvoreRecursosComercialComponent } from './admin/arvore-recursos-comerc
     MatIconModule,
     AdminComponent
   ],
-  providers: [AuthService],
+  providers: [AuthService, 
+              AuthGuardSuporte,
+              AuthGuardCliente,
+              AuthGuardDesenvolvimento,
+              AuthGuardTreinamento,
+              AuthGuardDirecao,
+              AuthGuardComercial,
+              AuthGuardListaCliente],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

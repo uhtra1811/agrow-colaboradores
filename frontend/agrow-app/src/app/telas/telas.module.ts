@@ -41,6 +41,7 @@ import { MostraAuxilioSuporteComponent } from './tela-desenvolvimento/mostra-aux
 import { MostraDesenvolvimentosComponent } from './tela-desenvolvimento/mostra-desenvolvimentos/mostra-desenvolvimentos.component';
 import { ListaMigracaoComponent } from './tela-comercial/lista-migracao/lista-migracao.component';
 import { ListaAuditoriaComponent } from './tela-comercial/lista-auditoria/lista-auditoria.component';
+import { MostraAtendimentoPendenteComponent } from './tela-suporte/mostra-atendimento-pendente/mostra-atendimento-pendente.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { ListaAuditoriaComponent } from './tela-comercial/lista-auditoria/lista-
     MostraAuxilioSuporteComponent,
     MostraDesenvolvimentosComponent,
     ListaMigracaoComponent,
-    ListaAuditoriaComponent
+    ListaAuditoriaComponent,
+    MostraAtendimentoPendenteComponent
   ],
   imports: [
     CommonModule,

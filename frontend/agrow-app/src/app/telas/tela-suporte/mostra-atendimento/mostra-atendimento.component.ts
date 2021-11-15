@@ -29,7 +29,7 @@ export class MostraAtendimentoComponent implements OnInit {
   AvaliacaoFiltro:string="";
   AtendenteFiltro:string="";
   DataFiltro:string="";
-
+  PendenciaFiltro:string=""; 
 
   Id_Atendimento!: number;
   Cliente_Atendimento!:string;
@@ -40,7 +40,8 @@ export class MostraAtendimentoComponent implements OnInit {
   Solucao_Atendimento!:string;
   Auxilio_Atendimento!:string;
   Data_Atendimento!:string;
- 
+  Pendencia_Atendimento!:string;
+
   MostraFiltro: boolean = false;
   
   value:number = 0;
@@ -60,10 +61,7 @@ export class MostraAtendimentoComponent implements OnInit {
     this.refreshAtendimentosLista();
     this.refreshClientesLista();
   }
-  ngOnChanges(): void {
- 
-    this.refreshAtendimentosLista();
-  }
+
 
   mostrarFiltro(){
     this.MostraFiltro = !this.MostraFiltro;
@@ -97,7 +95,9 @@ export class MostraAtendimentoComponent implements OnInit {
     this.Auxilio_Atendimento= this.cad.auxilio
     this.Solucao_Atendimento= this.cad.solucao
     this.value = this.cad.avaliacao;
-    this.Data_Atendimento= this.cad.data
+    this.Data_Atendimento= this.cad.data;
+    this.Pendencia_Atendimento= this.cad.pendente;
+    this.Auxilio_Atendimento= this.cad.auxilio
   }
   
 
@@ -112,7 +112,8 @@ export class MostraAtendimentoComponent implements OnInit {
                   solucao:this.Solucao_Atendimento,
                   avaliacao:this.value,
                   atendente:sessionStorage.getItem('usuario'),
-                  data:this.Data_Atendimento
+                  data:this.Data_Atendimento,
+                  pendente:this.Pendencia_Atendimento
                 }
       this.service.updateAtendimentoService(val).subscribe(res=>{
         alert("Editado com sucesso!");

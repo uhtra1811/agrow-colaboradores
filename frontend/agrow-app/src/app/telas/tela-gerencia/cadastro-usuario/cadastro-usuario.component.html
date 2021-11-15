@@ -1,11 +1,14 @@
 
 <div class="settings"> 
-    <label class="col-sm-2 col-form-label">Empresa</label>
-    <div class="col-sm-10">
-        <input type="text" class="form-control"
-        placeholder="Digite o nome da empresa" [(ngModel)]="Empresa">
-    </div> 
-
+    <label class="col-sm-2 col-form-label">Empresa:</label>
+    <div class="col-sm-12">
+        <select  class="form-select" [(ngModel)]="Empresa">
+            <option selected>-Selecione a Empresa-</option>
+            <option *ngFor="let cli of ClientesLista">
+                {{cli.cliente}}
+            </option>
+        </select>
+     </div>
     <label class="col-sm-2 col-form-label">Usuário</label>
     <div class="col-sm-10">
         <input type="text" class="form-control"
@@ -18,16 +21,21 @@
         <input type="text" class="form-control"
         placeholder="Escolha uma senha" [(ngModel)]="Senha">
     </div> 
-
-    <label class="col-sm-6 col-form-label">Selecione o nível de acesso</label>
-    <select  class="form-select" [(ngModel)]="Permissao">
-        <option>Cliente</option>
+    <div class="col-sm-12">
+    <label class="col-sm-6 col-form-label">Nível de acesso:</label>
+     <select  class="form-select" [(ngModel)]="Permissao">
+        <option selected>-Selecione o nível de acesso-</option>
+        <option *ngFor="let per of PermissaoLista">
+            {{per}}
+        </option>
+        <!--<option>Cliente</option>
         <option>Suporte</option>
         <option>Desenvolvimento</option>
         <option>Treinamento</option>
         <option>Comercial</option>
         <option>Diretor</option>
-        <option>Administrador</option>
+        <option>Administrador</option>-->
     </select>
 </div>      
+</div>
     <button (click)="addUsuario()"  class="btn btn-success ">Adicionar</button>

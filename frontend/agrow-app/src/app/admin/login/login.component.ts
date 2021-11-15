@@ -25,6 +25,8 @@ export class LoginComponent implements OnInit{
   Token!:any;
   Permissao!:any;
 
+  UsuarioAutenticado: boolean = false;
+
   constructor( private service:SharedService, 
                http: HttpClient, 
                private router: Router, 
@@ -54,15 +56,20 @@ export class LoginComponent implements OnInit{
      sessionStorage.setItem('empresa', this.Empresa);
      sessionStorage.setItem('token', this.Token);
      sessionStorage.setItem('permissao', this.Permissao);
+     this.UsuarioAutenticado = true;
      },
       
     
    error => {alert("Usuário ou senha incorreto.")
+   this.UsuarioAutenticado = false;
    });
   }
   }
-  console(){
-    this.router.navigate(['/admin'])
+  usuarioEstaAutenticado(){
+   if(this.Permissao == 'Administrador'){
+     this.UsuarioAutenticado = false
+   }
+    return false;
     
   }
 }

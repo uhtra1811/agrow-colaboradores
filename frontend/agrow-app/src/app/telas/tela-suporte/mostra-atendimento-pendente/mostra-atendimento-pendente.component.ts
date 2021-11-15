@@ -4,12 +4,11 @@ import * as FileSaver from 'file-saver';
 import { SharedService } from 'src/app/shared.service';
 
 @Component({
-  selector: 'app-mostra-auxilio-suporte',
-  templateUrl: './mostra-auxilio-suporte.component.html',
-  styleUrls: ['./mostra-auxilio-suporte.component.css']
+  selector: 'app-mostra-atendimento-pendente',
+  templateUrl: './mostra-atendimento-pendente.component.html',
+  styleUrls: ['./mostra-atendimento-pendente.component.css']
 })
-export class MostraAuxilioSuporteComponent implements OnInit {
-
+export class MostraAtendimentoPendenteComponent implements OnInit {
 
   constructor(private service:SharedService, private router: Router) { }
 
@@ -27,11 +26,10 @@ export class MostraAuxilioSuporteComponent implements OnInit {
   MotivoFiltro:string="";
   ContatoFiltro:string="";
   SolucaoFiltro:string="";
-  AuxilioFiltro:string="Sim";
   AvaliacaoFiltro:string="";
   AtendenteFiltro:string="";
   DataFiltro:string="";
-  PendenciaFiltro:string="";
+  PendenciaFiltro:string=""; 
 
   Id_Atendimento!: number;
   Cliente_Atendimento!:string;
@@ -39,16 +37,16 @@ export class MostraAuxilioSuporteComponent implements OnInit {
   Motivo_Atendimento!:string;
   Meiodecontato_Atendimento!:string;
   Mensagem_Atendimento!:string;
-  Solucao_Atendimento:string = "";
-  Minutos_Atendimento!:string;
-  Auxilio_Atendimento:string = "";
+  Solucao_Atendimento!:string;
+  Auxilio_Atendimento!:string;
   Data_Atendimento!:string;
-  Pendencia_Atendimento!:string; 
- 
+  Pendencia_Atendimento!:string;
+
+  MostraFiltro: boolean = false;
+  
   value:number = 0;
 
-  MostraLoading:boolean = true;
-  MostrarTabela:boolean = false;
+  ClientesLista!:any[];
 
   today:any = new Date();
   dd = String(this.today.getDate()).padStart(2, '0');
@@ -56,6 +54,8 @@ export class MostraAuxilioSuporteComponent implements OnInit {
   yyyy = this.today.getFullYear();
   todayis: any = this.today = this.yyyy + '-' + this.mm + '-' + this.dd;
 
+  MostraLoading:boolean = true;
+  MostrarTabela:boolean = false;
 
  
   ngOnInit(): void {
@@ -83,8 +83,16 @@ export class MostraAuxilioSuporteComponent implements OnInit {
   async delay(ms: number) {
     await new Promise<void>(resolve => setTimeout(()=>resolve(), ms)).then(()=>console.log("fired"));
 }
-  
+  mostrarFiltro(){
+    this.MostraFiltro = !this.MostraFiltro;
+  }
 
+  refreshClientesLista(){
+    this.service.getClientesListaService().subscribe(data=>{
+      this.ClientesLista=data;
+    });
+    
+  }
   mostrarModal(){
     this.MostraModal = !this.MostraModal;
   }
@@ -104,12 +112,12 @@ export class MostraAuxilioSuporteComponent implements OnInit {
     this.Usuario_Atendimento= this.cad.usuario
     this.Motivo_Atendimento= this.cad.motivo
     this.Meiodecontato_Atendimento= this.cad.meiodecontato
-    this.Minutos_Atendimento= this.cad.minutos
     this.Auxilio_Atendimento= this.cad.auxilio
     this.Solucao_Atendimento= this.cad.solucao
-    this.value = this.cad.avaliacao
-    this.Data_Atendimento= this.cad.data
-    this.Pendencia_Atendimento= this.cad.pendente
+    this.value = this.cad.avaliacao;
+    this.Data_Atendimento= this.cad.data;
+    this.Pendencia_Atendimento= this.cad.pendente;
+    this.Auxilio_Atendimento= this.cad.auxilio
   }
   
 
@@ -120,15 +128,16 @@ export class MostraAuxilioSuporteComponent implements OnInit {
                   usuario:this.Usuario_Atendimento,
                   motivo:this.Motivo_Atendimento,
                   meiodecontato:this.Meiodecontato_Atendimento,
+                  auxilio:this.Auxilio_Atendimento,
                   solucao:this.Solucao_Atendimento,
                   avaliacao:this.value,
                   atendente:sessionStorage.getItem('usuario'),
-                  minutos:this.Minutos_Atendimento,
                   data:this.Data_Atendimento,
                   pendente:this.Pendencia_Atendimento
                 }
       this.service.updateAtendimentoService(val).subscribe(res=>{
         alert("Editado com sucesso!");
+
       },  
       error => {alert("Erro ao salvar,revise as informações preenchidas.")
       });
@@ -137,7 +146,7 @@ export class MostraAuxilioSuporteComponent implements OnInit {
     deletarAtendimento(item: any){
       if(confirm('Deseja deletar?')){
         this.service.deleteAtendimentoService(item.id).subscribe(data=>{
-          alert("Deletado com sucesso");
+          alert("Deletado com sucesso!");
        this.refreshAtendimentosLista(); }, 
         error => {alert("Erro ao deletar!");
         });
@@ -145,40 +154,61 @@ export class MostraAuxilioSuporteComponent implements OnInit {
     }
   
   
+    filtroPendenciaAtendimento(){
+      var PendenciaFiltro:string = "Sim";
+      this.AtendimentosLista = this.AtendimentosListaSemFiltro.filter(function (el:any){
+          return el.pendente.toString().toLowerCase().includes(
+            PendenciaFiltro.toString().trim().toLowerCase() 
+          )
+      });
+      console.log(this.SolucaoFiltro + "," + this.Solucao_Atendimento);
+    }
+  
 
-  filtroPendenciaAtendimento(){
-    var PendenciaFiltro:string = "Sim";
-    this.AtendimentosLista = this.AtendimentosListaSemFiltro.filter(function (el:any){
-        return el.pendente.toString().toLowerCase().includes(
-          PendenciaFiltro.toString().trim().toLowerCase() 
-        )
-    });
-    console.log(this.SolucaoFiltro + "," + this.Solucao_Atendimento);
-  }
-
-
-
-
-  filtroAuxilioAtendimento(){
-    var AuxilioFiltro:string = "Sim" + this.AuxilioFiltro;
-    this.AtendimentosLista = this.AtendimentosListaSemFiltro.filter(function (el:any){
-        return el.auxilio.toString().toLowerCase().includes(
-          AuxilioFiltro.toString().trim().toLowerCase()
-        )
-    });
-  }
-
-
-  geraRelatorio(){
-
-  } 
   refreshAtendimentosLista(){
     this.service.getAtendimentosListaService().subscribe(data=>{
       this.AtendimentosLista=data;
       this.AtendimentosListaSemFiltro=data});
   }
 
-  closeClick(){
+  geraRelatorio(){
+    this.service.downloadRelatorioAtendimentos().subscribe(
+      (res) => {
+        let blob = new Blob([res], { type: 'pdf' });
+         FileSaver.saveAs(blob, "Atendimentos.pdf")
+
+    });
+  } 
+  acionaTrigger(){
+    var val1 =  {
+      edita:"1"
+    };             
+     this.service.addRelatorioService(val1).subscribe();
+
+  }
+ 
+  insertRelatorioAtendimento(){
+
+      var val = this.AtendimentosLista
+     
+      this.service.addAtendimentoRelatorioService(val).subscribe(res=>{
+       
+      
+       
+        this.geraRelatorio();
+      },  
+      error => {alert("Erro ao gerar relatorio")
+      });
+    }
+
+
+ 
+  exportarRelatorio(){
+    this.acionaTrigger();
+    
+    this.delay(1000).then(any=>{
+       this.insertRelatorioAtendimento();});
     
   }
+
 }

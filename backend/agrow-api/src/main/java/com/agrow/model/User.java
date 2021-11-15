@@ -1,6 +1,7 @@
 package com.agrow.model;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 import javax.persistence.GeneratedValue;
@@ -12,7 +13,7 @@ public class User {
     @Id
     @GeneratedValue
     private Long id;
-
+    @Column(unique = true)
     private String usuario;
     private String empresa;
     private String senha;

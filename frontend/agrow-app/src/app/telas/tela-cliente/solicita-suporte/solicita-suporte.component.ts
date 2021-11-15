@@ -127,7 +127,8 @@ this.setarModulo();
                   avaliacao:'',
                   data:this.Data_Atendimento,
                   atendente:'',
-                  auxilio:''
+                  auxilio:'',
+                  pendente:'Sim'
                 };             
       this.service.addAtendimentoService(val).subscribe(res=>{
         alert("Adicionado com sucesso!");

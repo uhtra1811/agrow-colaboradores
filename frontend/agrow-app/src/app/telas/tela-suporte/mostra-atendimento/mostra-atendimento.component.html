@@ -36,17 +36,23 @@
             <input type="text" class="form-control" 
             placeholder="Digite a Solucao" [(ngModel)]="Solucao_Atendimento">
         </div>
-        <label class="col-sm-6 col-form-label">Foi necessário auxílio do desenvolvimento?</label>
+        <label class="col-sm-6 col-form-label">Necessário auxílio do desenvolvimento?</label>
         <div class="col-sm-10">
             <select  class="form-select" [(ngModel)]="Auxilio_Atendimento">
               <option>Não</option>
               <option>Sim</option>
-            
             </select>
          </div>
         <label class="col-sm-2 col-form-label">Data:</label>
         <div class="col-sm-10">
             <input type="date" class="form-control" [(ngModel)]="Data_Atendimento">
+        </div>
+        <label class="col-sm-2 col-form-label">Pendente?</label>
+        <div class="col-sm-10">
+          <select  class="form-select" [(ngModel)]="Pendencia_Atendimento">
+            <option>Não</option>
+            <option>Sim</option>
+          </select>
         </div>
       <button (click)="editarAtendimentoService()"  style="margin-left: 35%; margin-top: 2%;" class="btn btn-success">Editar</button>
       </div>
@@ -57,98 +63,11 @@
 </div>
 
 
-
-
 <mat-toolbar>
   <button mat-icon-button  style="left: 19%; " (click)="mostrarFiltro()"><mat-icon>search</mat-icon>Filtrar</button>
   <button mat-icon-button  style="left: 87%"   (click)="exportarRelatorio()" data-toggle="modal" data-target="#ModalRelatorio">  <mat-icon>file_copy</mat-icon> Exportar</button>
-
-        <!--
-        <input style="width: 8%; font-size: 12px; margin-left: 2px;"   [(ngModel)]="ClienteNomeFiltro"  (keyup)="filtroClienteAtendimento()" placeholder=" Cliente">
-        <input style="width: 8%; font-size: 12px; margin-left: 2px;"   [(ngModel)]="UsuarioNomeFiltro"  (keyup)="filtroUsuarioAtendimento()" placeholder=" Usuario">
-        <input style="width: 8%; font-size: 12px; margin-left: 2px;"   [(ngModel)]="MotivoFiltro"  (keyup)="filtroMotivoAtendimento()" placeholder=" Motivo">
-        <input style="width: 8%; font-size: 12px; margin-left: 2px;"   [(ngModel)]="ContatoFiltro"  (keyup)="filtroContatoAtendimento()" placeholder=" Contato">
-        <input style="width: 8%; font-size: 12px; margin-left: 2px;"   [(ngModel)]="SolucaoFiltro"  (keyup)="filtroSolucaoAtendimento()" placeholder=" Solução">
-        <input style="width: 8%; font-size: 12px; margin-left: 2px;"   [(ngModel)]="AvaliacaoFiltro"  (keyup)="filtroAvaliacaoAtendimento()" placeholder=" Avaliacao">
-        <input style="width: 8%; font-size: 12px; margin-left: 2px;"   [(ngModel)]="AtendenteFiltro"  (keyup)="filtroAtendenteAtendimento()" placeholder=" Atendente">
-        <input style="width: 12%; margin-left: 2px;" type="date"       [(ngModel)]="DataFiltro"  (click)="filtroDataAtendimento()" (keyup)="filtroDataAtendimento()" placeholder=" Data">
-    </div>    -->
-</mat-toolbar>
-<!--
-<mat-toolbar >
-
-    <div class="row">
-
-     <div class="col-sm-1">
-       <input class="form-control"  [(ngModel)]="Id_AtendimentoFiltro"  (keyup)="filtroIdAtendimento()"      placeholder=" Id">
-     </div>
-     <div class="col">
-      <input  class="form-control"    [(ngModel)]="ClienteNomeFiltro"  (keyup)="filtroClienteAtendimento()" placeholder=" Cliente">
-    </div>
-     <div class="col">
-       <input  class="form-control"    [(ngModel)]="UsuarioNomeFiltro"  (keyup)="filtroUsuarioAtendimento()" placeholder=" Usuario">
-     </div>
-     <div class="col">
-       <input  class="form-control"    [(ngModel)]="MotivoFiltro"  (keyup)="filtroMotivoAtendimento()" placeholder=" Motivo">
-     </div>
-     <div class="col">
-       <input  class="form-control"    [(ngModel)]="ContatoFiltro"  (keyup)="filtroContatoAtendimento()" placeholder=" Contato">
-     </div>
-     <div class="col">
-       <input  class="form-control"    [(ngModel)]="SolucaoFiltro"  (keyup)="filtroSolucaoAtendimento()" placeholder=" Solução">
-     </div>
-     <div class="col">
-       <input  class="form-control"    [(ngModel)]="AvaliacaoFiltro"  (keyup)="filtroAvaliacaoAtendimento()" placeholder=" Avaliacao">
-     </div>
-     <div class="col">
-       <input  class="form-control"    [(ngModel)]="AtendenteFiltro"  (keyup)="filtroAtendenteAtendimento()" placeholder=" Atendente">
-     </div>
-     <div class="col">
-       <input  class="form-control"  [(ngModel)]="DataFiltro"  (click)="filtroDataAtendimento()" (keyup)="filtroDataAtendimento()" placeholder=" Data">
-     </div>
-
-    </div>
-
 </mat-toolbar>
 
-<div id="lista">
-<table style="text-align: center;" class="table table-striped table-bordered" >
-  <thead class="thead">
-      <tr>
-          <th>Id</th>
-          <th>Cliente</th>
-          <th>Usuario</th>
-          <th>Motivo</th>
-          <th>Contato</th>
-          <th>Solução</th>
-          <th>Avaliação</th>
-          <th>Atendente</th>
-          <th>Data</th>
-          <th></th>
-          <th></th>
-      </tr>
-  </thead>
-  <tbody class="tbody">
-    <tr *ngFor="let dataItem of AtendimentosLista">
-      <td style="word-wrap: break-word;">{{dataItem.id}}</td>
-      <td style="word-wrap: break-word;">{{dataItem.cliente}}</td>
-      <td style="word-wrap: break-word;">{{dataItem.usuario}}</td>
-      <td style="word-wrap: break-word;">{{dataItem.motivo}}</td>
-      <td style="word-wrap: break-word;">{{dataItem.meiodecontato}}</td>
-      <td style="word-wrap: break-word;">{{dataItem.solucao}}</td>
-      <td style="word-wrap: break-word;">{{dataItem.avaliacao}}</td>
-      <td style="word-wrap: break-word;">{{dataItem.atendente}}</td>
-      <td type="date">{{dataItem.data | date: 'dd/MM/yyyy' }}</td>
-      <td><button mat-icon-button (click)="editaAtendimento(dataItem)"  data-toggle="modal" data-target="#Modal">  <mat-icon>edit</mat-icon></button></td>
-      <td><button mat-icon-button (click)="deletarAtendimento(dataItem)" >  <mat-icon>delete</mat-icon></button></td>
-    </tr>
-  </tbody>
-</table>
-
-
-
-
-</div>-->
 
 <table class="table  table-bordered">
   <thead class="table-success" *ngIf="MostraFiltro">
@@ -160,39 +79,38 @@
       </th>
       <th>
       <div class="col">
-        <input  class="form-control"    [(ngModel)]="ClienteNomeFiltro"  (keyup)="filtroClienteAtendimento()" >    
+        <input  class="form-control"  [(ngModel)]="ClienteNomeFiltro"  (keyup)="filtroClienteAtendimento()" >    
        </div>
     </th>
       <th>
        <div class="col">
-         <input  class="form-control"    [(ngModel)]="UsuarioNomeFiltro"  (keyup)="filtroUsuarioAtendimento()" >     
+         <input  class="form-control"  [(ngModel)]="UsuarioNomeFiltro"  (keyup)="filtroUsuarioAtendimento()" >     
          </div>
       </th>
        <th>
        <div class="col">
-         <input  class="form-control"    [(ngModel)]="MotivoFiltro"  (keyup)="filtroMotivoAtendimento()" >    
+         <input  class="form-control"  [(ngModel)]="MotivoFiltro"  (keyup)="filtroMotivoAtendimento()" >    
          </div>
       </th>
        <th style="width: 8%;">
        <div class="col">
-         <input  class="form-control"    [(ngModel)]="ContatoFiltro"  (keyup)="filtroContatoAtendimento()">
+         <input  class="form-control"  [(ngModel)]="ContatoFiltro"  (keyup)="filtroContatoAtendimento()">
        </div>
       </th>
        <th style="width: 10%;">
        <div class="col">
-         <input  class="form-control"    [(ngModel)]="SolucaoFiltro"  (keyup)="filtroSolucaoAtendimento()">      
+         <input  class="form-control"  [(ngModel)]="SolucaoFiltro"  (keyup)="filtroSolucaoAtendimento()">      
          </div>
       </th>
        <th >
        <div class="col">
-         <input  class="form-control"    [(ngModel)]="AtendenteFiltro"  (keyup)="filtroAtendenteAtendimento()" >
+         <input  class="form-control"  [(ngModel)]="AtendenteFiltro"  (keyup)="filtroAtendenteAtendimento()" >
        </div>
        <th style="width: 18%;">
         <div class="col">
           <input type="date" class="form-control" [(ngModel)]="DataFiltro"  (keyup)="filtroDataAtendimento()" (click)="filtroDataAtendimento()">
       </div>
       </th>
-      
       <th style="width: 5%;"></th>
       <th style="width: 5%;"></th>
       </tr>
@@ -207,7 +125,6 @@
       <th>Solução</th>
       <th>Atendente</th>
       <th>Data</th>
-      
       <th></th>
       <th></th>
       </tr>

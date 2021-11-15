@@ -50,7 +50,8 @@ export class CadastroAtendimentoComponent implements OnInit {
                 solucao:this.Solucao_Atendimento,
                 avaliacao:this.Avaliacao_Atendimento,
                 atendente:this.Atendente_Atendimento,
-                data:this.Data_Atendimento
+                data:this.Data_Atendimento,
+                pendente:"Sim"
               };             
     this.service.addAtendimentoService(val).subscribe(res=>{
       console.log(val)

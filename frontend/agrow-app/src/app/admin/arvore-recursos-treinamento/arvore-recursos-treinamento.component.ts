@@ -159,6 +159,10 @@ mostraComponente(node: any){
   }else if (node.name ===  'Lista de Treinamentos'){  
   this.buttonClicked.emit(this.opened);
   this.router.navigate(['/admin/mostra-treinamento']);
+  
+  }else if (node.name ===  'Lista de Relatórios aGrow'){  
+  this.buttonClicked.emit(this.opened);
+  this.router.navigate(['/admin/relatorios-agrow']);
 }
  }
 }

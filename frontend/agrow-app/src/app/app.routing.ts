@@ -3,7 +3,6 @@ import { RouterModule, Routes } from "@angular/router";
 import { LoginComponent } from "./admin/login/login.component";
 import { AdminComponent } from "./admin/admin.component";
 import { CadastroClienteComponent } from "./telas/tela-suporte/cadastro-cliente/cadastro-cliente.component";
-import { EditaClienteComponent } from "./telas/tela-suporte/edita-cliente/edita-cliente.component";
 import { CadastroAtendimentoComponent } from "./telas/tela-suporte/cadastro-atendimento/cadastro-atendimento.component";
 import { MostraAtendimentoComponent } from "./telas/tela-suporte/mostra-atendimento/mostra-atendimento.component";
 import { MostraClientesComponent } from "./telas/tela-suporte/mostra-clientes/mostra-clientes.component";
@@ -26,41 +25,78 @@ import { MostraDesenvolvimentosComponent } from "./telas/tela-desenvolvimento/mo
 import { MostraAuxilioSuporteComponent } from "./telas/tela-desenvolvimento/mostra-auxilio-suporte/mostra-auxilio-suporte.component";
 import { ListaMigracaoComponent } from "./telas/tela-comercial/lista-migracao/lista-migracao.component";
 import { ListaAuditoriaComponent } from "./telas/tela-comercial/lista-auditoria/lista-auditoria.component";
+import { MostraAtendimentoPendenteComponent } from "./telas/tela-suporte/mostra-atendimento-pendente/mostra-atendimento-pendente.component";
+import { AuthGuardSuporte } from "./guards/auth-suporte.guard";
+import { AuthGuardTreinamento } from "./guards/auth-treinamento.guard";
+import { AuthGuardCliente } from "./guards/auth-cliente.guard";
+import { AuthGuardDirecao } from "./guards/auth-direcao.guard";
+import { AuthGuardDesenvolvimento } from "./guards/auth-desenvolvimento.guard";
+import { AuthGuardComercial } from "./guards/auth-comercial.guard";
+import { AuthGuardListaCliente } from "./guards/auth-lista-cliente.guard";
+import { AuthGuardAdmin } from "./guards/auth-admin.guard";
+
 
 
   const APP_ROUTES: Routes = [ 
       {path: '', component: LoginComponent},
       {path: 'login', component: LoginComponent},
-      {path: 'admin', component: AdminComponent, children: [
-        {path: 'cadastro-atendimento', component: CadastroAtendimentoComponent},
-        {path: 'cadastro-cliente', component: CadastroClienteComponent },
-        {path: 'lista-atendimentos', component: MostraAtendimentoComponent},
-        {path: 'lista-clientes', component: MostraClientesComponent},
-        {path: 'edita-cliente', component: EditaClienteComponent},
-        {path: 'mostra-atendimento', component: MostraAtendimentoComponent},
-        {path: 'cadastro-usuario', component: CadastroUsuarioComponent},
-        {path: 'lista-usuario', component: ListaUsuarioComponent},
-        {path: 'solicita-suporte', component: SolicitaSuporteComponent},
-        {path: 'solicita-desenvolvimento', component: SolicitaDesenvolvimentoComponent},
-        {path: 'solicita-treinamento', component: SolicitaTreinamentoComponent},
-        {path: 'cliente-atendimentos', component: ListaAtendimentosComponent},
-        {path: 'solicita-auditoria', component: SolicitaAuditoriaComponent},
-        {path: 'solicita-migracao', component: SolicitaMigracaoComponent},
-        {path: 'cliente-desenvolvimentos', component: ListaDesenvolvimentosComponent},
-        {path: 'cliente-treinamentos', component: ListaTreinamentosComponent},
-        {path: 'cliente-migracoes', component: ListaMigracoesComponent},
-        {path: 'cliente-auditorias', component: ListaAuditoriasComponent},
-        {path: 'relatorios-agrow', component: ListaRelatoriosAgrowComponent},
-        {path: 'cadastro-treinamento', component: CadastroTreinamentoComponent},
-        {path: 'mostra-treinamento', component: MostraTreinamentoComponent},
-        {path: 'cadastro-treinamento', component: CadastroTreinamentoComponent},
-        {path: 'mostra-treinamento', component: MostraTreinamentoComponent},
-        {path: 'mostra-desenvolvimentos', component: MostraDesenvolvimentosComponent},
-        {path: 'mostra-auxilio-suporte', component: MostraAuxilioSuporteComponent},
-        {path: 'lista-migracao', component: ListaMigracaoComponent},
-        {path: 'lista-auditoria', component: ListaAuditoriaComponent}
+      {path: 'admin', component: AdminComponent, canActivate:[AuthGuardAdmin], children: [
+
+      {path: 'solicita-suporte', component: SolicitaSuporteComponent,
+        canActivate:[AuthGuardCliente]},
+      {path: 'solicita-desenvolvimento', component: SolicitaDesenvolvimentoComponent,
+        canActivate:[AuthGuardCliente]},
+      {path: 'solicita-treinamento', component: SolicitaTreinamentoComponent,
+        canActivate:[AuthGuardCliente]},
+      {path: 'cliente-atendimentos', component: ListaAtendimentosComponent,
+        canActivate:[AuthGuardCliente]},
+      {path: 'solicita-auditoria', component: SolicitaAuditoriaComponent,
+        canActivate:[AuthGuardCliente]},
+      {path: 'solicita-migracao', component: SolicitaMigracaoComponent,
+        canActivate:[AuthGuardCliente]},
+      {path: 'cliente-desenvolvimentos', component: ListaDesenvolvimentosComponent,
+        canActivate:[AuthGuardCliente]},
+      {path: 'cliente-treinamentos', component: ListaTreinamentosComponent,
+        canActivate:[AuthGuardCliente]},
+      {path: 'cliente-migracoes', component: ListaMigracoesComponent,
+        canActivate:[AuthGuardCliente]},
+      {path: 'cliente-auditorias', component: ListaAuditoriasComponent,
+        canActivate:[AuthGuardCliente]},
+ 
+      {path: 'lista-atendimentos-pendentes', component: MostraAtendimentoPendenteComponent,
+        canActivate:[AuthGuardSuporte]},
+      {path: 'cadastro-atendimento', component: CadastroAtendimentoComponent,
+        canActivate: [AuthGuardSuporte]},
+    
+      {path: 'lista-atendimentos', component: MostraAtendimentoComponent,
+        canActivate:[AuthGuardSuporte]},
+  
+      {path: 'cadastro-usuario', component: CadastroUsuarioComponent,
+        canActivate:[AuthGuardDirecao]},
+      {path: 'lista-usuario', component: ListaUsuarioComponent,
+        canActivate:[AuthGuardDirecao]},
+  
+      {path: 'mostra-desenvolvimentos', component: MostraDesenvolvimentosComponent,
+        canActivate:[AuthGuardDesenvolvimento]},
+      {path: 'mostra-auxilio-suporte', component: MostraAuxilioSuporteComponent,
+        canActivate:[AuthGuardDesenvolvimento]},
+
+      {path: 'cadastro-treinamento', component: CadastroTreinamentoComponent,
+        canActivate: [AuthGuardTreinamento]},
+      {path: 'mostra-treinamento', component: MostraTreinamentoComponent,
+        canActivate:[AuthGuardTreinamento]},
+
+      {path: 'lista-migracao', component: ListaMigracaoComponent,
+        canActivate:[AuthGuardComercial]},
+      {path: 'lista-auditoria', component: ListaAuditoriaComponent,
+        canActivate:[AuthGuardComercial]},
+
+      {path: 'cadastro-cliente', component: CadastroClienteComponent,
+        canActivate:[AuthGuardListaCliente] },
+      {path: 'lista-clientes', component: MostraClientesComponent,
+        canActivate:[AuthGuardListaCliente]},
+      {path: 'relatorios-agrow', component: ListaRelatoriosAgrowComponent,
+        canActivate:[AuthGuardAdmin]},
       ]}
-  
   ];
-  
   export const routing: ModuleWithProviders<any> = RouterModule.forRoot(APP_ROUTES);

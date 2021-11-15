@@ -41,6 +41,7 @@ export class ListaRelatoriosAgrowComponent implements OnInit {
 
   MostraLoading:boolean = true;
   MostrarTabela:boolean = false;
+  MostraFiltro:boolean = false;
   value: number = 0;
 
   today:any = new Date();
@@ -97,5 +98,8 @@ export class ListaRelatoriosAgrowComponent implements OnInit {
       this.RelatorioERPLista=data;
       this.RelatorioERPListaSemFiltro=data});
       
+  }
+  mostrarFiltro(){
+    this.MostraFiltro = !this.MostraFiltro;
   }
 }

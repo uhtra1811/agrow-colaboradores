@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +20,7 @@ public class Cliente implements Serializable{
         @Id 
         @GeneratedValue(strategy=GenerationType.AUTO)
         private long id; 
-            
+        @Column(unique = true)    
         private String cliente;
         private int	licencas;
         private String versao;

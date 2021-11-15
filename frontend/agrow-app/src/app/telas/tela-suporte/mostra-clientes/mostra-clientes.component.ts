@@ -30,6 +30,7 @@ export class MostraClientesComponent implements OnInit {
   Firebird!:string;
   Validacao!:string;
   Validar!:string;
+  Satisfacao!:string;
 
   Id_ClienteFiltro!: string;
   ClienteFiltro!:string;
@@ -39,9 +40,10 @@ export class MostraClientesComponent implements OnInit {
   FirebirdFiltro!:string;
   ValidacaoFiltro!:string;
   ValidarFiltro!:string;
+  SatisfacaoFiltro!:string;
 
   ModalTitle!:string;
-
+  MostraFiltro:boolean = false;
   
   ngOnInit(): void {
     this.mostrarClientes();
@@ -49,6 +51,9 @@ export class MostraClientesComponent implements OnInit {
     this.acionaTrigger();
   }
 
+  mostrarFiltro(){
+    this.MostraFiltro = !this.MostraFiltro;
+  }
   mostrarClientes(){
     this.service.getClientesListaService().subscribe(data=>{
       this.ClientesLista=data;
@@ -139,7 +144,7 @@ export class MostraClientesComponent implements OnInit {
   filtroLicencasCliente(){
     var LicencasFiltro:string = "" + this.LicencasFiltro;
     this.ClientesLista = this.ClientesListaSemFiltro.filter(function (el:any){
-        return el.usuario.toString().toLowerCase().includes(
+        return el.licencas.toString().toLowerCase().includes(
           LicencasFiltro.toString().trim().toLowerCase()
         )
     });
@@ -147,7 +152,7 @@ export class MostraClientesComponent implements OnInit {
   filtroVersaoCliente(){
     var VersaoFiltro:string = "" + this.VersaoFiltro;
     this.ClientesLista = this.ClientesListaSemFiltro.filter(function (el:any){
-        return el.meiodecontato.toString().toLowerCase().includes(
+        return el.versao.toString().toLowerCase().includes(
           VersaoFiltro.toString().trim().toLowerCase()
         )
     });
@@ -155,7 +160,7 @@ export class MostraClientesComponent implements OnInit {
   filtroTelefoneCliente(){
     var TelefoneFiltro:string = "" + this.TelefoneFiltro;
     this.ClientesLista = this.ClientesListaSemFiltro.filter(function (el:any){
-        return el.motivo.toString().toLowerCase().includes(
+        return el.telefone.toString().toLowerCase().includes(
           TelefoneFiltro.toString().trim().toLowerCase()
         )
     });
@@ -164,7 +169,7 @@ export class MostraClientesComponent implements OnInit {
   filtroFirebirdCliente(){
     var FirebirdFiltro:string = "" + this.FirebirdFiltro;
     this.ClientesLista = this.ClientesListaSemFiltro.filter(function (el:any){
-        return el.solucao.toString().toLowerCase().includes(
+        return el.firebird.toString().toLowerCase().includes(
           FirebirdFiltro.toString().trim().toLowerCase()
         )
     });
@@ -173,7 +178,7 @@ export class MostraClientesComponent implements OnInit {
   filtroValidacaoCliente(){
     var ValidacaoFiltro:string = "" + this.ValidacaoFiltro;
     this.ClientesLista = this.ClientesListaSemFiltro.filter(function (el:any){
-        return el.avaliacao.toString().toLowerCase().includes(
+        return el.validacao.toString().toLowerCase().includes(
           ValidacaoFiltro.toString().trim().toLowerCase()
         )
     });
@@ -182,12 +187,20 @@ export class MostraClientesComponent implements OnInit {
   filtroValidarCliente(){
     var ValidarFiltro:string = "" + this.ValidarFiltro;
     this.ClientesLista = this.ClientesListaSemFiltro.filter(function (el:any){
-        return el.avaliacao.toString().toLowerCase().includes(
+        return el.validar.toString().toLowerCase().includes(
           ValidarFiltro.toString().trim().toLowerCase()
         )
     });
   }
 
+  filtroSatisfacaoCliente(){
+    var SatisfacaoFiltro:string = "" + this.SatisfacaoFiltro;
+    this.ClientesLista = this.ClientesListaSemFiltro.filter(function (el:any){
+        return el.satisfacao.toString().toLowerCase().includes(
+          SatisfacaoFiltro.toString().trim().toLowerCase()
+        )
+    });
+  }
   console(){
     console.log(this.Id_ClienteFiltro)
   }

@@ -101,7 +101,9 @@ export class AdminComponent implements OnInit {
     }
   }
   fazerLogout(){
+    sessionStorage.clear();
     this.router.navigate(['login']);
+
   }
 
   toggleSidebar(opened: any){
