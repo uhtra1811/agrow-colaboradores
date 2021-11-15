@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './admin/login/login.component';
-import { ArvoreRecursosComponent } from './admin/arvore-recursos/arvore-recursos.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIcon, MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -38,7 +37,6 @@ import { AuthGuardAdmin } from './guards/auth-admin.guard';
     AppComponent,
     AdminComponent,
     LoginComponent,
-    ArvoreRecursosComponent,
     ListaUsuarioComponent,
     ArvoreRecursosClienteComponent,
     ArvoreRecursosSuporteComponent,
