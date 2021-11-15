@@ -15,7 +15,7 @@ export class AuthGuardCliente implements CanActivate {
   ) { }
   
  Permissao:any = "";
- Token:any = "1";
+
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
@@ -30,7 +30,6 @@ export class AuthGuardCliente implements CanActivate {
 
 private verificarAcesso(){
   this.Permissao = sessionStorage.getItem('permissao');
-  this.Token = sessionStorage.getItem('token');
   if (this.Permissao == "Administrador" || this.Permissao == "Cliente"){
     alert("permissão!") 
 

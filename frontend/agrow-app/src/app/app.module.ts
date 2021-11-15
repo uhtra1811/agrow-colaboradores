@@ -30,6 +30,7 @@ import { AuthGuardTreinamento } from './guards/auth-treinamento.guard';
 import { AuthGuardDirecao } from './guards/auth-direcao.guard';
 import { AuthGuardComercial } from './guards/auth-comercial.guard';
 import { AuthGuardListaCliente } from './guards/auth-lista-cliente.guard';
+import { AuthGuardAdmin } from './guards/auth-admin.guard';
 
 
 @NgModule({
@@ -72,7 +73,8 @@ import { AuthGuardListaCliente } from './guards/auth-lista-cliente.guard';
               AuthGuardTreinamento,
               AuthGuardDirecao,
               AuthGuardComercial,
-              AuthGuardListaCliente],
+              AuthGuardListaCliente,
+              AuthGuardAdmin],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
