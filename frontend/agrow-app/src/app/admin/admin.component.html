@@ -4,10 +4,11 @@
     </button>
     <span style="margin-left: 1%;">aGrow</span>
     <span class="example-spacer"></span>
-    <form class="form-inline">
-      <input id="input-search" class="form-control mr-sm-2" type="search" placeholder="O que deseja?">
-    </form>
-    <button mat-icon-button>
+    <div class="col-sm-3">
+      <input [(ngModel)]="Pesquisa" (keyup.enter)="pesquisar()"  class="form-control"  placeholder="O que deseja?">
+    </div>
+    
+      <button (click)="pesquisar()"  mat-icon-button>
       <mat-icon>search</mat-icon>
     </button>
     <button (click)="fazerLogout()" *ngIf="mostrarMenu" mat-icon-button>
@@ -16,15 +17,12 @@
 </mat-toolbar>
 <div id="componentes"><router-outlet></router-outlet></div>
 <div *ngIf="MostraSideBar">
-<ng-sidebar-container ><ng-sidebar  [(opened)]="opened">
-  <!--<app-arvore-recursos (buttonClicked)="toggleSidebar($event)"></app-arvore-recursos>-->
-  <app-arvore-recursos-cliente         *ngIf="Cliente" (buttonClicked)="toggleSidebar($event)"></app-arvore-recursos-cliente>
-  <app-arvore-recursos-suporte         *ngIf="Suporte" (buttonClicked)="toggleSidebar($event)"></app-arvore-recursos-suporte>
-  <app-arvore-recursos-direcao         *ngIf="Direcao"(buttonClicked)="toggleSidebar($event)"></app-arvore-recursos-direcao>
-  <app-arvore-recursos-treinamento     *ngIf="Treinamento" (buttonClicked)="toggleSidebar($event)"></app-arvore-recursos-treinamento>
-  <app-arvore-recursos-desenvolvimento *ngIf="Desenvolvimento"(buttonClicked)="toggleSidebar($event)"></app-arvore-recursos-desenvolvimento>
-  <app-arvore-recursos-comercial *ngIf="Comercial"(buttonClicked)="toggleSidebar($event)"></app-arvore-recursos-comercial>
-</ng-sidebar></ng-sidebar-container>
-
-
+   <ng-sidebar-container ><ng-sidebar  [(opened)]="opened">
+     <app-arvore-recursos-cliente         *ngIf="Cliente" (buttonClicked)="toggleSidebar($event)"></app-arvore-recursos-cliente>
+     <app-arvore-recursos-suporte         *ngIf="Suporte" (buttonClicked)="toggleSidebar($event)"></app-arvore-recursos-suporte>
+     <app-arvore-recursos-direcao         *ngIf="Direcao"(buttonClicked)="toggleSidebar($event)"></app-arvore-recursos-direcao>
+     <app-arvore-recursos-treinamento     *ngIf="Treinamento" (buttonClicked)="toggleSidebar($event)"></app-arvore-recursos-treinamento>
+     <app-arvore-recursos-desenvolvimento *ngIf="Desenvolvimento"(buttonClicked)="toggleSidebar($event)"></app-arvore-recursos-desenvolvimento>
+     <app-arvore-recursos-comercial       *ngIf="Comercial"(buttonClicked)="toggleSidebar($event)"></app-arvore-recursos-comercial>
+   </ng-sidebar></ng-sidebar-container>
 </div>
