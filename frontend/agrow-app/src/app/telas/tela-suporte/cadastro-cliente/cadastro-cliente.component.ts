@@ -49,6 +49,7 @@ export class CadastroClienteComponent implements OnInit {
     var val =  {cliente:this.Cliente,
                 licencas:this.Licencas,
                 versao:this.Versao,
+                validar:"1999-01-01",  
                 telefone:this.Telefone,
                 firebird:this.Firebird,
                 validacao:this.Validacao,

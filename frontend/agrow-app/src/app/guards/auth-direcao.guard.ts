@@ -26,9 +26,6 @@ export class AuthGuardDirecao implements CanActivate {
 private verificarAcesso(){
   this.Permissao = sessionStorage.getItem('permissao');
   if (this.Permissao == "Administrador" || this.Permissao == "Direcao"){
-    alert("permissão!") 
-
-   
     return true;
   } 
   alert("Sem permissão!") 

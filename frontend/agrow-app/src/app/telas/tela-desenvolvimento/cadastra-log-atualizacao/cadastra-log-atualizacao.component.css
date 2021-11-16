@@ -1,0 +1,26 @@
+div.settings {
+    width: 50% ;
+    margin-left: 35%;
+    top: 15%;
+}
+
+label{
+    font-size: 18px;
+}
+
+input{
+    width: 65%;
+}
+
+#cad_cliente{
+    margin-top: 2%;
+    margin-left: 80%;
+}
+
+#salvar{    
+    margin-top: 2%;
+    margin-left: 45%;
+}
+textarea{
+    width: 65%;
+}

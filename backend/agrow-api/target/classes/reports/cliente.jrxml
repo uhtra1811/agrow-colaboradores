@@ -27,7 +27,7 @@
 	<field name="licencas" class="java.lang.Integer">
 		
 	</field>
-	<field name="validacao" class="java.sql.Date">
+	<field name="validacao" class="java.lang.String">
 		
 	</field>
 	<field name="versao" class="java.lang.String">
@@ -36,6 +36,7 @@
 	<field name="firebird" class="java.lang.Double">
 		
 	</field>
+
 	<background>
 		<band height="555" splitType="Stretch">
 			<frame>
@@ -205,7 +206,7 @@
 					</textElement>
 					<textFieldExpression><![CDATA[$F{licencas}]]></textFieldExpression>
 				</textField>
-				<textField textAdjust="StretchHeight" pattern="dd/M/Y" isBlankWhenNull="true">
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
 					<reportElement style="Detail" positionType="Float" x="290" y="0" width="71" height="14" uuid="e90a0bff-c194-47d4-8be3-1bf4bd5ded76">
 						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="de5fb2a7-c8df-4136-82d3-58fd4e930a46"/>
 					</reportElement>

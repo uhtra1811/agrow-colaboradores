@@ -1,0 +1,24 @@
+<mat-toolbar id="toolbar" color="primary">
+    <span>Cadastre-se</span>
+  </mat-toolbar>
+<div class="settings"> 
+    <label class="col-sm-2 col-form-label">Empresa:</label>
+    <div class="col-sm-12">
+        <div class="col-sm-10">
+            <input type="text" class="form-control"
+            placeholder="Digite o nome da sua empresa:" [(ngModel)]="Empresa">
+        </div> 
+     </div>
+    <label class="col-sm-2 col-form-label">Usuário</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control"
+        placeholder="Digite o nome do usuario:" [(ngModel)]="Usuario">
+    </div> 
+
+    <label class="col-sm-2 col-form-label">Senha</label>
+    <div class="col-sm-10">
+        <input type="password" class="form-control"
+        placeholder="Escolha uma senha:" [(ngModel)]="Senha">
+    </div>    
+</div>
+    <button (click)="addUsuario()"  class="btn btn-success ">Cadastrar</button>

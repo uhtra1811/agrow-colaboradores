@@ -41,7 +41,7 @@ export class MostraAuxilioSuporteComponent implements OnInit {
   Mensagem_Atendimento!:string;
   Solucao_Atendimento:string = "";
   Minutos_Atendimento!:string;
-  Auxilio_Atendimento:string = "";
+  Auxilio_Atendimento!:string; 
   Data_Atendimento!:string;
   Pendencia_Atendimento!:string; 
  
@@ -71,6 +71,7 @@ export class MostraAuxilioSuporteComponent implements OnInit {
     this.refreshAtendimentosLista();
     this.delay(1000).then(any=>{
       this.filtroPendenciaAtendimento();
+      this.filtroAuxilioAtendimento();
  });
   }
 
@@ -160,7 +161,7 @@ export class MostraAuxilioSuporteComponent implements OnInit {
 
 
   filtroAuxilioAtendimento(){
-    var AuxilioFiltro:string = "Sim" + this.AuxilioFiltro;
+    var AuxilioFiltro:string = "Sim";
     this.AtendimentosLista = this.AtendimentosListaSemFiltro.filter(function (el:any){
         return el.auxilio.toString().toLowerCase().includes(
           AuxilioFiltro.toString().trim().toLowerCase()

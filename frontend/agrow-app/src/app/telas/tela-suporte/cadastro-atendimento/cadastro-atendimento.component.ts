@@ -55,7 +55,7 @@ export class CadastroAtendimentoComponent implements OnInit {
               };             
     this.service.addAtendimentoService(val).subscribe(res=>{
       console.log(val)
-      alert("Adicionado com sucesso! Data:" + this.Data_Atendimento);
+      alert("Adicionado com sucesso!");
       
     },  
     error => {alert("Erro ao salvar,revise as informações preenchidas.")

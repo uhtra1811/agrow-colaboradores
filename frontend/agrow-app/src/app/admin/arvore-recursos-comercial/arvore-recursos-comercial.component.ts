@@ -25,7 +25,8 @@ const TREE_DATA: ArvoreRecursosNode[] = [
         {name: 'Lista de Migração'},
         {name: 'Lista de Auditoria'},
         {name: 'Lista de Relatórios aGrow'},  
-        {name: 'Lista de Clientes'}   
+        {name: 'Lista de Clientes'},
+        {name: 'Log de Atualizações aGrow'}   
      ]},
     ],
   },
@@ -99,6 +100,10 @@ mostraComponente(node: any){
   }else if (node.name ===  'Lista de Relatórios aGrow'){  
     this.buttonClicked.emit(this.opened);
     this.router.navigate(['/admin/relatorios-agrow']);
+  
+  }else if (node.name ===  'Log de Atualizações aGrow'){  
+    this.buttonClicked.emit(this.opened);
+    this.router.navigate(['/admin/log-atualizacao']);
   }
  }
 }

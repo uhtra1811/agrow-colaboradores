@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthService } from '../admin/login/auth.service';
 import { LoginComponent } from '../admin/login/login.component';
 
 @Injectable({
@@ -21,18 +20,11 @@ export class AuthGuardTreinamento implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       console.log("Auth");
       return this.verificarAcesso();
-
-      
-
   }
  
-
 private verificarAcesso(){
   this.Permissao = sessionStorage.getItem('permissao');
   if (this.Permissao == "Administrador" || this.Permissao == "Treinamento" || this.Permissao == "Comercial"){
-    alert("permissão!") 
-
-   
     return true;
   } 
   alert("Sem permissão!") 

@@ -25,7 +25,7 @@ public class ClienteRelatorio implements Serializable{
         private String versao;
         private String telefone;
         private double firebird;
-        private Date validacao;
+        private String validacao;
         private Double satisfacao;
         
         
@@ -73,11 +73,11 @@ public class ClienteRelatorio implements Serializable{
 			this.firebird = firebird;
 		}
 
-		public Date getValidacao() {
+		public String getValidacao() {
 			return validacao;
 		}
 
-		public void setValidacao(Date validacao) {
+		public void setValidacao(String validacao) {
 			this.validacao = validacao;
 		}
 

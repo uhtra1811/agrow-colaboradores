@@ -12,19 +12,24 @@ interface ArvoreRecursosNode {
 const TREE_DATA: ArvoreRecursosNode[] = [
   {
     name: 'Desenvolvimento',
-     children: 
-    [
+    children: 
+    [{name: 'Cadastros',
+      children:[
+       {name: 'Cadastrar Log de Atualização'}
+     ]},
       {name: 'Relatórios', 
       children:[
             {name: 'Auxílio ao Suporte'},
             {name: 'Lista de Desenvolvimentos'},
             {name: 'Lista de Clientes'},
-            {name: 'Lista de Relatórios aGrow'}
+            {name: 'Lista de Relatórios aGrow'},
+            {name: 'Log de Atualizações aGrow'}
           ],}
     ],
   }
  ];
   
+
 interface FlatNode {
   expandable: boolean;
   name: string;
@@ -81,6 +86,14 @@ mostraComponente(node: any){
   }else if (node.name ===  'Lista de Relatórios aGrow'){  
     this.buttonClicked.emit(this.opened);
     this.router.navigate(['/admin/relatorios-agrow']);
+  
+  }else if (node.name ===  'Log de Atualizações aGrow'){  
+    this.buttonClicked.emit(this.opened);
+    this.router.navigate(['/admin/log-atualizacao']);
+  
+  }else if (node.name ===  'Cadastrar Log de Atualização'){  
+    this.buttonClicked.emit(this.opened);
+    this.router.navigate(['/admin/cadastra-log-atualizacao']);
   }
  }
 }

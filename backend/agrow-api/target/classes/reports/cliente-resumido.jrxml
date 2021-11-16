@@ -19,6 +19,7 @@
 	<field name="satisfacao" class="java.lang.Double">
 		
 	</field>
+	
 	<background>
 		<band/>
 	</background>

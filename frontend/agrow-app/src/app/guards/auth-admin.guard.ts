@@ -32,9 +32,6 @@ private verificarAcesso(){
   if (this.Permissao == "Administrador" || this.Permissao == "Cliente" ||
   this.Permissao == "Desenvolvimento" || this.Permissao == "Comercial" ||
   this.Permissao == "Suporte" || this.Permissao == "Treinamento"){
-    alert("permissão!") 
-
-   
     return true;
   } 
   alert("Sem permissão!") 

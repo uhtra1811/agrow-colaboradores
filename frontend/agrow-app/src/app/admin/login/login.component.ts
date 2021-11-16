@@ -72,5 +72,8 @@ export class LoginComponent implements OnInit{
     return false;
     
   }
+  irCadastroCliente(){
+    this.router.navigate(['/cadastro-usuario-cliente'])
+  }
 }
 

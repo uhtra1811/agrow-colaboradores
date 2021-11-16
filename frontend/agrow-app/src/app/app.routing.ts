@@ -34,11 +34,15 @@ import { AuthGuardDesenvolvimento } from "./guards/auth-desenvolvimento.guard";
 import { AuthGuardComercial } from "./guards/auth-comercial.guard";
 import { AuthGuardListaCliente } from "./guards/auth-lista-cliente.guard";
 import { AuthGuardAdmin } from "./guards/auth-admin.guard";
+import { CadastroClientesComponent } from "./telas/cadastro-clientes/cadastro-clientes.component";
+import { LogAtualizacaoComponent } from "./telas/log-atualizacao/log-atualizacao.component";
+import { CadastraLogAtualizacaoComponent } from "./telas/tela-desenvolvimento/cadastra-log-atualizacao/cadastra-log-atualizacao.component";
 
 
 
   const APP_ROUTES: Routes = [ 
       {path: '', component: LoginComponent},
+      {path: 'cadastro-usuario-cliente', component: CadastroClientesComponent},
       {path: 'login', component: LoginComponent},
       {path: 'admin', component: AdminComponent, canActivate:[AuthGuardAdmin], children: [
 
@@ -80,6 +84,8 @@ import { AuthGuardAdmin } from "./guards/auth-admin.guard";
         canActivate:[AuthGuardDesenvolvimento]},
       {path: 'mostra-auxilio-suporte', component: MostraAuxilioSuporteComponent,
         canActivate:[AuthGuardDesenvolvimento]},
+        {path: 'cadastra-log-atualizacao', component: CadastraLogAtualizacaoComponent,
+        canActivate:[AuthGuardDesenvolvimento]},
 
       {path: 'cadastro-treinamento', component: CadastroTreinamentoComponent,
         canActivate: [AuthGuardTreinamento]},
@@ -97,6 +103,8 @@ import { AuthGuardAdmin } from "./guards/auth-admin.guard";
         canActivate:[AuthGuardListaCliente]},
       {path: 'relatorios-agrow', component: ListaRelatoriosAgrowComponent,
         canActivate:[AuthGuardAdmin]},
+        {path: 'log-atualizacao', component: LogAtualizacaoComponent,
+        canActivate:[AuthGuardAdmin]}
       ]}
   ];
   export const routing: ModuleWithProviders<any> = RouterModule.forRoot(APP_ROUTES);

@@ -22,9 +22,6 @@ export class AuthGuardComercial implements CanActivate {
 private verificarAcesso(){
   this.Permissao = sessionStorage.getItem('permissao');
   if (this.Permissao == "Administrador" || this.Permissao == "Comercial"){
-    alert("permissão!") 
-
-   
     return true;
   } 
   alert("Sem permissão!") 

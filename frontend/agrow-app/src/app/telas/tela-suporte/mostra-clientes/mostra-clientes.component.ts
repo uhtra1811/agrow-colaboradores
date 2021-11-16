@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SharedService } from 'src/app/shared.service';
+import * as FileSaver from 'file-saver';
 
 @Component({
   selector: 'app-mostra-clientes',
@@ -31,6 +32,11 @@ export class MostraClientesComponent implements OnInit {
   Validacao!:string;
   Validar!:string;
   Satisfacao!:string;
+  SatisfacaoAtendimento!:string;
+  SatisfacaoAuditoria!:string;
+  SatisfacaoDesenvolvimento!:string;
+  SatisfacaoTreinamento!:string;
+  SatisfacaoMigracao!:string;
 
   Id_ClienteFiltro!: string;
   ClienteFiltro!:string;
@@ -81,6 +87,12 @@ export class MostraClientesComponent implements OnInit {
     this.Firebird= this.cad.firebird
     this.Validacao= this.cad.validacao
     this.Validar= this.cad.validar
+    this.Satisfacao= this.cad.satisfacao
+    this.SatisfacaoAtendimento= this.cad.satisfacao_atendimento
+    this.SatisfacaoAuditoria= this.cad.satisfacao_auditoria
+    this.SatisfacaoDesenvolvimento= this.cad.satisfacao_desenvolvimento
+    this.SatisfacaoMigracao= this.cad.satisfacao_migracao
+    this.SatisfacaoTreinamento= this.cad.satisfacao_treinamento
  
   }
   deleteCliente(item: any){
@@ -106,7 +118,13 @@ export class MostraClientesComponent implements OnInit {
                telefone:this.Telefone,
                firebird:this.Firebird,
                validacao:this.Validacao,
-               validar:this.Validar};
+               validar:this.Validar,
+               satisfacao:this.Satisfacao,
+               satisfacao_atendimento:this.SatisfacaoAtendimento,
+               satisfacao_auditoria:this.SatisfacaoAuditoria,
+               satisfacao_desenvolvimento:this.SatisfacaoDesenvolvimento,
+               satisfacao_migracao:this.SatisfacaoMigracao,
+               satisfacao_treinamento:this.SatisfacaoTreinamento};
   this.service.updateClienteService(val).subscribe(res=>{
       alert("Editado com sucesso!");
       this.ngOnInit();
@@ -201,9 +219,15 @@ export class MostraClientesComponent implements OnInit {
         )
     });
   }
-  console(){
-    console.log(this.Id_ClienteFiltro)
-  }
+
+  geraRelatorio(){
+    this.service.downloadClientePdf().subscribe(
+      (res) => {
+        let blob = new Blob([res], { type: 'pdf' });
+         FileSaver.saveAs(blob, "Clientes.pdf")
+
+    });
+  } 
 
   acionaTrigger(){
     var val1 =  {
@@ -212,4 +236,32 @@ export class MostraClientesComponent implements OnInit {
      this.service.addRelatorioService(val1).subscribe();
 
   }
+ 
+  insertRelatorioCliente(){
+
+      var val = this.ClientesLista
+     
+      this.service.addClienteRelatorioService(val).subscribe(res=>{
+       
+      
+       
+        this.geraRelatorio();
+      },  
+      error => {alert("Erro ao gerar relatorio")
+      });
+    }
+
+
+ 
+  exportarRelatorio(){
+    this.acionaTrigger();
+    
+    this.delay(1000).then(any=>{
+       this.insertRelatorioCliente();});
+    
+  }
+
+  async delay(ms: number) {
+    await new Promise<void>(resolve => setTimeout(()=>resolve(), ms)).then(()=>console.log("fired"));
+}
 }

@@ -79,7 +79,7 @@ public class ClienteController {
     }
 	
 	@PostMapping("/cliente-relatorio")
-	public List<ClienteRelatorio> addAtendimentoRelatorio(@RequestBody  @Valid List<ClienteRelatorio> clienteRelatorio) {
+	public List<ClienteRelatorio> addClienteRelatorio(@RequestBody  @Valid List<ClienteRelatorio> clienteRelatorio) {
 		
 		return  (List<ClienteRelatorio>) clienteRelatorioRepository.saveAll(clienteRelatorio);
 	}

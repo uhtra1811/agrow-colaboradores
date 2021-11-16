@@ -56,14 +56,12 @@ export class ListaAuditoriasComponent implements OnInit {
 
  
   ngOnInit(): void {
-    this.UsuarioNomeFiltro = localStorage.getItem('usuario');
-    this.Usuario_Auditoria = this.UsuarioNomeFiltro;
+    this.UsuarioNomeFiltro = sessionStorage.getItem('usuario');
    
-    //this.mostrarAuditorias();
+    this.mostrarAuditorias();
 
     this.loading();
-    this.mostrarAuditorias();
-    this.refreshAuditoriasLista();
+    console.log(this.AuditoriasLista)
   }
 
   loading(){
@@ -143,7 +141,7 @@ export class ListaAuditoriasComponent implements OnInit {
 
 
   filtroUsuarioAuditoria(){
-    var UsuarioNomeFiltro:string = "" + this.Usuario_Auditoria;
+    var UsuarioNomeFiltro:string = "" + this.UsuarioNomeFiltro;
     this.AuditoriasLista = this.AuditoriasListaSemFiltro.filter(function (el:any){
         return el.usuario.toString().toLowerCase().includes(
           UsuarioNomeFiltro.toString().trim().toLowerCase()
@@ -166,32 +164,24 @@ export class ListaAuditoriasComponent implements OnInit {
       (res) => {
         let blob = new Blob([res], { type: 'pdf' });
          FileSaver.saveAs(blob, "Auditorias.pdf")
-
     });
   } 
+
   acionaTrigger(){
     var val1 =  {
       edita:"1"
     };             
      this.service.addRelatorioService(val1).subscribe();
-
   }
  
   insertRelatorioAuditoria(){
-
       var val = this.AuditoriasLista
-     
       this.service.addAuditoriaRelatorioService(val).subscribe(res=>{
-       
-      
-       
         this.geraRelatorio();
       },  
       error => {alert("Erro ao gerar relatorio")
       });
     }
-
-
  
   exportarRelatorio(){
     this.acionaTrigger();

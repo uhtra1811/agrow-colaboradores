@@ -30,9 +30,6 @@ export class AuthGuardSuporte implements CanActivate {
 private verificarAcesso(){
   this.Permissao = sessionStorage.getItem('permissao');
   if (this.Permissao == "Administrador" || this.Permissao == "Suporte"){
-    alert("permissão!") 
-
-   
     return true;
   } 
   alert("Sem permissão!") 

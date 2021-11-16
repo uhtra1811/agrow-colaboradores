@@ -12,6 +12,7 @@ export class SharedService {
 
   constructor(private http:HttpClient, private router: Router) {}
   
+  //Cliente
   addClienteService(val:any){
     return this.http.post(this.APIUrl + '/cliente',val);
   }
@@ -25,7 +26,7 @@ export class SharedService {
     return this.http.get<any[]>(this.APIUrl + '/clientes'); 
   }
 
-
+  //Suporte
   addAtendimentoService(val:any){
     return this.http.post(this.APIUrl + '/atendimento',val);
   }
@@ -40,10 +41,7 @@ export class SharedService {
   }
 
 
-
-
-
-
+  //Desenvolvimento
   addDesenvolvimentoService(val:any){
     return this.http.post(this.APIUrl + '/desenvolvimento',val);
   }
@@ -57,6 +55,7 @@ export class SharedService {
     return this.http.get<any[]>(this.APIUrl + '/desenvolvimentos');
   }
 
+  //Treinamento
   addTreinamentoService(val:any){
     return this.http.post(this.APIUrl + '/treinamento',val);
   }
@@ -70,7 +69,7 @@ export class SharedService {
     return this.http.get<any[]>(this.APIUrl + '/treinamentos');
   }
 
-
+  //Comercial
   addAuditoriaService(val:any){
     return this.http.post(this.APIUrl + '/auditoria',val);
   }
@@ -83,7 +82,6 @@ export class SharedService {
   getAuditoriasListaService():Observable<any[]>{
     return this.http.get<any[]>(this.APIUrl + '/auditorias');
   }
-
 
   addMigracaoService(val:any){
     return this.http.post(this.APIUrl + '/migracao',val);
@@ -99,6 +97,8 @@ export class SharedService {
   }
 
 
+
+ //Usuarios
   postLoginService(headers:any, body:any){7
     return this.http.post(this.APIUrl + '/login', headers, body);
 }
@@ -117,7 +117,7 @@ export class SharedService {
 
 
 
-
+//Relatorios
 addAtendimentoRelatorioService(val:any){
   return this.http.post(this.APIUrl + '/atendimento-relatorio',val);
 }
@@ -133,9 +133,6 @@ downloadRelatorioAtendimentosCliente(): Observable<any> {
 
 }
 
-
-
-
 addTreinamentoRelatorioService(val:any){
   return this.http.post(this.APIUrl + '/treinamento-relatorio',val);
 }
@@ -145,11 +142,6 @@ downloadRelatorioTreinamentosCliente(): Observable<any> {
   {responseType:"arraybuffer"})
 
 }
-
-
-
-
-
 
 addDesenvolvimentoRelatorioService(val:any){
   return this.http.post(this.APIUrl + '/desenvolvimento-relatorio',val);
@@ -161,10 +153,6 @@ downloadRelatorioDesenvolvimentoCliente(): Observable<any> {
 
 }
 
-
-
-
-
 addAuditoriaRelatorioService(val:any){
   return this.http.post(this.APIUrl + '/auditoria-relatorio',val);
 }
@@ -174,10 +162,6 @@ downloadRelatorioAuditoriaCliente(): Observable<any> {
   {responseType:"arraybuffer"})
 
 }
-
-
-
-
 
 addMigracaoRelatorioService(val:any){
   return this.http.post(this.APIUrl + '/migracao-relatorio',val);
@@ -192,10 +176,26 @@ addRelatorioService(val1:any){
   return this.http.post(this.APIUrl + '/edita-relatorio',val1);
 }
 
-
-
 getRelatorioERPListaService():Observable<any[]>{
   return this.http.get<any[]>(this.APIUrl + '/relatorio-erp'); 
 }
 
+addClienteRelatorioService(val:any){
+  return this.http.post(this.APIUrl + '/cliente-relatorio',val);
+}
+
+downloadClientePdf(): Observable<any> {
+  return this.http.get(this.APIUrl + "/cliente-pdf",
+  {responseType:"arraybuffer"})
+
+}
+
+
+
+getLogAtualizacaoListaService():Observable<any[]>{
+  return this.http.get<any[]>(this.APIUrl + '/log-atualizacao'); 
+}
+addLogAtualizacaoService(val:any){
+  return this.http.post(this.APIUrl + '/add-log',val);
+}
 }

@@ -1,0 +1,20 @@
+
+  <mat-toolbar></mat-toolbar>
+  
+  <div id="lista">
+    <table class="table  table-bordered">
+      <thead class="table-success">
+        <tr>
+            <th style="width: 30%;">Versão</th>
+            <th>Log</th>
+        </tr>
+    </thead>
+    <tbody class="tbody">
+      <tr *ngFor="let dataItem of LogAtualizacaoLista">
+        <td>{{dataItem.versao}}</td>
+        <td>{{dataItem.log}}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+ 
