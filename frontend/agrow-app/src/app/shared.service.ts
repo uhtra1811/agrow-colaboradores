@@ -12,7 +12,7 @@ export class SharedService {
 
   constructor(private http:HttpClient, private router: Router) {}
   
-  //Cliente
+  //Cliente testess
   addClienteService(val:any){
     return this.http.post(this.APIUrl + '/cliente',val);
   }
